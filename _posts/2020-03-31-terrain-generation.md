@@ -23,7 +23,7 @@ test
 test
 
 <figure>
-<canvas id="canvas1" width="800" height="800"></canvas>
+<canvas id="canvas1" class="prevent-scroll" width="800" height="800"></canvas>
 <div class="overlay">
 <button type="submit" class="btn btn-secondary btn-sm" onclick="generate_canvas1(); draw_canvas1()">Reload</button>
 </div>
@@ -45,12 +45,32 @@ let {canvas: canvas1, generate: generate_canvas1, draw: draw_canvas1} = generato
 
 let mouse = {x:0, y:0}
 let animationID = 0;
-let mouseRadius = 100;
+let mouseRadius = 150;
+let prevMouse = {x: 0, y: 0};
 setHoverAction(canvas1, p => {mouse=p}, () => {
     window.cancelAnimationFrame(animationID);
     animationID = requestAnimationFrame(() => {
-        
-        draw_canvas1({colourMapper: (v, {x, y}) => Math.abs(mouse.x-x) < mouseRadius && Math.abs(mouse.y-y) < mouseRadius ? applyGreyscale(v) : getColorChunk(colourscheme)(v)});
+        draw_canvas1({
+            colourMapper: (v, {x, y}) => {
+                if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
+                    return applyGreyscale(v);
+                } else {
+                    return getColorChunk(colourscheme)(v);
+                }
+            },
+            x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
+            y1: Math.min(prevMouse.y, mouse.y) - mouseRadius,
+            x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
+            y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
+        });
+        prevMouse = mouse;
+    });
+});
+
+setEndAction(canvas1, () => {
+    window.cancelAnimationFrame(animationID);
+    animationID = requestAnimationFrame(() => {
+        draw_canvas1();
     });
 });
 

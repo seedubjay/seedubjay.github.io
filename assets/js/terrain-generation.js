@@ -79,27 +79,31 @@ function generator(canvasID, defaultOptions) {
 
     function draw(options = {}) {
         let {
-            minx = 0,
-            maxx = canvas.width,
-            miny = 0,
-            maxy = canvas.height,
+            x1 = 0,
+            x2 = 1e9,
+            y1 = 0,
+            y2 = 1e9,
             colourMapper = applyGreyscale,
         } = {...defaultOptions, ...options};
+        x1 = Math.max(Math.round(x1),0);
+        y1 = Math.max(Math.round(y1),0);
+        x2 = Math.min(Math.round(x2),canvas.width-1);
+        y2 = Math.min(Math.round(y2),canvas.height-1);
 
-        let changedMinX = 1e9,
-            changedMinY = 1e9,
-            changedMaxX = -1e9,
-            changedMaxY = -1e9;
+        let changedX1 = 1e9,
+            changedY1 = 1e9,
+            changedX2 = -1e9,
+            changedY2 = -1e9;
         console.time('scanning');
-        for (let x = minx; x < maxx; x++) {
-            for (let y = miny; y < maxy; y++) {
+        for (let x = x1; x <= x2; x++) {
+            for (let y = y1; y <= y2; y++) {
                 let i = (x+y*canvas.width)*4,
                     [r,g,b,a] = colourMapper(heights[x][y], {x: x, y: y});
                 if (data[i] != r || data[i+1] != g || data[i+2] != b || data[i+3] != a) {
-                    changedMinX = Math.min(changedMinX,x);
-                    changedMinY = Math.min(changedMinY,y);
-                    changedMaxX = Math.max(changedMaxX,x);
-                    changedMaxY = Math.max(changedMaxY,y);
+                    changedX1 = Math.min(changedX1,x);
+                    changedY1 = Math.min(changedY1,y);
+                    changedX2 = Math.max(changedX2,x);
+                    changedY2 = Math.max(changedY2,y);
                 }
                 data[i] = r;
                 data[i+1] = g;
@@ -109,15 +113,15 @@ function generator(canvasID, defaultOptions) {
         }
         console.timeEnd('scanning');
 
-        if (changedMinX <= changedMaxX && changedMinY <= changedMaxY) {
+        if (changedX1 <= changedX2 && changedY1 <= changedY2) {
             ctx.putImageData(
                 image,
                 0,
                 0,
-                changedMinX,
-                changedMinY,
-                changedMaxX-changedMinX+1,
-                changedMaxY-changedMinY+1
+                changedX1,
+                changedY1,
+                changedX2-changedX1+1,
+                changedY2-changedY1+1
             );
         }
     }

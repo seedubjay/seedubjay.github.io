@@ -28,6 +28,11 @@ function setHoverAction(canvas, setPosition, cb) {
     };
 }
 
+function setEndAction(canvas, cb) {
+    canvas.onmouseout = () => cb();
+    canvas.ontouchend = () => cb();
+}
+
 function addDrawLoop(draw, shouldDraw, cb) {
     function drawLoop(){
         requestAnimationFrame(drawLoop);
