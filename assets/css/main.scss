@@ -170,8 +170,11 @@ figure {
     border: 1px solid $alt-color;
     border-radius: 1px;
     display: block;
-    touch-action: none;
     margin-bottom: 0.5rem;
+  }
+
+  .prevent-scroll {
+    touch-action: none;
   }
 
   button {
