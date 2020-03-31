@@ -9,7 +9,8 @@ $base-font-size:   12pt;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$mono-font-family: 'Source Code Pro', Menlo, Monaco, Inconsolata;
+//$mono-font-family: 'Source Code Pro', Menlo, Monaco, Inconsolata;
+$mono-font-family: 'Ubuntu Mono', Monaco, monospace;
 
 $text-color:       hsl(0, 0%, 25%);
 
@@ -100,7 +101,7 @@ header {
   #site-title h1 {
     color: $text-color;
     text-align: center;
-    font-size: 3em;
+    font-size: 4rem;
     font-family: $mono-font-family;
     margin-bottom: .3em;
   }
