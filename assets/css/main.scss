@@ -1,0 +1,326 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$base-font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+$base-font-size:   12pt;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$mono-font-family: 'Source Code Pro', Menlo, Monaco, Inconsolata;
+
+$text-color:       hsl(0, 0%, 25%);
+
+$alt-color:        hsl(12, 100%, 61%);
+$alt-color-darker: darken($alt-color, 6%);
+
+$article-bg-color: #fff;
+$background-color: #f8f8ff;
+$bg-color-darker:  darken($background-color, 13%);
+$alt-text-color:   darken($background-color, 55%);
+
+$subdued-border:   rgba($bg-color-darker, 0.5);
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-feature-settings: "kern", "liga=1, dlig=1", "salt";
+  -ms-font-feature-settings: "kern", "liga", "dlig", "salt";
+  -webkit-font-feature-settings: "kern", "liga", "dlig", "salt";
+  -o-font-feature-settings: "kern", "liga", "dlig", "salt";
+  font-feature-settings: "kern", "liga", "dlig", "salt";
+  text-rendering: optimizeLegibility;
+
+  background-color: $background-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  color: $text-color;
+
+  a, a:hover {
+    color: $alt-color;
+  }
+
+  p {
+    line-height: $base-line-height;
+    margin-bottom: 1em;
+  }
+
+  // article > :first-child {
+  //   &:first-letter {
+  //     color: $alt-color-darker;
+  //     display: inline-block;
+  //     float: left;
+  //     font-size: 3.2em;
+  //     line-height: 0.7em;
+  //     font-style: normal;
+  //     font-weight: bold;
+  //     margin: 0.12em 0.15em 0 -0.01em;
+  //   }
+
+  //   min-height: 2em + $base-line-height;
+  // }
+
+  h1 {
+    font-weight: 600;
+    font-size: 2em;
+  }
+
+  h2 {
+    margin-top: 1em;
+    font-size: 1.6em;
+    margin-bottom: 0.6em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+  }
+}
+
+.main {
+  background-color: $article-bg-color;
+  // border: 1px solid $bg-color-darker;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  border-top: 3px solid $alt-color;
+}
+
+header {
+  margin-top: 1em;
+  margin-bottom: 2em;
+
+  #site-title h1 {
+    color: $text-color;
+    text-align: center;
+    font-size: 3em;
+    font-family: $mono-font-family;
+    margin-bottom: .3em;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .ornament {
+    text-align: center;
+  }
+
+  .ornament img {
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.post-item {
+
+  font-family: $mono-font-family;
+  margin-bottom: 1.5em;
+  
+  p {
+    color: $text-color;
+  }
+
+  .post-meta {
+    font-size: 0.9em;
+    color: lighten($text-color, 20%);
+  }
+
+  .post-link:hover {
+    text-decoration: none;
+  }
+
+  .post-title {
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+  }
+
+  .post-title:hover {
+    text-decoration: underline;
+    text-decoration-color: $alt-color;
+  }
+
+ .post-subtitle {
+   font-size: 1.2em;
+   line-height: 1em;
+  }
+}
+
+figure {
+
+  position: relative;
+  width: 80%;
+  height: 100%;
+  min-width: 300px;
+  margin: auto;
+  margin-bottom: 0.5rem;
+
+  canvas {
+    width: 100%;
+    border: 1px solid $alt-color;
+    border-radius: 1px;
+    display: block;
+    touch-action: none;
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    font-family: $mono-font-family;
+    margin-bottom: 0.5rem;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+  }
+
+}
+
+article {
+  ul li {
+    padding-left: 0em;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  ul {
+    position: relative;
+    padding: 0;
+    margin-left: 0;
+  }
+
+  ul > li:before {
+    position: absolute;
+    content: "▪";
+    color: $alt-color;
+    left: -1.15em;
+  }
+
+  pre, code {
+    background-color: $background-color;
+  }
+
+  pre {
+    padding: 1em;
+    border-radius: 5px;
+  }
+
+  code {
+    font-family: $mono-font-family;
+  }
+}
+
+blockquote {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-left: 2pt solid $alt-color;
+  padding-left: 0.9em;
+  margin-left: -1em;
+  font-style: oblique;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  code {
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  em {
+    font-style: normal;
+  }
+}
+
+footer {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: $small-font-size;
+  font-family: $mono-font-family;
+  // color: $alt-text-color;
+
+  .biography {
+    margin-top: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $subdued-border;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  // a, a:hover {
+  //   color: $alt-color-darker;
+  // }
+}
+
+.footnotes {
+  border-top: 1px solid $subdued-border;
+  padding-top: 1em;
+  margin-top: 2em;
+
+  ul, ol {
+    margin-left: -2em;
+  }
+
+  > ol {
+    margin-left: -1.5em;
+  }
+}
+
+sup > .footnote {
+  margin-left: -0.2em;
+  font-style: normal;
+}
+
+table {
+  margin: 0 auto;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  border-spacing: 2em 0.1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-collapse: separate;
+  background-color: $background-color;
+  border-left: 2.5pt solid $alt-color;
+
+  td, th {
+    display: table-cell;
+    vertical-align: inherit;
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  th {
+    padding-bottom: 0.6em;
+    // border-bottom: 2px solid $alt-color;
+  }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "syntax-highlighting"
+;
+

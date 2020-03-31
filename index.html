@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<div id="post-list">
+	{% for post in site.posts %}
+	<div class="post-item">
+		<span class="post-meta">{{ post.date | date: site.date_format }}</span>
+		<a class="post-link" href="{{ post.url | relative_url }}">
+			<p class="post-title">
+				{{ post.title | escape }}
+			</p>
+			{% if post.subtitle %}
+			<p class="post-subtitle">
+				{{ post.subtitle | escape }}
+			</p>
+			{% endif %}
+		</a>
+	</div>
+	{% endfor %}
+</div>

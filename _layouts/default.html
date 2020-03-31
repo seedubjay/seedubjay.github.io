@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+      {% for script in page.scripts %}
+      <script src="/assets/js/{{ script }}.js"></script>
+      {% endfor %}
+      <div class="container main">
+        {% include header.html %}
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-8 offset-md-1">
+          {{ content }}
+          </div>
+        </div>
+        {% include footer.html %}
+      </div>
+      {% if site.google_analytics and jekyll.environment == 'production' %}{% include google_analytics.html %}{% endif %}
+  </body>
+</html>
