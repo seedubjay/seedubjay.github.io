@@ -18,7 +18,7 @@ function clamp(v, minv, maxv) {
 
 function applyGreyscale(value) {
     let v = (value*2+1)*128; // x2 to fill available space
-    return [v,v,v];
+    return [v,v,v,255];
 }
 
 function getColorChunk(groups) {
@@ -26,7 +26,7 @@ function getColorChunk(groups) {
         for (var c of groups) {
             if (value <= c[0]) return c[1];
         }
-        return [0,0,0];
+        return [0,0,0,255];
     }
 }
 
@@ -41,37 +41,86 @@ function getLinearRangeMapper(min0, max0, min1, max1) {
 // f(value,distance) adjusts value according to distance from the center (ranges from 0 to 1)
 function getCenterModifier(f) {
     return (value, {x, y, width, height}) => {
-        let d = ((x-width/2)**2+(y-height/2)**2)**0.5;
+        let d = Math.hypot(x-width/2, y-height/2);
         return f(value, clamp(d/width*2,0,1));
     }
 }
 
-function generator(canvasID) {
+function generator(canvasID, defaultOptions) {
     let canvas = document.getElementById(canvasID);
     let ctx = canvas.getContext("2d");
     let image = ctx.createImageData(canvas.width, canvas.height);
     let data = image.data;
 
-    return ({perlinOptions, colourMapper = applyGreyscale, heightMapper = v => v}) => {
+    let heights = new Array(canvas.width);
+    for (let x = 0; x < canvas.width; x++) heights[x] = new Array(canvas.height);
+
+    function generate(options = {}) {
+        let {perlinOptions, heightMapper = v=>v} = {
+            ...defaultOptions,
+            ...options
+        };
         noise.seed(Math.random());
 
+        console.time('generate');
         for (let x = 0; x < canvas.width; x++) {
             for (let y = 0; y < canvas.height; y++) {
-                let p = perlin(x,y,perlinOptions),
-                    v = clamp(heightMapper(p, {
-                        x: x,
-                        y: y,
-                        width: canvas.width,
-                        height: canvas.height
-                    }), -1, 1);
-
-                let cell = (x + y * canvas.width) * 4;
-                [data[cell], data[cell+1], data[cell+2]] = colourMapper(v);
-                data[cell + 3] = 255;
+                let p = perlin(x,y,perlinOptions);
+                heights[x][y] = clamp(heightMapper(p, {
+                    x: x,
+                    y: y,
+                    width: canvas.width,
+                    height: canvas.height
+                }), -1, 1);
             }
         }
-
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-        ctx.putImageData(image, 0, 0);
+        console.timeEnd('generate');
     }
+
+    function draw(options = {}) {
+        let {
+            minx = 0,
+            maxx = canvas.width,
+            miny = 0,
+            maxy = canvas.height,
+            colourMapper = applyGreyscale,
+        } = {...defaultOptions, ...options};
+
+        let changedMinX = 1e9,
+            changedMinY = 1e9,
+            changedMaxX = -1e9,
+            changedMaxY = -1e9;
+        console.time('scanning');
+        for (let x = minx; x < maxx; x++) {
+            for (let y = miny; y < maxy; y++) {
+                let i = (x+y*canvas.width)*4,
+                    [r,g,b,a] = colourMapper(heights[x][y], {x: x, y: y});
+                if (data[i] != r || data[i+1] != g || data[i+2] != b || data[i+3] != a) {
+                    changedMinX = Math.min(changedMinX,x);
+                    changedMinY = Math.min(changedMinY,y);
+                    changedMaxX = Math.max(changedMaxX,x);
+                    changedMaxY = Math.max(changedMaxY,y);
+                }
+                data[i] = r;
+                data[i+1] = g;
+                data[i+2] = b;
+                data[i+3] = a;
+            }
+        }
+        console.timeEnd('scanning');
+
+        if (changedMinX <= changedMaxX && changedMinY <= changedMaxY) {
+            ctx.putImageData(
+                image,
+                0,
+                0,
+                changedMinX,
+                changedMinY,
+                changedMaxX-changedMinX+1,
+                changedMaxY-changedMinY+1
+            );
+        }
+    }
+
+    return {canvas: canvas, generate: generate, draw: draw};
 }

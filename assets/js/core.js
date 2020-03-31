@@ -1,6 +1,6 @@
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
 
-function getMousePos(canvas, e) {
+function getMousePosition(canvas, e) {
     var rect = canvas.getBoundingClientRect();
     return {
         x: (e.clientX - rect.left) * canvas.width / rect.width,
@@ -8,7 +8,7 @@ function getMousePos(canvas, e) {
     }
 }
 
-function getTouchPos(canvas, e) {
+function getTouchPosition(canvas, e) {
     var rect = canvas.getBoundingClientRect();
     return {
         x: (e.touches[0].clientX - rect.left) * canvas.width / rect.width,
@@ -18,12 +18,12 @@ function getTouchPos(canvas, e) {
 
 function setHoverAction(canvas, setPosition, cb) {
     canvas.onmousemove = (e) => {
-        setPosition(getMousePos(canvas, e));
+        setPosition(getMousePosition(canvas, e));
         cb();
     };
 
     canvas.ontouchmove = (e) => {
-        setPosition(getTouchPos(canvas, e));
+        setPosition(getTouchPosition(canvas, e));
         cb();
     };
 }
