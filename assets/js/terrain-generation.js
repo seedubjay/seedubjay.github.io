@@ -1,4 +1,4 @@
-function perlin(x,y,{scale = 1, octaves = 3, lacunarity = 2.0, persistence = 0.5}) {
+function perlin(x,y,{scale = 1, octaves = 3, lacunarity = 2.0, persistence = 0.5, stretch = 1.0}) {
     let total = 0,
         frequency = 1/scale,
         amplitude = 1,
@@ -9,7 +9,7 @@ function perlin(x,y,{scale = 1, octaves = 3, lacunarity = 2.0, persistence = 0.5
         frequency *= lacunarity;
         amplitude *= persistence;
     }
-    return total/maxAmplitude;
+    return clamp(total/maxAmplitude*stretch, -1, 1);
 }
 
 function clamp(v, minv, maxv) {
@@ -17,7 +17,7 @@ function clamp(v, minv, maxv) {
 }
 
 function applyGreyscale(value) {
-    let v = (value*2+1)*128; // x2 to fill available space
+    let v = (value+1)*128;
     return [v,v,v,255];
 }
 
@@ -62,7 +62,10 @@ function generator(canvasID, defaultOptions) {
         };
         noise.seed(Math.random());
 
-        console.time('generate');
+        let mn = 1e9, mx = -1e9;
+
+        console.log(perlinOptions);
+
         for (let x = 0; x < canvas.width; x++) {
             for (let y = 0; y < canvas.height; y++) {
                 let p = perlin(x,y,perlinOptions);
@@ -72,9 +75,12 @@ function generator(canvasID, defaultOptions) {
                     width: canvas.width,
                     height: canvas.height
                 }), -1, 1);
+                mn = Math.min(mn,p);
+                mx = Math.max(mx,p);
             }
         }
-        console.timeEnd('generate');
+
+        console.log(mn, mx);
     }
 
     function draw(options = {}) {
@@ -94,7 +100,6 @@ function generator(canvasID, defaultOptions) {
             changedY1 = 1e9,
             changedX2 = -1e9,
             changedY2 = -1e9;
-        console.time('scanning');
         for (let x = x1; x <= x2; x++) {
             for (let y = y1; y <= y2; y++) {
                 let i = (x+y*canvas.width)*4,
@@ -111,7 +116,6 @@ function generator(canvasID, defaultOptions) {
                 data[i+3] = a;
             }
         }
-        console.timeEnd('scanning');
 
         if (changedX1 <= changedX2 && changedY1 <= changedY2) {
             ctx.putImageData(
@@ -128,3 +132,63 @@ function generator(canvasID, defaultOptions) {
 
     return {canvas: canvas, generate: generate, draw: draw};
 }
+
+let colourscheme = [
+    [-0.2,  [15,40,144,255]],
+    [0,     [35,65,134,255]],
+    [0.1,   [198,166,100,255]],
+    [1,     [11,102,35,255]]
+]
+
+// CANVAS0: noise
+let {generate: generate_canvas0, draw: draw_canvas0} = generator("canvas0", {
+    perlinOptions: {scale:200,octaves:4,lacunarity:2.0,persistence:0.5,stretch:2.0},
+});
+generate_canvas0();
+draw_canvas0();
+
+// CANVAS1: interactive map revealing noise upon hover
+let {canvas: canvas1, generate: generate_canvas1, draw: draw_canvas1} = generator("canvas1", {
+    perlinOptions: {scale:130,octaves:4,lacunarity:2,persistence:0.5,stretch:2.0},
+    heightMapper: getCenterModifier(getLinearRangeMapper(-.9,1,-1,-.4)),
+    colourMapper: getColorChunk(colourscheme),
+});
+
+let mouse = {x:0, y:0}
+let animationID = 0;
+let mouseRadius = 150;
+let prevMouse = {x: 0, y: 0};
+setHoverAction(canvas1, p => {mouse=p}, () => {
+    window.cancelAnimationFrame(animationID);
+    animationID = requestAnimationFrame(() => {
+        draw_canvas1({
+            colourMapper: (v, {x, y}) => {
+                if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
+                    return applyGreyscale(v);
+                } else {
+                    return getColorChunk(colourscheme)(v);
+                }
+            },
+            x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
+            y1: Math.min(prevMouse.y, mouse.y) - mouseRadius,
+            x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
+            y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
+        });
+        prevMouse = mouse;
+    });
+});
+
+setEndAction(canvas1, () => {
+    window.cancelAnimationFrame(animationID);
+    animationID = requestAnimationFrame(() => {
+        draw_canvas1({
+            x1: prevMouse.x-mouseRadius,
+            y1: prevMouse.y-mouseRadius,
+            x2: prevMouse.x+mouseRadius,
+            y2: prevMouse.y+mouseRadius,
+        });
+    });
+});
+
+generate_canvas1();
+draw_canvas1();

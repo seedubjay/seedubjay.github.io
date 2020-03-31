@@ -29,7 +29,9 @@ function setHoverAction(canvas, setPosition, cb) {
 }
 
 function setEndAction(canvas, cb) {
-    canvas.onmouseout = () => cb();
+    canvas.onmouseout = () => {
+        return cb();
+    };
     canvas.ontouchend = () => cb();
 }
 
