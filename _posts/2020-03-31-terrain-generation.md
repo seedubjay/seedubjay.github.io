@@ -6,10 +6,8 @@ scripts: ['core', 'perlin', 'terrain-generation']
 ---
 gday
 <figure>
-<canvas id="canvas0" width="800" height="400"></canvas>
-<div class="overlay">
-<button type="submit" class="btn btn-secondary" onclick="generate_canvas0(); draw_canvas0()">Reload</button>
-</div>
+{% include canvas.html id="canvas0" reload="" interactive="" %}
+<figcaption class="fig-caption">Reveal the underlying height map.</figcaption>
 </figure>
 test
 
@@ -18,10 +16,7 @@ test
 test
 
 <figure>
-<canvas id="canvas1" class="prevent-scroll" width="800" height="800"></canvas>
-<div class="overlay">
-<button type="submit" class="btn btn-secondary" onclick="generate_canvas1(); draw_canvas1()">Reload</button>
-</div>
+{% include canvas.html id="canvas1" reload="" %}
 </figure>
 test
 test

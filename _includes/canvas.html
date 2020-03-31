@@ -1,0 +1,25 @@
+{% assign width = include.width | default: 800 %}
+{% assign height = width | times: 3 | divided_by: 4 %}
+{% assign height = include.height | default: height %}
+<canvas
+    id="{{ include.id }}"
+    {% if include.interactive %}class="interactive"{% endif %}
+    width="{{ width }}"
+    height="{{ height }}">
+</canvas>
+{% if include.reload or include.interactive %}
+<div class="overlay">
+    {% if include.reload %}
+    {% capture reload %}
+    {%- if include.reload == "" -%}
+        reload_{{ include.id }}()
+    {%- else -%}
+        {{ include.reload }}
+    {%- endif -%}
+    {% endcapture %}
+    <button class="btn btn-light" onclick="{{ reload }}">Reload</button>
+    {% endif %}
+    {% if include.interactive %}
+    {% endif %}
+</div>
+{% endif %}

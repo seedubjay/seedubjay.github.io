@@ -146,6 +146,7 @@ let {generate: generate_canvas0, draw: draw_canvas0} = generator("canvas0", {
 });
 generate_canvas0();
 draw_canvas0();
+function reload_canvas0() {generate_canvas0(); draw_canvas0()}
 
 // CANVAS1: interactive map revealing noise upon hover
 let {canvas: canvas1, generate: generate_canvas1, draw: draw_canvas1} = generator("canvas1", {
@@ -192,3 +193,4 @@ canvas1.onmouseout = () => {
 
 generate_canvas1();
 draw_canvas1();
+function reload_canvas1() {generate_canvas1(); draw_canvas1()}
