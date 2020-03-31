@@ -178,7 +178,7 @@ setHoverAction(canvas1, p => {mouse=p}, () => {
     });
 });
 
-setEndAction(canvas1, () => {
+canvas1.onmouseout = () => {
     window.cancelAnimationFrame(animationID);
     animationID = requestAnimationFrame(() => {
         draw_canvas1({
@@ -188,7 +188,7 @@ setEndAction(canvas1, () => {
             y2: prevMouse.y+mouseRadius,
         });
     });
-});
+};
 
 generate_canvas1();
 draw_canvas1();
