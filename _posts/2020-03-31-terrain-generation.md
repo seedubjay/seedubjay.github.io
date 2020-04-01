@@ -7,7 +7,6 @@ scripts: ['core', 'perlin', 'terrain-generation']
 gday
 <figure>
 {% include canvas.html id="canvas0" reload="" interactive="" %}
-<figcaption class="fig-caption">Reveal the underlying height map.</figcaption>
 </figure>
 test
 
@@ -17,6 +16,7 @@ test
 
 <figure>
 {% include canvas.html id="canvas1" reload="" %}
+<figcaption class="fig-caption text-center">Hover to reveal the underlying height map...</figcaption>
 </figure>
 test
 test
