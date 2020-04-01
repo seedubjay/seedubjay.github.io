@@ -8,18 +8,14 @@
     height="{{ height }}">
 </canvas>
 {% if include.reload or include.interactive %}
-<div class="overlay">
+<div class="overlay overlay-top overlay-left">
     {% if include.reload %}
     {% capture reload %}
-    {%- if include.reload == "" -%}
-        reload_{{ include.id }}()
-    {%- else -%}
-        {{ include.reload }}
+    {%- if include.reload == "light" -%}light
+    {%- else -%}secondary
     {%- endif -%}
     {% endcapture %}
-    <button class="btn btn-light btn-sm" onclick="{{ reload }}">Reload</button>
-    {% endif %}
-    {% if include.interactive %}
+    <button class="btn btn-{{ reload }} btn-sm {% if include.interactive %}interactive{% endif %} no-focus" onclick="reload_{{ include.id }}()">Reload</button>
     {% endif %}
 </div>
 {% endif %}

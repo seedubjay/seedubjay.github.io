@@ -170,6 +170,7 @@ figure {
     width: 100%;
     border: 1px solid $alt-color;
     border-radius: 1px;
+    margin-bottom: 8px;
     display: block;
     -webkit-touch-callout:none;
     -webkit-user-select:none;
@@ -185,17 +186,20 @@ figure {
 
   button {
     font-family: $mono-font-family;
-    margin-bottom: 0.5rem;
+    min-width: 3rem;
   }
 
-  .indicator {
-    padding: .5rem .5rem;
-  }
+  .overlay {position: absolute;}
+  .overlay-top {top: 0.5rem;}
+  .overlay-left {left: 0.5rem;}
+  .overlay-right {right: 0.5rem;}
 
-  .overlay {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+  figcaption {
+    .caption {
+      text-align: center;
+      line-height: 1;
+      font-style: italic;
+    }
   }
 }
 

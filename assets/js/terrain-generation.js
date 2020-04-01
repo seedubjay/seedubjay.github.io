@@ -1,4 +1,4 @@
-function perlin(x,y,{scale = 1, octaves = 3, lacunarity = 2.0, persistence = 0.5, stretch = 1.0}) {
+function perlin(x,y,{scale = 1, octaves = 1, lacunarity = 2.0, persistence = 0.5, stretch = 1.0}) {
     let total = 0,
         frequency = 1/scale,
         amplitude = 1,
@@ -16,8 +16,12 @@ function clamp(v, minv, maxv) {
     return Math.min(Math.max(v,minv),maxv);
 }
 
+// [-1,1] -> [-1,1]
+let sinoid = (x,k) => (x-x*k)/(k-Math.abs(x)*2*k+1);
+
+// [-1,1] -> [0,256)
 function applyGreyscale(value) {
-    let v = (value+1)*128;
+    let v = ((value+1)/2)*256;
     return [v,v,v,255];
 }
 
@@ -46,8 +50,9 @@ function getCenterModifier(f) {
     }
 }
 
-function generator(canvasID, defaultOptions) {
+function terrainGenerator(canvasID, defaultOptions = {}) {
     let canvas = document.getElementById(canvasID);
+    if (!canvas) return {};
     let ctx = canvas.getContext("2d");
     let image = ctx.createImageData(canvas.width, canvas.height);
     let data = image.data;
@@ -61,11 +66,7 @@ function generator(canvasID, defaultOptions) {
             ...options
         };
         noise.seed(Math.random());
-
-        let mn = 1e9, mx = -1e9;
-
-        console.log(perlinOptions);
-
+        
         for (let x = 0; x < canvas.width; x++) {
             for (let y = 0; y < canvas.height; y++) {
                 let p = perlin(x,y,perlinOptions);
@@ -75,12 +76,8 @@ function generator(canvasID, defaultOptions) {
                     width: canvas.width,
                     height: canvas.height
                 }), -1, 1);
-                mn = Math.min(mn,p);
-                mx = Math.max(mx,p);
             }
         }
-
-        console.log(mn, mx);
     }
 
     function draw(options = {}) {
@@ -140,57 +137,135 @@ let colourscheme = [
     [1,     [11,102,35,255]]
 ]
 
-// CANVAS0: noise
-let {generate: generate_canvas0, draw: draw_canvas0} = generator("canvas0", {
-    perlinOptions: {scale:200,octaves:4,lacunarity:2.0,persistence:0.5,stretch:2.0},
-});
-generate_canvas0();
-draw_canvas0();
-function reload_canvas0() {generate_canvas0(); draw_canvas0()}
-
-// CANVAS1: interactive map revealing noise upon hover
-let {canvas: canvas1, generate: generate_canvas1, draw: draw_canvas1} = generator("canvas1", {
-    perlinOptions: {scale:130,octaves:4,lacunarity:2,persistence:0.5,stretch:2.0},
-    heightMapper: getCenterModifier(getLinearRangeMapper(-.9,1,-1,-.4)),
-    colourMapper: getColorChunk(colourscheme),
-});
-
-let mouse = {x:0, y:0}
-let animationID = 0;
-let mouseRadius = 150;
-let prevMouse = {x: 0, y: 0};
-setHoverAction(canvas1, p => {mouse=p}, () => {
-    window.cancelAnimationFrame(animationID);
-    animationID = requestAnimationFrame(() => {
-        draw_canvas1({
-            colourMapper: (v, {x, y}) => {
-                if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
-                    return applyGreyscale(v);
-                } else {
-                    return getColorChunk(colourscheme)(v);
-                }
-            },
-            x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
-            y1: Math.min(prevMouse.y, mouse.y) - mouseRadius,
-            x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
-            y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
-        });
-        prevMouse = mouse;
+// canvas0: noise
+let reload_canvas0;
+(() => {
+    let {canvas, generate, draw} = terrainGenerator("canvas0", {
+        perlinOptions: {scale:200,octaves:4,lacunarity:2.0,persistence:0.5,stretch:2.0},
     });
-});
+    if (!canvas) return;
+    generate();
+    draw();
+    reload_canvas0 = () => {generate(); draw()}
+})();
 
-canvas1.onmouseout = () => {
-    window.cancelAnimationFrame(animationID);
-    animationID = requestAnimationFrame(() => {
-        draw_canvas1({
-            x1: prevMouse.x-mouseRadius,
-            y1: prevMouse.y-mouseRadius,
-            x2: prevMouse.x+mouseRadius,
-            y2: prevMouse.y+mouseRadius,
+// canvas1: interactive map revealing noise upon hover
+let reload_canvas1;
+(() => {
+    let {canvas, generate, draw} = terrainGenerator("canvas1", {
+        perlinOptions: {scale:130,octaves:4,lacunarity:2,persistence:0.5,stretch:2.0},
+        heightMapper: getCenterModifier(getLinearRangeMapper(-.9,1,-1,-.4)),
+        colourMapper: getColorChunk(colourscheme),
+    });
+    if (!canvas) return;
+    
+    let mouse = {x:0, y:0}
+    let animationID = 0;
+    let mouseRadius = 150;
+    let prevMouse = {x: 0, y: 0};
+    setHoverAction(canvas, p => {mouse=p}, () => {
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            draw({
+                colourMapper: (v, {x, y}) => {
+                    if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
+                        return applyGreyscale(sinoid(v,-.3));
+                    } else {
+                        return getColorChunk(colourscheme)(v);
+                    }
+                },
+                x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
+                y1: Math.min(prevMouse.y, mouse.y) - mouseRadius,
+                x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
+                y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
+            });
+            prevMouse = mouse;
         });
     });
-};
+    
+    canvas.onmouseout = () => {
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            draw({
+                x1: prevMouse.x-mouseRadius,
+                y1: prevMouse.y-mouseRadius,
+                x2: prevMouse.x+mouseRadius,
+                y2: prevMouse.y+mouseRadius,
+            });
+        });
+    };
+    
+    generate();
+    draw();
+    reload_canvas1 = () => {generate(); draw()};
+})();
 
-generate_canvas1();
-draw_canvas1();
-function reload_canvas1() {generate_canvas1(); draw_canvas1()}
+// CANVAS2: octaves graph
+let reload_canvas2;
+let toggle_button_canvas2;
+(() => {
+    let canvas = document.getElementById("canvas2");
+    if (!canvas) return;
+    let ctx = canvas.getContext("2d");
+
+    let fidelity = canvas.width/2+1;
+    let scale = 100;
+    let stretch = 1.7;
+    let octaves = 4;
+    let visible = Array(octaves).fill(true);
+
+    let maxAmplitude;
+    let lines;
+
+    function generate() {
+        maxAmplitude = 0;
+        lines = [];
+
+        let frequency = 1/scale;
+        let amplitude = stretch;
+        for (let i = 0; i < octaves; i++) {
+            noise.seed(Math.random());
+            lines.push([]);
+            for (let j = 0; j < fidelity; j++) {
+                let x = j*(canvas.width/(fidelity-1));
+                lines[i].push(noise.perlin2(x * frequency,0.4) * amplitude * stretch);
+            }
+            maxAmplitude += amplitude;
+            frequency *= 2;
+            amplitude *= 0.5;
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0,canvas.height/2);
+        ctx.lineTo(canvas.width,canvas.height/2);
+        ctx.stroke();
+
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (let i = 0; i < fidelity; i++) {
+            let x = i*(canvas.width/(fidelity-1));
+            let total = 0;
+            for (let j = 0; j < lines.length; j++) if (visible[j]) {
+                total += lines[j][i];
+            }
+            let y = total / maxAmplitude * canvas.height / 2 + canvas.height/2;
+            if (i == 0) ctx.moveTo(x,y);
+            else ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+    }
+
+    generate();
+    draw();
+    reload_canvas2 = () => {generate(); draw()};
+
+    toggle_button_canvas2 = n => {
+        visible[n] = visible[n] ^ true;
+        draw();
+    }
+})();

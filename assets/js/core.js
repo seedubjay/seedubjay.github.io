@@ -43,3 +43,7 @@ function drawOnce(draw, cb) {
     window.addEventListener("load", draw);
     if (typeof cb !== 'undefined') cb();
 }
+
+for (let x of document.getElementsByClassName('no-focus')) {
+    x.onmousedown = (e) => {e.preventDefault()};
+}
