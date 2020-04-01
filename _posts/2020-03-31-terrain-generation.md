@@ -13,6 +13,7 @@ scripts: ['core', 'perlin', 'terrain-generation']
   <button type="button" class="btn btn-secondary btn-sm no-focus active" data-toggle="button" aria-pressed="true" onclick="toggle_button_canvas2(1)">1</button>
   <button type="button" class="btn btn-secondary btn-sm no-focus active" data-toggle="button" aria-pressed="true" onclick="toggle_button_canvas2(2)">2</button>
   <button type="button" class="btn btn-secondary btn-sm no-focus active" data-toggle="button" aria-pressed="true" onclick="toggle_button_canvas2(3)">3</button>
+  <button type="button" class="btn btn-secondary btn-sm no-focus active" data-toggle="button" aria-pressed="true" onclick="toggle_button_canvas2(4)">4</button>
 </div>
 </div>
 <figcaption>

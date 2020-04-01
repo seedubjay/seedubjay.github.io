@@ -46,4 +46,5 @@ function drawOnce(draw, cb) {
 
 for (let x of document.getElementsByClassName('no-focus')) {
     x.onmousedown = (e) => {e.preventDefault()};
+    x.ontouchdown = (e) => {e.preventDefault()};
 }

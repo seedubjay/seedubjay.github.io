@@ -209,9 +209,11 @@ let toggle_button_canvas2;
     let ctx = canvas.getContext("2d");
 
     let fidelity = canvas.width/2+1;
-    let scale = 100;
+    let scale = 150;
     let stretch = 1.7;
-    let octaves = 4;
+    let lacunarity = 2;
+    let persistence = .5;
+    let octaves = 5;
     let visible = Array(octaves).fill(true);
 
     let maxAmplitude;
@@ -222,7 +224,7 @@ let toggle_button_canvas2;
         lines = [];
 
         let frequency = 1/scale;
-        let amplitude = stretch;
+        let amplitude = 1;
         for (let i = 0; i < octaves; i++) {
             noise.seed(Math.random());
             lines.push([]);
@@ -231,8 +233,8 @@ let toggle_button_canvas2;
                 lines[i].push(noise.perlin2(x * frequency,0.4) * amplitude * stretch);
             }
             maxAmplitude += amplitude;
-            frequency *= 2;
-            amplitude *= 0.5;
+            frequency *= lacunarity;
+            amplitude *= persistence;
         }
     }
 
