@@ -165,6 +165,7 @@ figure {
   min-width: 300px;
   margin: auto;
   margin-bottom: 0.5rem;
+  box-sizing: border-box;
 
   canvas {
     width: 100%;
@@ -178,6 +179,19 @@ figure {
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+  }
+
+  .canvas-group {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .canvas-group-2 canvas {
+    width: 49.5%;
+  }
+
+  .canvas-group canvas:not(:last-child) {
+    margin-right: 1%;
   }
 
   .interactive {
@@ -195,10 +209,15 @@ figure {
   .overlay-right {right: 0.5rem;}
 
   figcaption {
+    text-align: center;
+
     .caption {
-      text-align: center;
       line-height: 1;
       font-style: italic;
+    }
+
+    .slider {
+      width: 80%;
     }
   }
 }

@@ -12,9 +12,7 @@ function perlin(x,y,{scale = 1, octaves = 1, lacunarity = 2.0, persistence = 0.5
     return clamp(total/maxAmplitude*stretch, -1, 1);
 }
 
-function clamp(v, minv, maxv) {
-    return Math.min(Math.max(v,minv),maxv);
-}
+let clamp =(v, minv, maxv) => Math.min(Math.max(v,minv),maxv);
 
 // [-1,1] -> [-1,1]
 let sinoid = (x,k) => (x-x*k)/(k-Math.abs(x)*2*k+1);
@@ -25,29 +23,83 @@ function applyGreyscale(value) {
     return [v,v,v,255];
 }
 
-function getColorChunk(groups) {
+function interpolate(y1, y2, x1=0,x2=1) {
+    return v => {
+        r = (clamp(v,x1,x2)-x1)/(x2-x1);
+        return y1*(1-r) + y2*r;
+    }
+}
+function colourInterpolate(c1, c2, x1=0, x2=1) {
+    return v => c1.map((c,i) => interpolate(c,c2[i],x1,x2)(v));
+}
+
+function colourChunks(groups) {
     return (value) => {
         for (var c of groups) {
-            if (value <= c[0]) return c[1];
+            if (value <= c[0]) {
+                if (typeof c[1] == 'function') return c[1](value);
+                else return c[1];
+            }
         }
         return [0,0,0,255];
     }
 }
 
-function getLinearRangeMapper(min0, max0, min1, max1) {
-    return (v,d) => {
-        let c = (min0+max0)/2*(1-d) + (min1+max1)/2*d,
-        r = (max0-min0)/2*(1-d) + (max1-min1)/2*d;
-        return v*r+c;
-    }
-}
-
 // f(value,distance) adjusts value according to distance from the center (ranges from 0 to 1)
-function getCenterModifier(f) {
+function heightMapByCenter(f) {
     return (value, {x, y, width, height}) => {
         let d = Math.hypot(x-width/2, y-height/2);
         return f(value, clamp(d/width*2,0,1));
     }
+}
+
+function graphGenerator(canvasID, defaultOptions) {
+    let canvas = document.getElementById(canvasID);
+    if (!canvas) return {};
+    let ctx = canvas.getContext("2d");
+
+    function draw(options) {
+        let {
+            lines = [],
+            fidelity = canvas.width,
+            x_axis = false,
+            y_axis = false,
+            xlim = [-1,1],
+            ylim = [-1,1],
+        } = {...defaultOptions, ...options};
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (x_axis) {
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0,canvas.height/2);
+            ctx.lineTo(canvas.width,canvas.height/2);
+            ctx.stroke();
+        }
+
+        if (y_axis) {
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2,0);
+            ctx.lineTo(canvas.width/2,canvas.height);
+            ctx.stroke();
+        }
+
+        ctx.lineWidth = 3;
+        for (let f of lines) {
+            ctx.beginPath();
+            for (let i = 0; i <= fidelity; i++) {
+                let x = i*canvas.width/fidelity;
+                y = canvas.height - (f(i/fidelity * (xlim[1]-xlim[0]) + xlim[0])-ylim[0])/(ylim[1]-ylim[0])*canvas.height;
+                if (i == 0) ctx.moveTo(x,y);
+                else ctx.lineTo(x,y);
+            }
+            ctx.stroke();
+        }
+    }
+
+    return {canvas: canvas, draw: draw};
 }
 
 function terrainGenerator(canvasID, defaultOptions = {}) {
@@ -69,13 +121,7 @@ function terrainGenerator(canvasID, defaultOptions = {}) {
         
         for (let x = 0; x < canvas.width; x++) {
             for (let y = 0; y < canvas.height; y++) {
-                let p = perlin(x,y,perlinOptions);
-                heights[x][y] = clamp(heightMapper(p, {
-                    x: x,
-                    y: y,
-                    width: canvas.width,
-                    height: canvas.height
-                }), -1, 1);
+                heights[x][y] = heightMapper(perlin(x,y,perlinOptions), {x: x, y: y, width: canvas.width, height: canvas.height})
             }
         }
     }
@@ -97,10 +143,11 @@ function terrainGenerator(canvasID, defaultOptions = {}) {
             changedY1 = 1e9,
             changedX2 = -1e9,
             changedY2 = -1e9;
+
         for (let x = x1; x <= x2; x++) {
             for (let y = y1; y <= y2; y++) {
-                let i = (x+y*canvas.width)*4,
-                    [r,g,b,a] = colourMapper(heights[x][y], {x: x, y: y});
+                let [r,g,b,a] = colourMapper(heights[x][y], {x: x, y: y, width: canvas.width, height: canvas.height}),
+                    i = (x+y*canvas.width)*4;
                 if (data[i] != r || data[i+1] != g || data[i+2] != b || data[i+3] != a) {
                     changedX1 = Math.min(changedX1,x);
                     changedY1 = Math.min(changedY1,y);
@@ -131,8 +178,8 @@ function terrainGenerator(canvasID, defaultOptions = {}) {
 }
 
 let colourscheme = [
-    [-0.2,  [15,40,144,255]],
-    [0,     [35,65,134,255]],
+    [-.3,   [0,0,100,255]],
+    [0,     colourInterpolate([0,0,100,255],[35,65,134,255],-.3,0)],
     [0.1,   [198,166,100,255]],
     [1,     [11,102,35,255]]
 ]
@@ -154,8 +201,8 @@ let reload_canvas1;
 (() => {
     let {canvas, generate, draw} = terrainGenerator("canvas1", {
         perlinOptions: {scale:130,octaves:4,lacunarity:2,persistence:0.5,stretch:2.0},
-        heightMapper: getCenterModifier(getLinearRangeMapper(-.9,1,-1,-.4)),
-        colourMapper: getColorChunk(colourscheme),
+        heightMapper: heightMapByCenter((v,d) => interpolate(interpolate(-.9,-1)(d), interpolate(1,-.4)(d),-1,1)(v)),
+        colourMapper: colourChunks(colourscheme),
     });
     if (!canvas) return;
     
@@ -171,7 +218,7 @@ let reload_canvas1;
                     if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
                         return applyGreyscale(sinoid(v,-.3));
                     } else {
-                        return getColorChunk(colourscheme)(v);
+                        return colourChunks(colourscheme)(v);
                     }
                 },
                 x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
@@ -204,70 +251,78 @@ let reload_canvas1;
 let reload_canvas2;
 let toggle_button_canvas2;
 (() => {
-    let canvas = document.getElementById("canvas2");
-    if (!canvas) return;
-    let ctx = canvas.getContext("2d");
+    let octaves = 5,
+        scale = .5,
+        stretch = 1.5,
+        lacunarity = 2,
+        persistence = .5,
+        maxAmplitude = (1-persistence**octaves)/(1-persistence);
 
-    let fidelity = canvas.width/2+1;
-    let scale = 150;
-    let stretch = 1.7;
-    let lacunarity = 2;
-    let persistence = .5;
-    let octaves = 5;
     let visible = Array(octaves).fill(true);
+    let seed = Math.random();
 
-    let maxAmplitude;
-    let lines;
-
-    function generate() {
-        maxAmplitude = 0;
-        lines = [];
-
-        let frequency = 1/scale;
-        let amplitude = 1;
-        for (let i = 0; i < octaves; i++) {
-            noise.seed(Math.random());
-            lines.push([]);
-            for (let j = 0; j < fidelity; j++) {
-                let x = j*(canvas.width/(fidelity-1));
-                lines[i].push(noise.perlin2(x * frequency,0.4) * amplitude * stretch);
+    let {draw} = graphGenerator("canvas2", {
+        lines: [(x) => {
+            let total = 0,
+                amplitude = 1,
+                frequency = 1/scale;
+            noise.seed(seed);
+            for (let i = 0; i < octaves; i++) {
+                if (visible[i]) total += noise.perlin2(x * frequency,0.4) * amplitude;
+                frequency *= lacunarity;
+                amplitude *= persistence;
             }
-            maxAmplitude += amplitude;
-            frequency *= lacunarity;
-            amplitude *= persistence;
-        }
-    }
+            return total / maxAmplitude * stretch;
+        }],
+        x_axis: true,
+        x_lim: [0,1],
+    });
 
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(0,canvas.height/2);
-        ctx.lineTo(canvas.width,canvas.height/2);
-        ctx.stroke();
-
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        for (let i = 0; i < fidelity; i++) {
-            let x = i*(canvas.width/(fidelity-1));
-            let total = 0;
-            for (let j = 0; j < lines.length; j++) if (visible[j]) {
-                total += lines[j][i];
-            }
-            let y = total / maxAmplitude * canvas.height / 2 + canvas.height/2;
-            if (i == 0) ctx.moveTo(x,y);
-            else ctx.lineTo(x,y);
-        }
-        ctx.stroke();
-    }
-
-    generate();
     draw();
-    reload_canvas2 = () => {generate(); draw()};
 
+    reload_canvas2 = () => {seed = Math.random(); draw()};
     toggle_button_canvas2 = n => {
         visible[n] = visible[n] ^ true;
         draw();
+    }
+})();
+
+// canvas3: 
+let reload_canvas3a;
+(() => {
+    let rangeMin = interpolate(-.9,-1),
+        rangeMax = interpolate(1,-.2),
+        rangeMap = (v,d) => interpolate(rangeMin(d),rangeMax(d),-1,1)(v);
+
+    let {canvas: canvasMap, generate, draw: drawMap} = terrainGenerator("canvas3a", {
+        perlinOptions: {scale:50,octaves:4,lacunarity:2,persistence:0.5,stretch:2.0},
+        colourMapper: (v,o) => colourChunks(colourscheme)(heightMapByCenter(rangeMap)(v,o), o),
+    });
+    if (!canvasMap) return;
+    
+    generate();
+    drawMap();
+    reload_canvas3a = () => {generate(); drawMap()};
+
+    let {canvas: canvasGraph, draw: drawGraph} = graphGenerator("canvas3b", {
+        lines: [
+            x => rangeMin(Math.abs(x)),
+            x => rangeMax(Math.abs(x))
+        ],
+    });
+    if (!canvasGraph) return;
+
+    drawGraph();
+
+    let slider = document.getElementById('canvas2-slider'),
+        animationID = 0;
+
+    slider.oninput = () => {
+        rangeMax = interpolate(1,interpolate(-1,1)(slider.value));
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            drawMap();
+            drawGraph();
+        });
     }
 })();
