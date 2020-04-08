@@ -89,7 +89,7 @@ We may have a map of noise, but how are we actually visualising it? Behind the s
     <figcaption><p class="caption">Islands colour palette</p></figcaption>
 </figure>
 
-And with hardly any extra effort, we can create this:
+And so by simply swapping one colour palette out for another, we can create this:
 
 <figure>
 {% include canvas.html id="canvas1" reload="light" interactive="" %}
@@ -113,7 +113,6 @@ Want to create an island surrounded completely by water? We can adjust the colou
 Terrain generation is just the beginning... Here's a few more options!
 
 ### Hand-drawn sketches
-
 <figure>
 {% include canvas.html id="canvas6" reload="dark" %}
 <figcaption>
@@ -123,7 +122,6 @@ Terrain generation is just the beginning... Here's a few more options!
 </figure>
 
 ### Clouds
-
 <figure>
     {% include canvas.html id="canvas8" width="400" reload="dark" %}
     {% include canvas.html id="canvas8b" class="no-outline" width="800" height="30" %}
