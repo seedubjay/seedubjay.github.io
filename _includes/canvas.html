@@ -1,13 +1,13 @@
 {% assign width = include.width | default: 800 %}
-{% assign height = width | times: 3 | divided_by: 4 %}
+{% assign height = width | times: 9 | divided_by: 16 %}
 {% assign height = include.height | default: height %}
 <canvas
     id="{{ include.id }}"
-    {% if include.interactive %}class="interactive"{% endif %}
+    {% if include.class or include.interactive %}class="{{ include.class }}{% if include.interactive %} interactive{% endif %}"{% endif %}
     width="{{ width }}"
     height="{{ height }}">
 </canvas>
-{% if include.reload or include.interactive %}
+{% if include.reload %}
 <div class="overlay overlay-top overlay-left">
     {% if include.reload %}
     {% capture reload %}
@@ -15,7 +15,7 @@
     {%- else -%}secondary
     {%- endif -%}
     {% endcapture %}
-    <button class="btn btn-{{ reload }} btn-sm {% if include.interactive %}interactive{% endif %} no-focus" onclick="reload_{{ include.id }}()">Reload</button>
+    <button class="btn btn-{{ reload }} btn-sm no-focus" onclick="reload_{{ include.id }}()">Reload</button>
     {% endif %}
 </div>
 {% endif %}
