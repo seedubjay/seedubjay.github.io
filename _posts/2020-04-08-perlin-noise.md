@@ -125,12 +125,16 @@ Terrain generation is just the beginning... Here's a few more options!
 ### Clouds
 
 <figure>
-{% include canvas.html id="canvas8" width="400" reload="dark" %}
+    {% include canvas.html id="canvas8" width="400" reload="dark" %}
+    {% include canvas.html id="canvas8b" class="no-outline" width="800" height="30" %}
+    <figcaption><p class="caption">Clouds and their colour palette</p></figcaption>
 </figure>
 
 ### Veins
 <figure>
-{% include canvas.html id="canvas9" width="400" reload="dark" %}
+    {% include canvas.html id="canvas9" width="400" reload="dark" %}
+    {% include canvas.html id="canvas9b" class="no-outline" width="800" height="30" %}
+    <figcaption><p class="caption">Veins and their colour palette</p></figcaption>
 </figure>
 
 ### Fire

@@ -374,6 +374,10 @@ window.addEventListener('load', () => {
 
     generate();
     reload_canvas8 = generate;
+
+    imageGenerator("canvas8b", {
+        getPixel: (x,_,{width}) => colourMap(x/width*2-1)
+    }).draw();
 });
 
 // canvas9: blood vessels
@@ -393,6 +397,10 @@ window.addEventListener('load', () => {
 
     generate();
     reload_canvas9 = generate;
+
+    imageGenerator("canvas9b", {
+        getPixel: (x,_,{width}) => colourMap(x/width*2-1)
+    }).draw();
 });
 
 // canvas10: fire
