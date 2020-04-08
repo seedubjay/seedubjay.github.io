@@ -322,7 +322,7 @@ window.addEventListener('load', () => {
     let {canvas: canvasMap, generate, draw: drawMap} = terrainGenerator("canvas3a", {
         perlinOptions: {scale:100,octaves:4,lacunarity:2,persistence:0.5,stretch:1.7},
         colourMapper: colourMap,
-        autoDraw = true,
+        autoDraw: true,
     });
     if (!canvasMap) return;
     
