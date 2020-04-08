@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Making Machines Less Mechanical
-subtitle: hand-drawn lines & terrain generation
-scripts: ['core', 'perlin', 'terrain-generation']
+subtitle: terrain generation, hand-drawn lines and fire
+scripts: ['core', 'perlin-noise']
 ---
 
 Computers aren't very good at _blending in_. It usually isn't because they aren't quick enough to keep up with humans (despite how good you think you are at [spotting traffic lights...](https://www.ceros.com/originals/recaptcha-waymo-future-of-self-driving-cars/)). Often, its simply because computers are too efficient or too precise to seem human. 
@@ -13,7 +13,7 @@ Alas, all of these problems are quite hard (and the focus of ongoing research) s
 
 ## Noise
 
-A stream of unpredictable data is called _noise_. Static from a radio or a TV is noise in the truest sense of the word, because every single waveform and pixel is completely random. However, you could equally call the path of a drunk person trying to walk home 'noise' - they'll walk vaguely in the right direction, but you've got no chance of guessing where any particular step will take them...
+A stream of unpredictable data is called _noise_. Static from on a TV is noise in the truest sense of the word because every single waveform and pixel is completely random. However, you could equally call the path of a drunk person trying to walk home 'noise' - they'll walk vaguely in the right direction, but you've got no chance of guessing where any particular step will take them...
 
 This second type of noise is much more interesting. By restricting the randomness, we can create interesting curves and shapes that are _unpredictable_ but _controllable_.
 
@@ -30,11 +30,11 @@ There are a few obvious properties to Perlin noise. Firstly, the areas with 'ext
 
 Of course, there are also faults! If you reload the picture a few times, you might start to notice some odd blockiness and straight lines... But, as we'll see, these faults can be covered up.
 
-The success of Perlin noise didn't just come from the noise it produced, but also from how fast it produced it. These little faults were a small price to pay for a fast algorithm, especially back in 1983 when computing time was slow and expensive.
+The success of Perlin noise didn't just come from the noise it produced, but also from how fast it produced it. These little faults were a small price to pay for a fast algorithm, especially back in 1983 when computing time was so slow and expensive.
+
+It is also extremely easy to adapt to different situations. Here, we converted its values into shades of grey, but we can also think of them as heights, with light patches being the 'hills' and dark patches being the 'valleys'. This will become much more useful later on.
 
 ## Octaves
-
-Perlin noise is so versatile because it can be used in many contexts. Above, we converted its values into colours, but we can also think of them as heights, with light patches being the 'hills' and dark patches being the 'valleys'. 
 
 Our eventual goal is to create noise which seems messy enough to seem natural. Perlin noise gets us close, but it ebbs and flows so consistently from value to value that it seems artificial. 
 
@@ -42,7 +42,7 @@ Why is this? The real world isn't consistent! It is sometimes smooth, sometimes 
 
 The 0<sup>th</sup> octave is the original noise, like what we saw above. The 1<sup>st</sup> octave is identical, but shrunk to be _half the height_ (i.e. amplitude) and changing _twice as fast_ (i.e. frequency). Each sucessive octave does the same, so the 4<sup>th</sup> octave is only 1/16<sup>th</sup> the height and changing 16 times faster than the original noise.
 
-These octaves are all 'added together' to create noise that can simultaneously change huge amounts very slowly, but also change in tiny fractions frequently.
+These octaves are all 'added together' to create noise that can both change huge amounts very slowly, but also change in tiny fractions frequently.
 
 You can see what different combinations look like here:
 
@@ -80,7 +80,7 @@ Perlin noise is a powerful tool once we start modifying octaves and many of its 
 
 ## Colour palettes
 
-We may have a map of noise, but how are we actually visualising it? Behind the scenes, the Perlin noise algorithm produces a value between 0 and 1 for every pixel in the image. It's then up to us to define how that value should be turned into a colour, like a 'colour palette' of sorts. For instance, up until now we've been turning 0's into black, 1's into white, and blending everything in between. But now, we're going to try convert our noise into a set of islands. Here's our new colour palette:
+We may have a map of noise, but how are we actually visualising it? Behind the scenes, the Perlin noise algorithm produces a value between 0 and 1 for every pixel in the image. It's then up to us to define how that value should be turned into a colour, like a 'colour palette' of sorts. For instance, up until now we've been turning 0s into black, 1s into white, and blending everything in between. But now, we're going to try convert our noise into a set of islands. Here's our new colour palette:
 
 <figure>
     {% include canvas.html id="canvas4a" class="no-outline" width="800" height="30" %}
@@ -89,7 +89,7 @@ We may have a map of noise, but how are we actually visualising it? Behind the s
     <figcaption><p class="caption">Islands colour palette</p></figcaption>
 </figure>
 
-And so with barely any effort, we can create this:
+And with hardly any extra effort, we can create this:
 
 <figure>
 {% include canvas.html id="canvas1" reload="light" interactive="" %}
@@ -108,9 +108,9 @@ Want to create an island surrounded completely by water? We can adjust the colou
 </figure>
 
 
-## Gallery
+## What next?
 
-Terrain generation is just the beginning of what can be done with noise maps. Here's a few ideas you can play with yourself...
+Terrain generation is just the beginning... Here's a few more options!
 
 ### Hand-drawn sketches
 
@@ -128,7 +128,13 @@ Terrain generation is just the beginning of what can be done with noise maps. He
 {% include canvas.html id="canvas8" width="400" reload="dark" %}
 </figure>
 
-### Blood vessels
+### Veins
 <figure>
 {% include canvas.html id="canvas9" width="400" reload="dark" %}
+</figure>
+
+### Fire
+<figure>
+{% include canvas.html id="canvas10" width="200" %}
+<figcaption><p class="caption">Hover over to see the animation</p></figcaption>
 </figure>
