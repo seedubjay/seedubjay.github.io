@@ -74,7 +74,7 @@ let sinoid = (x,k) => (x-x*k)/(k-Math.abs(x)*2*k+1);
 // [-1,1] -> [0,256)
 let colourGreyscale = v => [v*256,v*256,v*256,255];
 
-function interpolate(y1, y2, x1=0,x2=1) {
+function interpolator(y1, y2, x1=0,x2=1) {
     return v => {
         r = (clamp(v,x1,x2)-x1)/(x2-x1);
         return y1*(1-r) + y2*r;

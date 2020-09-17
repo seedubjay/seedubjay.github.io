@@ -1,0 +1,23 @@
+---
+---
+@import "variables";
+
+#svg1 {
+
+    .edge {
+        stroke: #bbbbbb;
+        stroke-width: 2px;
+        fill: #bbbbbb;
+    }
+
+    .nodes circle {
+        fill: #1cc;
+        fill-opacity: 0.4;
+    }
+
+    .labels text {
+        font-size: 12px;
+        font-family: $mono-font-family;
+        font-weight: bold;
+    }
+}

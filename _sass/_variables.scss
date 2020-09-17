@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+// Our variables
+$base-font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+$base-font-size:   12pt;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+//$mono-font-family: 'Source Code Pro', Menlo, Monaco, Inconsolata;
+$mono-font-family: 'Ubuntu Mono', Monaco, monospace;
+
+$text-color:       hsl(0, 0%, 25%);
+
+$alt-color:        hsl(236, 31%, 60%);
+$alt-color-darker: darken($alt-color, 6%);
+
+$article-bg-color: #fff;
+$background-color: #f8f8ff;
+$bg-color-darker:  darken($background-color, 13%);
+$alt-text-color:   darken($background-color, 55%);
+
+$subdued-border:   rgba($bg-color-darker, 0.5);
+

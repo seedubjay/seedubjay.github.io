@@ -1,12 +1,15 @@
-{% assign width = include.width | default: 800 %}
-{% assign height = width | times: 9 | divided_by: 16 %}
-{% assign height = include.height | default: height %}
-<canvas
+{% assign width = 160 %}
+{% assign height = 90 %}
+{% if include.width and include.height %}
+{% assign width = include.width %}
+{% assign height = include.height %}
+{% endif %}
+
+<svg
     id="{{ include.id }}"
     {% if include.class %}class="{{ include.class }}"{% endif %}
-    width="{{ width }}"
-    height="{{ height }}">
-</canvas>
+    viewBox="0 0 {{ width }} {{ height }}">
+</svg>
 {% if include.reload %}
 <div class="overlay overlay-top overlay-left">
     {% if include.reload %}

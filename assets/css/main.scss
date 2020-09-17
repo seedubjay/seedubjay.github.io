@@ -1,28 +1,7 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-@charset "utf-8";
-
-// Our variables
-$base-font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
-$base-font-size:   12pt;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-//$mono-font-family: 'Source Code Pro', Menlo, Monaco, Inconsolata;
-$mono-font-family: 'Ubuntu Mono', Monaco, monospace;
-
-$text-color:       hsl(0, 0%, 25%);
-
-$alt-color:        hsl(12, 100%, 61%);
-$alt-color-darker: darken($alt-color, 6%);
-
-$article-bg-color: #fff;
-$background-color: #f8f8ff;
-$bg-color-darker:  darken($background-color, 13%);
-$alt-text-color:   darken($background-color, 55%);
-
-$subdued-border:   rgba($bg-color-darker, 0.5);
+@import "variables";
 
 body {
   -webkit-text-size-adjust: 100%;
@@ -78,8 +57,8 @@ body {
     font-size: 1.2em;
     font-variant: small-caps;
     text-transform: lowercase;
-    font-weight: bold;
-    letter-spacing: 0.15em;
+    font-weight: 600;
+    letter-spacing: 0em;
   }
 }
 
@@ -165,7 +144,21 @@ figure {
   min-width: 300px;
   margin: 0 auto 2rem auto;
 
-  canvas {
+  h3 {
+    text-align: center;
+  }
+
+  .tangent {
+    // padding: 2px;
+    border: 2px solid $alt-color;
+    border-radius: 2px;
+    padding: 4px;
+    display: block;
+    box-sizing: border-box;
+    background-color: fade-out($alt-color,.98);
+  }
+
+  canvas, svg {
     width: 100%;
     margin-bottom: 4px;
     display: block;
@@ -176,32 +169,32 @@ figure {
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
-  }
 
-  canvas:not(.no-outline) {
-    border: 2px solid $alt-color;
-    border-radius: 2px;
-  }
+    &:not(.no-outline) {
+      border: 2px solid $alt-color;
+      border-radius: 2px;
+    }
 
-  canvas.no-outline {
-    padding: 2px;
-  }
+    &.no-outline {
+      padding: 2px;
+    }
 
-  .canvas-group {
-    display: flex;
-    align-items: flex-start;
-  }
+    .figure-group {
+      display: flex;
+      align-items: flex-start;
+    }
 
-  .canvas-group-2 canvas {
-    width: 49.5%;
-  }
+    .figure-group-2 * {
+      width: 49.5%;
+    }
 
-  .canvas-group canvas:not(:last-child) {
-    margin-right: 1%;
-  }
+    .figure-group *:not(:last-child) {
+      margin-right: 1%;
+    }
 
-  .interactive {
-    touch-action: none;
+    .interactive {
+      touch-action: none;
+    }
   }
 
   button {

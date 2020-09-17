@@ -81,10 +81,10 @@ window.addEventListener('load', () => {
 // canvas1: interactive map revealing noise upon hover
 let reload_canvas1;
 window.addEventListener('load', () => {
-    const rangeMap = (v, d) => interpolate(interpolate(-.8, -1)(d), interpolate(1, -.4)(d), -1, 1)(v);
+    const rangeMap = (v, d) => interpolator(interpolator(-.8, -1)(d), interpolator(1, -.4)(d), -1, 1)(v);
     let {canvas, generate, draw} = terrainGenerator("canvas1", {
         perlinOptions: {scale:120,octaves:4,stretch:1.7},
-        //heightMapper: heightMapByCenter((v,d) => interpolate(interpolate(-.8,-1)(d), interpolate(1,-.4)(d),-1,1)(v)),
+        //heightMapper: heightMapByCenter((v,d) => interpolator(interpolator(-.8,-1)(d), interpolator(1,-.4)(d),-1,1)(v)),
         //colourMapper: (v,o) => terrainColourMap(heightMapByCenter(rangeMap)(v,o)),
         colourMapper: terrainColourMap,
         autoDraw: true,
@@ -143,7 +143,7 @@ window.addEventListener('load', () => {
         maxAmplitude = (1-persistence**octaves)/(1-persistence);
 
     let visible = Array(octaves).fill(false);
-    visible[0] = true;
+    visible[0] = visible[2] = true;
     let seed = Math.random();
 
     let {draw} = graphGenerator("canvas2", {
@@ -176,9 +176,9 @@ let reload_canvas3a;
 window.addEventListener('load', () => {
     let slider = document.getElementById('canvas2-slider');
 
-    let rangeMin = interpolate(interpolate(-.2,-1)(slider.value),-1)
-        rangeMax = interpolate(1,interpolate(-1,1)(slider.value));
-        rangeMap = (v,d) => interpolate(rangeMin(d),rangeMax(d),-1,1)(v),
+    let rangeMin = interpolator(interpolator(-.2,-1)(slider.value),-1)
+        rangeMax = interpolator(1,interpolator(-1,1)(slider.value));
+        rangeMap = (v,d) => interpolator(rangeMin(d),rangeMax(d),-1,1)(v),
         colourMap = (v,o) => terrainColourMap(heightMapByCenter(rangeMap)(v,o));
 
     let {canvas: canvasMap, generate, draw: drawMap} = terrainGenerator("canvas3a", {
@@ -208,8 +208,8 @@ window.addEventListener('load', () => {
 
     let animationID = 0;
     slider.oninput = () => {
-        rangeMin = interpolate(interpolate(-.2,-1)(slider.value),-1)
-        rangeMax = interpolate(1,interpolate(-1,1)(slider.value));
+        rangeMin = interpolator(interpolator(-.2,-1)(slider.value),-1)
+        rangeMax = interpolator(1,interpolator(-1,1)(slider.value));
         window.cancelAnimationFrame(animationID);
         animationID = requestAnimationFrame(() => {
             drawMap();
@@ -408,7 +408,7 @@ window.addEventListener('load', () => {
     let colourMap = (v,{y,height}) => colourChunks(
         [[255, 229, 0, 255],null,[255, 165, 0, 255],null,[180,0,0,255],null,[0,0,0,255]],
         [-1,-1,-.3,-.3,.2,.2,.5,1]
-        )(interpolate(interpolate(-1,.5)(1-y/height),interpolate(0,1)(1-y/height),-1,1)(v));
+        )(interpolator(interpolator(-1,.5)(1-y/height),interpolator(0,1)(1-y/height),-1,1)(v));
 
     let dy = 0;
 
@@ -533,7 +533,7 @@ window.addEventListener('load', () => {
       // Compute the fade curve value for x
       var u = fade(x);
   
-      // Interpolate the four results
+      // interpolator the four results
       return lerp(
           lerp(n00, n10, u),
           lerp(n01, n11, u),
