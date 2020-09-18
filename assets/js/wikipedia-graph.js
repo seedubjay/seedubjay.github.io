@@ -1,4 +1,4 @@
-// canvas1: example directed graph
+// svg1: example directed graph
 window.addEventListener('load', () => {
     d3.json("/assets/json/wikipedia-graph-example.json").then(data => {
         
@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
 
         const simulation = d3.forceSimulation(data.nodes)
             .force("link", d3.forceLink(data.edges).id(d => d.id).strength(.1))
-            .force("charge", d3.forceManyBody().strength(-50))
+            .force("charge", d3.forceManyBody().strength(-100))
             .force("center", d3.forceCenter(width / 2, height / 2))
             .on("tick", () => {
                 let dist = d => Math.hypot(d.target.x-d.source.x, d.target.y-d.source.y);
@@ -84,5 +84,33 @@ window.addEventListener('load', () => {
                 event.subject.fx = null;
                 event.subject.fy = null;
             }));
+    });
+});
+
+let submit_route_request = () => {
+    let getValue = id => {
+        let e = document.getElementById(id);
+        return e.options[e.selectedIndex].value;
+    }
+    d3.json(`https://young-bayou-05072.herokuapp.com/wikipedia-route/${getValue('route-start-picker')}/${getValue('route-end-picker')}`).then(data => {
+        console.log(data);
+        d3.select('.route-output').selectAll("a").remove()
+        let div = d3.select('.route-output').selectAll("a").data(data, d => d.id).join("a").attr("href", d => `https://en.wikipedia.org/wiki/${encodeURI(d.replace(/ /g, '_'))}`).append('div').text(d => d)
+    })
+}
+
+$(document).ready(function() {
+    $('#route-start-picker').select2({
+        placeholder: "Start",
+        width: '100%',
+        theme: "bootstrap4"
+    });
+});
+
+$(document).ready(function() {
+    $('#route-end-picker').select2({
+        placeholder: "End",
+        width: '100%',
+        theme: "bootstrap4"
     });
 });
