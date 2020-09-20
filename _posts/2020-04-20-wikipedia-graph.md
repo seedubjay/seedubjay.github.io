@@ -44,21 +44,14 @@ Wikipedia is _extremely big_, which makes it quite cumbersome to use. As a compr
 <figure>
 <div class="route-query container">
     <div class="route-input row justify-content-center">
-        {% assign choices = site.data.wikipedia-graph.route-options | sort: "label" %}
         <div class="col-10 col-sm-6 col-lg">
-            <select id="route-start-picker">
+            <select id="route-start-picker" class="route-picker">
                 <option></option>
-                {% for page in choices %}
-                <option value="{{ page.id }}">{{ page.label }}</option>
-                {% endfor %}
             </select>
         </div>
         <div class="col-10 col-sm-6 col-lg">
-            <select id="route-end-picker">
+            <select id="route-end-picker" class="route-picker">
                 <option></option>
-                {% for page in choices %}
-                <option value="{{ page.id }}">{{ page.label }}</option>
-                {% endfor %}
             </select>
         </div>
         <div class="w-100 d-sm-none"></div>

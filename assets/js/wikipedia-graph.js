@@ -99,11 +99,16 @@ let submit_route_request = () => {
     })
 }
 
+$.fn.select2.defaults.set('language', {
+    inputTooShort: () => "Start typing to find pages"
+})
+
 $(document).ready(function() {
     $('#route-start-picker').select2({
         placeholder: "Start",
         width: '100%',
-        theme: "bootstrap4"
+        theme: "bootstrap4",
+        minimumInputLength: 1
     });
 });
 
@@ -111,6 +116,14 @@ $(document).ready(function() {
     $('#route-end-picker').select2({
         placeholder: "End",
         width: '100%',
-        theme: "bootstrap4"
+        theme: "bootstrap4",
+        minimumInputLength: 1
+    });
+});
+
+window.addEventListener('load', () => {
+    d3.json("/assets/json/wikipedia-graph-route-options.json").then(data => {
+        data.sort((a,b) => a.label < b.label)
+        d3.selectAll('.route-picker').selectAll("option").data(data).join("option").order((a,b) => a.label < b.label).attr("value", d => d.id).text(d => d.label)
     });
 });
