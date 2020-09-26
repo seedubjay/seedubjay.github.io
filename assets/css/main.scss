@@ -27,7 +27,7 @@ body {
     margin-bottom: 1em;
   }
 
-  // article > :first-child {
+  // article > p:first-of-type {
   //   &:first-letter {
   //     color: $alt-color-darker;
   //     display: inline-block;
@@ -372,3 +372,21 @@ table {
   "syntax-highlighting"
 ;
 
+.svg-chart {
+  font-family: $mono-font-family;
+  .bar-chart > rect {
+    fill: $alt-color;
+  }
+
+  .y-axis-inline {
+    .domain {
+      display: none;
+    }
+
+    .tick line {
+      stroke: lightgrey;
+      stroke-opacity: 0.7;
+      shape-rendering: crispEdges;
+    }
+  }
+}

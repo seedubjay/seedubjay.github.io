@@ -96,7 +96,7 @@ And so by simply swapping one colour palette out for another, we can create this
 
 <figure>
 {% include canvas.html id="canvas1" reload="light" class="interactive" %}
-<figcaption><p class="caption">Hover to reveal the underlying height map</p></figcaption>
+<figcaption><p class="caption">Hover/hold to reveal the underlying height map</p></figcaption>
 </figure>
 
 The colour palette can also interact with space and time in complex ways. For instance, we can adjust the colour palette for pixels further away from the centre of the map so that more and more noise is converted into water closer to the edges.
@@ -137,5 +137,5 @@ With some slight changes to the terrain generation colour palettes, we can so mu
 
 <figure>
 {% include canvas.html id="canvas10" width="200" %}
-<figcaption><p class="caption">Fire (hover for animation)</p></figcaption>
+<figcaption><p class="caption">Fire (hover/hold for animation)</p></figcaption>
 </figure>
