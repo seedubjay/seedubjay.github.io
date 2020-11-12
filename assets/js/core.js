@@ -43,20 +43,22 @@ function setPointerMoveAction(canvas, setPosition = null, cb = null) {
     };
 }
 
-function addDrawLoop(draw, shouldDraw, cb) {
+function addDrawLoop(draw, shouldDraw = () => true, cb = () => {}) {
     function drawLoop(){
         requestAnimationFrame(drawLoop);
         if(shouldDraw()) {
             draw();
-            if (typeof cb !== 'undefined') cb();
+            cb();
         }
     }
-    window.addEventListener("load", drawLoop);
+    if (document.readyState == "complete") drawLoop();
+    else window.addEventListener("load", drawLoop);
 }
 
-function drawOnce(draw, cb = null) {
-    window.addEventListener("load", draw);
-    if (cb) cb();
+function drawOnce(draw, cb = () => {}) {
+    if (document.readyState == "complete") draw();
+    else window.addEventListener("load", draw);
+    cb();
 }
 
 for (let x of document.getElementsByClassName('no-focus')) {
