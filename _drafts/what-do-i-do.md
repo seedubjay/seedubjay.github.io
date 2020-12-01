@@ -1,7 +1,7 @@
 ---
 layout: post
 title: It's like magic
-subtitle: four answers to the question "what do you do?"
+subtitle: what do i even do?
 ---
 
 _So... What do you actually do in computer science?_

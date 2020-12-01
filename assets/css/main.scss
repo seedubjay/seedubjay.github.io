@@ -234,6 +234,12 @@ figure {
 
 article {
 
+  .meta {
+    font-size: 0.9em;
+    font-family: $mono-font-family;
+    color: lighten($text-color, 20%);
+  }
+
   padding-left: 16px;
   padding-right: 16px;
   

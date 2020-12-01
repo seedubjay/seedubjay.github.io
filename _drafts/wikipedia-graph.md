@@ -133,6 +133,6 @@ So, if a friend ever challenges you to the 'Wikipedia Game', you'll have the upp
 
 So you might need to stall for a while.
 
-## Footnotes
+---
 
-All analysis was done on Wikipedia as of September 1st 2020, from Wikipedia's canonical data dump.
+`Analysis is current as of September 1st 2020`
