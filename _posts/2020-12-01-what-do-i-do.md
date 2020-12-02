@@ -1,6 +1,6 @@
 ---
 layout: post
-title: It's like magic
+title: You're a Wizard, Harry
 subtitle: what do i even do?
 ---
 
