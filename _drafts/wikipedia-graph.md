@@ -9,16 +9,20 @@ use_d3: true
 
 You can play a game on Wikipedia where you pick two random pages and you try to get from one to the other by making as few clicks as possible.
 
-For example, you can get from [Pavlova](https://en.wikipedia.org/wiki/Pavlova_(cake)), an Australian dessert, to [Time Further Out](https://en.wikipedia.org/wiki/Time_Further_Out), a rather obscure album from jazz pianist Dave Brubeck, in just 5 clicks: _Pavlova_ → _List of strawberry dishes_ → _Minnesota_ → _Judy Garland_ → _Dave Brubeck_ → _Time Further Out_.
+For example, you can get from _Pavlova_, an Australian dessert, to _Time Further Out_, an album by jazz pianist Dave Brubeck, in just 5 clicks: {% assign path = site.data.wikipedia-graph.example -%}
+{%- for page in path -%}
+    [{{page}}](https://en.wikipedia.org/wiki/{{page | replace: " ","_" | url_encode}})
+    {%- if page != path.last %} → {% endif -%}
+{%- endfor %}.
 
 If you've got an competitive streak, there's an [online game](https://www.thewikigame.com) too.
 
 It begs the question though... **How many clicks do you _actually_ need?**
 
 ## Simplifying the problem
-We don't care about every word on every Wikipedia page. Instead, we can just think about all of Wikipedia's _pages_ and all of the _links_ from one page to the next.
+We don't care about every word on every Wikipedia page. Instead, we can just think about all of Wikipedia's _links_ from one page to the next.
 
-The term for this in mathematics is a _directed graph_. In fact, any collection of 'things' and connections between them can be thought of as a directed graph - cross-country road retworks, family trees, the electricity grid, etc. 
+The term for this in mathematics is a _directed graph_. In fact, any collection of 'things' and connections between them can be thought of as a directed graph - cross-country road networks, family trees, the electricity grid, etc. 
 
 For example, we can visualise a small group of Wikipedia pages and the links from each to the next like this:
 
@@ -31,11 +35,11 @@ For example, we can visualise a small group of Wikipedia pages and the links fro
 
 Doing this transformation is useful for two reasons.
 
-First, picking the right way to represent data gives us _a new way to think about the problem_. In other words, thinking about lots of dots and arrows is easier than thinking about pages of Wikipedia text.
+First, picking the right way to represent data gives us _a new way to think about the problem_. Essentially, thinking about lots of dots and arrows is easier than thinking about pages upon pages of Wikipedia text.
 
 Second, converting our obscure problem into a well-known format gives us access to a wealth of research and algorithms to help us solve the problem.
 
-Researchers have spent decades developing algorithms and well-tested code to analyse directed graphs. They may have been designed for a completely different purpose, but they work just as well for clicking through Wikipedia pages as they do for finding ancestors in a family tree, optimising trucking routes between cities, and lots of other unrelated problems. 
+Researchers have spent decades developing algorithms and well-tested code to analyse directed graphs. They may have been designed for a completely different purpose, but they work just as well for navigating Wikipedia pages as they do for finding ancestors in a family tree, optimising trucking routes between cities, and lots of other unrelated problems. 
 
 ## Traversing Wikipedia
 
@@ -43,7 +47,7 @@ There are **6,148,503 pages of content** on Wikipedia.
 
 Of these pages, **5,548,826 pages are all connected together by links**. This means that any page in this group can reach any other just with clicks. (The technical term for this is the 'largest connected component')
 
-Remarkably, if you pick any two pages of these pages it will take only **5 clicks on average to get from one page to the other**. In fact, there's an **over 99.93% chance that you can get from one page to the other in 7 clicks or less**.
+Remarkably, if you pick any two of these pages it will take only **5 clicks on average to get from one page to the other**. In fact, there's an **over 99.93% chance that you can get from one page to the other in 7 clicks or less**.
 
 <figure>
 {% include svg.html id="svg2" class="no-outline svg-chart" %}
@@ -129,7 +133,7 @@ So, if a friend ever challenges you to the 'Wikipedia Game', you'll have the upp
 1. transform ~220 million links into a graph format that is actually usable, and
 1. use any ol' path-finding algorithm to find a route to get you from one page to another
 
-[In my case](https://github.com/seedubjay/wikipedia-graph) this takes about a week or so to write and 4 hours to compute...
+[In my case](https://github.com/seedubjay/wikipedia-graph) this takes about 4 hours...
 
 So you might need to stall for a while.
 

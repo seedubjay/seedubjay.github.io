@@ -33,9 +33,7 @@ There are a few obvious properties to Perlin noise. The areas with 'extreme' val
 
 Of course, there are also faults! If you reload the picture a few times, you might start to notice some odd blockiness and straight lines... But, as we'll see, these faults can be covered up.
 
-The success of Perlin noise didn't just come from the noise it produced, but also from how fast it produced it. These little faults were a small price to pay for a fast algorithm, especially back in 1983 when computing time was so slow and expensive.
-
-It is also extremely easy to adapt to different situations. Here, we converted the noise into shades of grey, but we can also think of them as heights, with light patches being the 'hills' and dark patches being the 'valleys'. This will become much more useful later on.
+The success of Perlin noise didn't just come from the noise it produced, but also from how fast it produced it. These little faults were a small price to pay for a fast algorithm, especially back in 1983 when computation was so slow and expensive.
 
 ## Octaves
 
@@ -96,7 +94,7 @@ And so by simply swapping one colour palette out for another, we can create this
 
 <figure>
 {% include canvas.html id="canvas1" reload="light" class="interactive" %}
-<figcaption><p class="caption">Hover/hold to reveal the underlying height map</p></figcaption>
+<figcaption><p class="caption">Hover/drag to reveal the underlying noise</p></figcaption>
 </figure>
 
 The colour palette can also interact with space and time in complex ways. For instance, we can adjust the colour palette for pixels further away from the centre of the map so that more and more noise is converted into water closer to the edges.
@@ -139,3 +137,6 @@ With some slight changes to the terrain generation colour palettes, we can so mu
 {% include canvas.html id="canvas10" width="200" %}
 <figcaption><p class="caption">Fire (hover/hold for animation)</p></figcaption>
 </figure>
+
+Of course, none of these demos look exactly like what they're trying to imitate... but perhaps it's a little alarming that they get 90% of the way there. This is especially useful in films and video games, where you only have a split second to judge the realism of gravel on the ground or the shape of the shoreline.
+
