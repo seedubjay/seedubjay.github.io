@@ -137,6 +137,7 @@ So, if a friend ever challenges you to the 'Wikipedia Game', you'll have the upp
 
 So you might need to stall for a while.
 
----
 
-`Analysis is current as of September 1st 2020`
+<div class="footnotes">
+Analysis is current as of September 1st 2020`
+</div>

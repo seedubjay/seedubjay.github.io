@@ -57,7 +57,7 @@ You can see what different combinations look like here:
     </div>
 </div>
 <figcaption>
-<p class="caption">Add or remove octaves from the noise</p>
+<p class="caption">Toggle octaves in the noise</p>
 </figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ It works in 2D as well!
     </div>
 </div>
 <figcaption>
-<p class="caption">Add or remove octaves from the noise</p>
+<p class="caption">Toggle octaves in the noise</p>
 </figcaption>
 </figure>
 
@@ -138,5 +138,6 @@ With some slight changes to the terrain generation colour palettes, we can so mu
 <figcaption><p class="caption">Fire (hover/hold for animation)</p></figcaption>
 </figure>
 
-Of course, none of these demos look exactly like what they're trying to imitate... but perhaps it's a little alarming that they get 90% of the way there. This is especially useful in films and video games, where you only have a split second to judge the realism of gravel on the ground or the shape of the shoreline.
+Of course, none of these demos look exactly like what they're trying to imitate... but perhaps it's a little alarming how close they're getting. This is especially useful in films and video games, where you only have a split second to judge the realism of gravel on the ground or the shape of the shoreline. However, since the organic world is obviously more complex than a few patterns layered on top each other, computers will never be able to truly imitate life just with noise.
 
+And so, thankfully, we don't have to worry about a robot takeover just yet. 

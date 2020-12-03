@@ -60,6 +60,11 @@ body {
     font-weight: 600;
     letter-spacing: 0em;
   }
+  
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  };
 }
 
 .main {
@@ -73,6 +78,17 @@ body {
   border-top: 3px solid $alt-color;
 }
 
+@media (max-width: 480px) {
+
+  header {
+    font-size: 12px;
+  }
+
+  .post-item {
+    font-size: 12px;
+  }
+}
+
 header {
   margin-top: 1em;
   margin-bottom: 2em;
@@ -83,13 +99,13 @@ header {
 
   #site-title h1 {
     color: $text-color;
-    font-size: 4rem;
+    font-size: 4em;
     margin-bottom: 0;
   }
 
   #site-subtitle h2 {
     color: lighten($text-color, 10%);
-    font-size: 1rem;
+    font-size: 1em;
     margin: 0;
   }
 
@@ -98,11 +114,11 @@ header {
   }
 
   .ornament {
-    margin-top: 1rem;
+    margin-top: 1em;
   }
 
   .ornament img {
-    height: 30px;
+    height: 2em;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -111,8 +127,7 @@ header {
 .post-item {
 
   font-family: $mono-font-family;
-  margin-bottom: 1.5em;
-  
+
   p {
     color: $text-color;
   }
@@ -139,7 +154,7 @@ header {
   }
 
  .post-subtitle {
-   font-size: 1.2em;
+   font-size: 1.1em;
    line-height: 1em;
   }
 }
@@ -304,11 +319,15 @@ blockquote {
 }
 
 footer {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  padding: 1.5em 0 .5em 0;
   font-size: $small-font-size;
   font-family: $mono-font-family;
+
   // color: $alt-text-color;
+
+  p {
+    margin: 0;
+  }
 
   .biography {
     margin-top: 2em;
@@ -337,7 +356,10 @@ footer {
 .footnotes {
   border-top: 1px solid $subdued-border;
   padding-top: 1em;
-  margin-top: 2em;
+  margin-top: 1em;
+
+  font-family: $mono-font-family;
+  font-size: $small-font-size;
 
   ul, ol {
     margin-left: -2em;

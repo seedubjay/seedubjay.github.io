@@ -2,6 +2,7 @@
 layout: default
 ---
 <div id="post-list">
+	<hr>
 	{% for post in site.posts %}
 	<div class="post-item">
 		<span class="post-meta">{{ post.date | date: site.date_format }}</span>
@@ -16,5 +17,6 @@ layout: default
 			{% endif %}
 		</a>
 	</div>
+	<hr>
 	{% endfor %}
 </div>

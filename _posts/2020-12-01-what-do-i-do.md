@@ -1,12 +1,12 @@
 ---
 layout: post
 title: You're a Wizard, Harry
-subtitle: what do i even do?
+subtitle: what do compscis do exactly?
 ---
 
 _So... What do you actually do in computer science?_
 
-I currently study undergraduate computer science at the University of Cambridge, and this is by far one of the hardest questions I get asked on a regular basis. Most compscis ("computer scientists") hear this question from their friends and family often, but the reactions are very mixed.
+I currently study undergraduate computer science at the University of Cambridge, and this is by far one of the most difficult questions I get asked on a regular basis. Most compscis ("computer scientists") hear this question from their friends and family often, but the reactions are very mixed.
 
 There are certainly some who find this question frustrating, and I don't blame them. Spending your entire career on a topic and then being asked to summarise it in a punchy one-liner can be a little deflating. 
 
@@ -16,17 +16,17 @@ And there are some who simply have a light joke at their friend's expense for no
 
 I don't find any of these options very _useful_ though. 
 
-It is true that computer science is a quite poorly understood field. For example, what is 'the cloud'? How does your phone store all your photos, even when its turned off? How does Google make money if its users don't ever pay for anything?
+It is true that computer science is a quite poorly understood field. For example, what is 'the cloud'? How does your phone store all your photos, even when it's turned off? How does Google make money if its users don't ever pay for anything?
 
 Frankly, it verges on bizarre that _so few people_ have any idea why or how the computers which run our government, communication, entertainment, hospitals, military, businesses and schools work. Every day, we place our faith in anonymous engineers to handle our finances, our private information and more without a second thought.
 
  Of course, we place faith in things all the time. But when we drive over a bridge or get injected with a vaccine, we can reassure ourselves by imagining all the simulations the architects must have done, and imagining all the trials the doctors must have performed to approve the vaccine. There is no such reassurance for most people when it comes to technology, _as there is no groundwork understanding of the subject to base their thinking on_.
 
-It begs the question... **If no-one apart from compscis know how computers work, then how can anyone apart from compscis be to blame?** 
+It begs the question... **If no-one apart from compscis know how computers work, how can anyone apart from compscis be to blame?** 
 
 If computer science is truly changing the world (and I happen to think it is), it is up to their creators to explain to the world why it is important and worthy of people's time. 
 
-My hope for this website/blog/diary (?) is that it can add to this conversation in a small way. Hopefully, anyone who is curious about computers will be able to find something here which is interesting to them. Nothing here requires any background knowledge, and you won't see a single line of code. My goal is that people can engage meaningfully with computer science, and then get on with the rest of their lives without any fuss.
+My hope for this website/blog/diary (?) is that it can add to this conversation in a small way. Hopefully, anyone who is curious about computers will be able to find something here which is interesting to them. Nothing here requires any background knowledge, and you won't see a single line of code. My goal is that people can engage meaningfully with computer science here, and then get on with the rest of their lives without any fuss.
 
 And so, coming full circle, what do I actually do in computer science? Here are a few of the explanations from my arsenal that I usually give. 
 
