@@ -44,12 +44,12 @@ body {
 
   h1 {
     font-weight: 600;
-    font-size: 2em;
+    font-size: 1.6em;
   }
 
   h2 {
     margin-top: 1em;
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin-bottom: 0.6em;
   }
 
@@ -90,8 +90,8 @@ body {
 }
 
 header {
-  margin-top: 1em;
-  margin-bottom: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 
   text-align: center;
   font-family: $mono-font-family;
@@ -99,14 +99,28 @@ header {
 
   #site-title h1 {
     color: $text-color;
-    font-size: 4em;
+    font-size: 3rem;
     margin-bottom: 0;
   }
 
   #site-subtitle h2 {
     color: lighten($text-color, 10%);
-    font-size: 1em;
+    font-size: 1rem;
     margin: 0;
+  }
+
+  &:not(.big-title) {
+
+    #site-title h1 {
+      font-size: 1.5rem;
+      border: 2px solid grey;
+      padding: .2em 2em;
+      display: inline-block;
+    }
+
+    #site-subtitle {
+      display: none;
+    }
   }
 
   a:hover {
@@ -124,6 +138,17 @@ header {
   }
 }
 
+#post-list > hr {
+
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+
+}
+
+.post-link:hover {
+  text-decoration: none;
+}
+
 .post-item {
 
   font-family: $mono-font-family;
@@ -137,15 +162,11 @@ header {
     color: lighten($text-color, 20%);
   }
 
-  .post-link:hover {
-    text-decoration: none;
-  }
-
   .post-title {
     font-size: 1.5em;
     line-height: 1em;
     font-weight: bold;
-    margin-bottom: 0.2em;
+    margin-bottom: 0;
   }
 
   .post-title:hover {
@@ -165,7 +186,7 @@ figure {
   width: 70%;
   height: 100%;
   min-width: 300px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 1.2rem auto;
 
   h3 {
     text-align: center;
@@ -293,6 +314,10 @@ article {
 
   code {
     font-family: $mono-font-family;
+  }
+
+  .error {
+    color: red;
   }
 }
 

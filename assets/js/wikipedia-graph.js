@@ -4,8 +4,6 @@ const graphMargin = {top: 5, right: 5, bottom: 40, left: 25}
 window.addEventListener('load', () => {
     d3.json("/assets/json/wikipedia-graph-example.json").then(data => {
 
-        console.log(data)
-        
         let svg = d3.select("#svg1");
         const viewbox = svg.attr("viewBox").split(" ");
         const width = +viewbox[2];
@@ -158,8 +156,6 @@ window.addEventListener('load', () => {
             .attr("y", d => y(d.y))
             .attr("width", x.bandwidth())
             .attr("height", d => height - y(d.y))
-        
-        
     });
 });
 
@@ -169,20 +165,28 @@ let submit_route_request = () => {
         let e = document.getElementById(id);
         return e.options[e.selectedIndex].value;
     }
-    d3.json(`https://young-bayou-05072.herokuapp.com/wikipedia-route/${getValue('route-start-picker')}/${getValue('route-end-picker')}`).then(data => {
-        d3.select('.route-output').selectAll("a").remove()
-        d3
-            .select('.route-output')
-            .selectAll("a")
-            .data(data, d => d.id)
-            .join("a")
-            .attr("href", d => `https://en.wikipedia.org/wiki/${encodeURI(d.replace(/ /g, '_'))}`)
-            .append("div")
-            .text(d => d)
-    })
+    let s = getValue('route-start-picker');
+    let e = getValue('route-end-picker');
+    if (!s || !e) {
+        document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">start/end of path missing!</div>'
+    } else {
+        d3.json(`https://young-bayou-05072.herokuapp.com/path/${s}/${e}`).then(data => {
+            document.getElementsByClassName('route-output')[0].innerHTML = ''
+            d3.select('.route-output').selectAll("a").remove()
+            d3
+                .select('.route-output')
+                .selectAll("a")
+                .data(data, d => d.id)
+                .join("a")
+                .attr("href", d => `https://en.wikipedia.org/wiki/${encodeURI(d.replace(/ /g, '_'))}`)
+                .append("div")
+                .text(d => d)
+        })
+    }
 }
 window.addEventListener('load', () => {
-    d3.json("/assets/json/wikipedia-graph-route-options.json").then(data => {
+    d3.json("https://young-bayou-05072.herokuapp.com/pages").then(data => {
+        data.unshift({"id":null, "label":""})
         d3
             .selectAll('.route-picker')
             .selectAll("option")
@@ -195,18 +199,24 @@ window.addEventListener('load', () => {
     $.fn.select2.defaults.set('language', {
         inputTooShort: () => "Start typing to find pages"
     })
+
+    let match = (params, data) => {
+        return data.text.toUpperCase().indexOf(params.term.toUpperCase()) == 0 ? data : null;
+    }
     
     $('#route-start-picker').select2({
         placeholder: "Start",
         width: '100%',
         theme: "bootstrap4",
-        minimumInputLength: 1
+        minimumInputLength: 1,
+        matcher: match
     });
 
     $('#route-end-picker').select2({
         placeholder: "End",
         width: '100%',
         theme: "bootstrap4",
-        minimumInputLength: 1
+        minimumInputLength: 1,
+        matcher: match
     });
 });

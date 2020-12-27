@@ -3,7 +3,7 @@
   {% include head.html %}
   <body>
       <div class="container main">
-        <header>
+        <header {% if page.big_site_title %}class="big-title"{% endif %}>
             <a href="{{ "/" | relative_url }}">
               <div id="site-title"><h1>{{ site.title }}</h1></div>
               <div id="site-subtitle"><h2>{{ site.subtitle }}</h2></div>

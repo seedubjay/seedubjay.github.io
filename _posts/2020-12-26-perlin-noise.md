@@ -1,12 +1,11 @@
 ---
 layout: post
 title: Making Machines Less Mechanical
-subtitle: perlin noise
 scripts: ['core', 'perlin-noise']
 ---
 Computers aren't very good at _blending in_. 
 
-This issue crops up all the time, from creating creatures in video games which move organically, to creating a voice assistant (Siri, Alexa, etc...) which speaks with a natural-sounding cadence, to generating realistic clouds in the sky and rocks on the ground in an animated movie.
+This issue crops up all the time - creating creatures in video games which move organically, creating a voice assistant (Siri, Alexa, etc...) which speaks with a natural-sounding cadence, or generating realistic clouds in the sky and rocks on the ground in an animated movie.
 
 Alas, all of these problems are quite hard (and the focus of ongoing research) so we'll stick to something simpler. 
 
@@ -138,6 +137,6 @@ With some slight changes to the terrain generation colour palettes, we can so mu
 <figcaption><p class="caption">Fire (hover/hold for animation)</p></figcaption>
 </figure>
 
-Of course, none of these demos look exactly like what they're trying to imitate... but perhaps it's a little alarming how close they're getting. This is especially useful in films and video games, where you only have a split second to judge the realism of gravel on the ground or the shape of the shoreline. However, since the organic world is obviously more complex than a few patterns layered on top each other, computers will never be able to truly imitate life just with noise.
+Of course, none of these demos look exactly like what they're trying to imitate... but perhaps it's a little alarming that they're already pretty close. This is especially useful in films and video games where you only have a split second to judge the realism of gravel on the ground or the shape of the shoreline.
 
-And so, thankfully, we don't have to worry about a robot takeover just yet. 
+And there's something beautiful about this -- the 'best' noise is not necessarily the noise which mimics life most accurately; instead, it is the algorithm which _runs fastest and gets the job done_. A computer scientist's dream...

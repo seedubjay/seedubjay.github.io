@@ -35,7 +35,7 @@ For example, we can visualise a small group of Wikipedia pages and the links fro
 
 Doing this transformation is useful for two reasons.
 
-First, picking the right way to represent data gives us _a new way to think about the problem_. Essentially, thinking about lots of dots and arrows is easier than thinking about pages upon pages of Wikipedia text.
+First, picking the right way to represent data gives us _a new way to think about the problem_. In other words, thinking about lots of dots and arrows is easier than thinking about pages upon pages of Wikipedia text.
 
 Second, converting our obscure problem into a well-known format gives us access to a wealth of research and algorithms to help us solve the problem.
 
@@ -47,7 +47,7 @@ There are **6,148,503 pages of content** on Wikipedia.
 
 Of these pages, **5,548,826 pages are all connected together by links**. This means that any page in this group can reach any other just with clicks. (The technical term for this is the 'largest connected component')
 
-Remarkably, if you pick any two of these pages it will take only **5 clicks on average to get from one page to the other**. In fact, there's an **over 99.93% chance that you can get from one page to the other in 7 clicks or less**.
+Remarkably, if you pick any two of these pages it will take only **5 clicks on average to get from one page to the other**. In fact, there's a **99.93% chance that you can get from one page to the other in 7 clicks or less**.
 
 <figure>
 {% include svg.html id="svg2" class="no-outline svg-chart" %}
@@ -58,7 +58,7 @@ Remarkably, if you pick any two of these pages it will take only **5 clicks on a
 
 What happens in the final 0.07% of paths though? 
 
-We are getting into the backwaters of Wikipedia here. In the very worst case, **68 clicks are required to get from one page to another**. There are many of starting pages that can achieve this, but only one target page... Yes, as you've probably guessed already, it's the [1930 São Paulo FC season](https://en.wikipedia.org/wiki/1930_S%C3%A3o_Paulo_FC_season). 
+We are getting into the backwaters of Wikipedia here. In the very worst case, **68 clicks are required**. There are many of starting pages that can achieve this, but only one target page... Yes, as you've probably guessed already, it's the [1930 São Paulo FC season](https://en.wikipedia.org/wiki/1930_S%C3%A3o_Paulo_FC_season). 
 
 Why? Here's an excerpt of the 68 glorious clicks to get there when starting at [No Guru, No Method, No Teacher](https://en.wikipedia.org/wiki/No_Guru,_No_Method,_No_Teacher), Van Morrison's 16th studio album:
 
@@ -86,7 +86,7 @@ Ironically, the journey back is completely average, taking just 5 clicks:
 
 Wikipedia is a naturally evolving platform, written and rewritten by human writers. So how could they have possibly created such an enormous network which is so closely connected?
 
-Another tool we can use to measure this directed graph is calculating each page's _betweenness centrality_. This value represents how often some random journey between two pages will 'pass through' our current page. The higher a page's betweenness centrality, the more central it is in the network, and the more pivotal it is to Wikipedia's tight connectivity.
+Another tool we can use to measure this directed graph is the _betweenness centrality_ of each page. This value represents the likelihood that a page gets used in a path between two other randomly chosen pages in the graph. The higher a page's betweenness centrality, the more central it is in the network, and the more pivotal it is to Wikipedia's tight connectivity.
 
 <figure>
 {% include svg.html id="svg2" class="no-outline svg-chart" %}
@@ -137,7 +137,6 @@ So, if a friend ever challenges you to the 'Wikipedia Game', you'll have the upp
 
 So you might need to stall for a while.
 
-
 <div class="footnotes">
-Analysis is current as of September 1st 2020`
+Analysis is current as of September 1st 2020
 </div>

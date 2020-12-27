@@ -1,22 +1,23 @@
 ---
 layout: default
+big_site_title: 1
 ---
 <div id="post-list">
 	<hr>
 	{% for post in site.posts %}
+	<a class="post-link" href="{{ post.url | relative_url }}">
 	<div class="post-item">
-		<span class="post-meta">{{ post.date | date: site.date_format }}</span>
-		<a class="post-link" href="{{ post.url | relative_url }}">
 			<p class="post-title">
 				{{ post.title | escape }}
 			</p>
-			{% if post.subtitle %}
+			<span class="post-meta">{{ post.date | date: site.date_format }}</span>
+			<!-- {% if post.subtitle %}
 			<p class="post-subtitle">
 				{{ post.subtitle | escape }}
-			</p>
-			{% endif %}
-		</a>
+			</p> -->
+			<!-- {% endif %} -->
 	</div>
+</a>
 	<hr>
 	{% endfor %}
 </div>
