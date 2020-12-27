@@ -364,20 +364,51 @@ window.addEventListener('load', () => {
         [[173,216,230,255],null,[255,255,255,255]],
         [-1,-.2,.3,1]
     );
-
-    let {canvas, generate} = terrainGenerator("canvas8", {
-        perlinOptions: {scale:150, octaves: 6, stretch: 2},
+    let {canvas, generate, draw} = terrainGenerator("canvas8", {
+        perlinOptions: {scale:150,octaves:6,stretch:2},
         colourMapper: colourMap,
         autoDraw: true,
     });
     if (!canvas) return;
-
+    
+    let mouse = {x:0, y:0}
+    let animationID = 0;
+    let mouseRadius = 150;
+    let prevMouse = {x: 0, y: 0};
+    setPointerMoveAction(canvas, p => {mouse=p}, () => {
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            draw({
+                colourMapper: (v, {x, y, width, height}) => {
+                    if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
+                        return terrainGreyscaleMap(v);
+                    } else {
+                        return colourMap(v);
+                    }
+                },
+                x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
+                y1: Math.min(prevMouse.y, mouse.y) - mouseRadius,
+                x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
+                y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
+            });
+            prevMouse = mouse;
+        });
+    });
+    
+    canvas.onmouseout = () => {
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            draw({
+                x1: prevMouse.x-mouseRadius,
+                y1: prevMouse.y-mouseRadius,
+                x2: prevMouse.x+mouseRadius,
+                y2: prevMouse.y+mouseRadius,
+            });
+        });
+    };
+    
     generate();
     reload_canvas8 = generate;
-
-    imageGenerator("canvas8b", {
-        getPixel: (x,_,{width}) => colourMap(x/width*2-1)
-    }).draw();
 });
 
 // canvas9: blood vessels
@@ -388,19 +419,51 @@ window.addEventListener('load', () => {
         [0,.01,.02,.02,.05,1])
         (Math.abs(v));
 
-    let {canvas, generate} = terrainGenerator("canvas9", {
-        perlinOptions: {scale:200, octaves: 3, stretch: 1.5},
+    let {canvas, generate, draw} = terrainGenerator("canvas9", {
+        perlinOptions: {scale:300, octaves: 3, stretch: 1.5},
         colourMapper: colourMap,
         autoDraw: true,
     });
     if (!canvas) return;
-
+    
+    let mouse = {x:0, y:0}
+    let animationID = 0;
+    let mouseRadius = 150;
+    let prevMouse = {x: 0, y: 0};
+    setPointerMoveAction(canvas, p => {mouse=p}, () => {
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            draw({
+                colourMapper: (v, {x, y, width, height}) => {
+                    if (Math.hypot(mouse.x-x, mouse.y-y) < mouseRadius) {
+                        return terrainGreyscaleMap(v);
+                    } else {
+                        return colourMap(v);
+                    }
+                },
+                x1: Math.min(prevMouse.x, mouse.x) - mouseRadius, 
+                y1: Math.min(prevMouse.y, mouse.y) - mouseRadius,
+                x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
+                y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
+            });
+            prevMouse = mouse;
+        });
+    });
+    
+    canvas.onmouseout = () => {
+        window.cancelAnimationFrame(animationID);
+        animationID = requestAnimationFrame(() => {
+            draw({
+                x1: prevMouse.x-mouseRadius,
+                y1: prevMouse.y-mouseRadius,
+                x2: prevMouse.x+mouseRadius,
+                y2: prevMouse.y+mouseRadius,
+            });
+        });
+    };
+    
     generate();
     reload_canvas9 = generate;
-
-    imageGenerator("canvas9b", {
-        getPixel: (x,_,{width}) => colourMap(x/width*2-1)
-    }).draw();
 });
 
 // canvas10: fire

@@ -62,7 +62,17 @@ You can see what different combinations look like here:
 </figcaption>
 </figure>
 
-It works in 2D as well!
+Even simple noise like this is already useful. For instance, you can begin to replicate hand-drawn sketches by adding noise to each line:
+
+<figure>
+{% include canvas.html id="canvas6" reload="dark" %}
+<figcaption>
+    <input type="range" min="0" max="1" value=".4" step="0.01" class="slider" id="canvas6-slider">
+    <p class="caption">Adjust the messiness of the sketch</p>
+</figcaption>
+</figure>
+
+What makes Perlin noise so exciting is that it works just as well in 2D.
 
 <figure>
 {% include canvas.html id="canvas7" width="400" reload="light" %}
@@ -95,7 +105,7 @@ And so by simply swapping one colour palette out for another, we can create this
 
 <figure>
 {% include canvas.html id="canvas1" reload="light" class="interactive" %}
-<figcaption><p class="caption">Hover/drag to reveal the underlying noise</p></figcaption>
+<figcaption><p class="caption">Hover/drag to reveal underlying noise</p></figcaption>
 </figure>
 
 The colour palette can also interact with space and time in complex ways. For instance, we can adjust the colour palette for pixels further away from the centre of the map so that more and more noise is converted into water closer to the edges.
@@ -110,28 +120,18 @@ The colour palette can also interact with space and time in complex ways. For in
 </figure>
 
 
-## More noise
+## More colour palettes
 
 With some slight changes to the terrain generation colour palettes, we can so much more.
 
 <figure>
-{% include canvas.html id="canvas6" reload="dark" %}
-<figcaption>
-    <input type="range" min="0" max="1" value=".4" step="0.01" class="slider" id="canvas6-slider">
-    <p class="caption">Adjust the messiness of the sketch</p>
-</figcaption>
+    {% include canvas.html id="canvas8" reload="dark" class="interactive" %}
+    <figcaption><p class="caption">Clouds (hover/drag to reveal underlying noise)</p></figcaption>
 </figure>
 
 <figure>
-    {% include canvas.html id="canvas8" width="400" reload="dark" %}
-    {% include canvas.html id="canvas8b" class="no-outline" width="800" height="30" %}
-    <figcaption><p class="caption">Clouds</p></figcaption>
-</figure>
-
-<figure>
-    {% include canvas.html id="canvas9" width="400" reload="dark" %}
-    {% include canvas.html id="canvas9b" class="no-outline" width="800" height="30" %}
-    <figcaption><p class="caption">Veins</p></figcaption>
+    {% include canvas.html id="canvas9" reload="dark" class="interactive" %}
+    <figcaption><p class="caption">Veins (hover/drag to reveal underlying noise)</p></figcaption>
 </figure>
 
 <figure>
