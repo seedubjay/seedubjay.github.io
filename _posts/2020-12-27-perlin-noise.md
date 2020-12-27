@@ -2,6 +2,7 @@
 layout: post
 title: Making Machines Less Mechanical
 scripts: ['core', 'perlin-noise']
+thumbnail: '/assets/png/perlin-noise.png'
 ---
 Computers aren't very good at _blending in_. 
 

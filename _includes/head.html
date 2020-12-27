@@ -5,6 +5,11 @@
     <meta name="theme-color" content="hsl(35, 36%, 95%)">
     <meta name="author" content="{{ site.author }}" />
 
+    {% if page.thumbnail %}<meta property="og:image" content="{{ page.thumbnail }}" />{% endif %}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{page.url}}" />
+    <meta property="og:title" content="{{page.title}}" />
+
     <link rel="icon" type="image/svg+xml" href="/assets/svg/ornament.svg">
     <link rel='mask-icon' href='/assets/svg/ornament.svg' color='hsl(0, 0%, 25%'>
 
