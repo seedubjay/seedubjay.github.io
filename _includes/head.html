@@ -8,12 +8,13 @@
     {% if page.thumbnail %}<meta property="og:image" content="{{ page.thumbnail }}" />{% endif %}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{page.url}}" />
-    <meta property="og:title" content="{{page.title}}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 
     <link rel="icon" type="image/svg+xml" href="/assets/svg/ornament.svg">
     <link rel='mask-icon' href='/assets/svg/ornament.svg' color='hsl(0, 0%, 25%'>
 
     {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.title %}{{ content | raw_content }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+    <meta property="og:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
 
     {% capture keywords %}{% if page.keywords %}{{ page.keywords }}{% elsif page.title %}{{""}}{% else %}{{ site.keywords }}{% endif %}{% endcapture %}
