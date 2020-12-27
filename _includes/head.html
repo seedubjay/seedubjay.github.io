@@ -13,9 +13,9 @@
     <link rel="icon" type="image/svg+xml" href="/assets/svg/ornament.svg">
     <link rel='mask-icon' href='/assets/svg/ornament.svg' color='hsl(0, 0%, 25%'>
 
-    {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.title %}{{ content | raw_content }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
-    <meta property="og:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
-    <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
+    {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.subtitle }}{% endif %}{% endcapture %}
+    <meta property="og:description" content="{{ description }}" />
+    <meta name="description" content="{{ description }}" />
 
     {% capture keywords %}{% if page.keywords %}{{ page.keywords }}{% elsif page.title %}{{""}}{% else %}{{ site.keywords }}{% endif %}{% endcapture %}
     <meta name="keywords" content="{{ keywords | strip_html | condense_spaces }}" />
