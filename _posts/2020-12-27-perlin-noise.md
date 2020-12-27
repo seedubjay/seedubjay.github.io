@@ -72,7 +72,7 @@ Even simple noise like this is already useful. For instance, you can begin to re
 </figcaption>
 </figure>
 
-What makes Perlin noise so exciting is that it works just as well in 2D.
+And what makes Perlin noise so exciting is that it works just as well in 2D!
 
 <figure>
 {% include canvas.html id="canvas7" width="400" reload="light" %}
