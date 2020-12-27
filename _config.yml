@@ -4,17 +4,15 @@ subtitle: "computer science for people with better things to do"
 author: "Charles Jameson"
 description: ""
 # keywords: ""
-biography: ""
 
 # twitter_username:
+mail_address: charleswjameson@gmail.com
 github_username: seedubjay
-linkedin_username: charleswjameson
 # facebook_username: 
 # google_analytics: 
 
 date_format: "%-d %B %Y"
 
-simple_search: http://google.com/search
 markdown: kramdown
 highlighter: rouge
 permalink: /blog/:title/

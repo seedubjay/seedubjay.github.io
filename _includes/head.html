@@ -5,6 +5,9 @@
     <meta name="theme-color" content="hsl(35, 36%, 95%)">
     <meta name="author" content="{{ site.author }}" />
 
+    <link rel="icon" type="image/svg+xml" href="/assets/svg/ornament.svg">
+    <link rel='mask-icon' href='/assets/svg/ornament.svg' color='hsl(0, 0%, 25%'>
+
     {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.title %}{{ content | raw_content }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
 
