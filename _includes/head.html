@@ -14,8 +14,9 @@
     <link rel='mask-icon' href='/assets/svg/ornament.svg' color='hsl(0, 0%, 25%'>
 
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
-    {% if page.image %}<webfeeds:cover image=”{{ page.image }}“ />{% endif %}
-    <webfeeds:icon>/assets/svg/ornament.svg</webfeeds:icon>
+    <rss xmlns:content=”http://purl.org/rss/1.0/modules/content/”  xmlns:webfeeds=”http://webfeeds.org/rss/1.0″ version=”2.0″></rss>
+    <webfeeds:logo>/assets/svg/ornament.svg</webfeeds:logo>
+    <webfeeds:accentColor>797eb9</webfeeds:accentColor>
 
     {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.subtitle }}{% endif %}{% endcapture %}
     <meta property="og:description" content="{{ description }}" />
@@ -25,6 +26,7 @@
     <meta name="keywords" content="{{ keywords | strip_html | condense_spaces }}" />
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <description>{{ site.description }}</description>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
