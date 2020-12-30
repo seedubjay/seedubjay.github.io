@@ -2,8 +2,11 @@
 title: "seedubjay"
 subtitle: "computer science for people with better things to do"
 author: "Charles Jameson"
-description: ""
+description: "computer science for people with better things to do"
 # keywords: ""
+
+plugins:
+  - jekyll-feed
 
 # twitter_username:
 mail_address: charleswjameson@gmail.com
