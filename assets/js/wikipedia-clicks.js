@@ -189,7 +189,7 @@ function submit_route_request() {
             query.pages.forEach(v => {
                 pmap[v.title] = v.pageid;
             });
-            fetch(`https://api.seedubjay.com/${pmap[s]}/${pmap[e]}`)
+            fetch(`https://api.seedubjay.com/wikipedia-clicks/path?source=${pmap[s]}&target=${pmap[e]}`)
                 .then(resp => {
                     if (resp.status !== 200) {
                         resp.json().then(data => {

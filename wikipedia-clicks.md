@@ -2,8 +2,8 @@
 layout: post
 title: The Wikipedia Wormhole
 subtitle: graph traversal
-scripts: ['core', 'wikipedia-graph']
-styles: ['wikipedia-graph']
+scripts: ['core', 'wikipedia-clicks']
+styles: ['wikipedia-clicks']
 use_d3: true
 ---
 
