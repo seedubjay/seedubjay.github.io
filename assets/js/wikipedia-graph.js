@@ -182,7 +182,7 @@ function submit_route_request() {
             query.pages.forEach(v => {
                 pmap[v.title] = v.pageid;
             });
-            fetch(`https://api.seedubjay.com/${pmap[s]}/${pmap[e]}`, {mode: 'no-cors'})
+            fetch(`https://api.seedubjay.com/${pmap[s]}/${pmap[e]}`)
                 .then(resp => {
                     if (resp.status !== 200) {
                         resp.json().then(data => {
