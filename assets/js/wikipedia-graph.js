@@ -159,8 +159,14 @@ window.addEventListener('load', () => {
     });
 });
 
+function get_wiki_query(parameter, values) {
+    return fetch(`https://en.wikipedia.org/w/api.php?&origin=*&action=query&format=json&formatversion=2&${parameter}=${values.map(x => encodeURI(x.toString().replace(/ /g, '_'))).join('|')}`)
+        .then(response => response.json())
+        .then(data => data.query)
+}
+
 // path query
-let submit_route_request = () => {
+function submit_route_request() {
     let getValue = id => {
         let e = document.getElementById(id);
         return e.options[e.selectedIndex].value;
@@ -170,46 +176,72 @@ let submit_route_request = () => {
     if (!s || !e) {
         document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">start/end of path missing!</div>'
     } else {
-        d3.json(`https://young-bayou-05072.herokuapp.com/path/${s}/${e}`).then(data => {
-            document.getElementsByClassName('route-output')[0].innerHTML = ''
-            d3.select('.route-output').selectAll("a").remove()
-            d3
-                .select('.route-output')
-                .selectAll("a")
-                .data(data, d => d.id)
-                .join("a")
-                .attr("href", d => `https://en.wikipedia.org/wiki/${encodeURI(d.replace(/ /g, '_'))}`)
-                .append("div")
-                .text(d => d)
+
+        get_wiki_query('titles', [s,e]).then(query => {
+            let pmap = {}
+            query.pages.forEach(v => {
+                pmap[v.title] = v.pageid;
+            });
+            fetch(`http://178.79.139.69/${pmap[s]}/${pmap[e]}`)
+                .then(resp => {
+                    if (resp.status !== 200) {
+                        resp.json().then(data => {
+                            if (resp.status === 400 && (data.no_source || data.no_target)) {
+                                document.getElementsByClassName('route-output')[0].innerHTML = `<div class="error">sorry! page(s) are too obscure...</div>`
+                            } else {
+                                document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">oops! something went wrong...</div>';
+                            }
+                        })
+                    } else {
+                        return resp.json().then((data) => {
+                            get_wiki_query('pageids', data).then(query => {
+                                let tmap = {}
+                                query.pages.forEach(v => {
+                                    tmap[v.pageid] = v.title;
+                                });
+                                document.getElementsByClassName('route-output')[0].innerHTML = data
+                                    .map(x => tmap[x])
+                                    .map(x => `<a href="https://en.wikipedia.org/wiki/${encodeURI(x.replace(/ /g, '_'))}"><div>${x}</div></a>`)
+                                    .join('\n')
+                            })
+                        }).catch(error => {
+                            document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">oops! something went wrong...</div>'
+                        })
+                    }
+                })
         })
     }
 }
 window.addEventListener('load', () => {
-    d3.json("https://young-bayou-05072.herokuapp.com/pages").then(data => {
-        data.unshift({"id":null, "label":""})
-        d3
-            .selectAll('.route-picker')
-            .selectAll("option")
-            .data(data)
-            .join("option")
-            .attr("value", d => d.id)
-            .text(d => d.label)
-    });
-
     $.fn.select2.defaults.set('language', {
-        inputTooShort: () => "Start typing to find pages"
+        inputTooShort: () => ""
     })
-
-    let match = (params, data) => {
-        return data.text.toUpperCase().indexOf(params.term.toUpperCase()) == 0 ? data : null;
-    }
     
+    let search = {
+        url: "https://en.wikipedia.org/w/api.php",
+        dataType: 'jsonp',
+        data: params => ({
+            action: 'opensearch',
+            format: 'json',
+            formatversion: 2,
+            search: params.term,
+            redirects: 'resolve',
+            namespace: 0,
+            limit: 10
+        }),
+        processResults: data => {
+            return {
+                results: data[1].map((l,i) => ({id: l, text: l}))
+            }
+        }
+    }
+
     $('#route-start-picker').select2({
         placeholder: "Start",
         width: '100%',
         theme: "bootstrap4",
         minimumInputLength: 1,
-        matcher: match
+        ajax: search
     });
 
     $('#route-end-picker').select2({
@@ -217,6 +249,6 @@ window.addEventListener('load', () => {
         width: '100%',
         theme: "bootstrap4",
         minimumInputLength: 1,
-        matcher: match
+        ajax: search
     });
 });

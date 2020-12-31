@@ -19,6 +19,34 @@ If you've got an competitive streak, there's an [online game](https://www.thewik
 
 It begs the question though... **How many clicks do you _actually_ need?**
 
+## Don't believe me?
+
+<figure>
+<div class="route-query container">
+    <div class="route-input row justify-content-center">
+        <div class="col-10 col-lg-6">
+            <select id="route-start-picker" class="route-picker">
+                <option></option>
+            </select>
+        </div>
+        <div class="col-10 col-lg-6">
+            <select id="route-end-picker" class="route-picker">
+                <option></option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button id="route-submit" class="btn btn-success" type="submit" onclick="submit_route_request()">Search</button>
+        </div>
+    </div>
+    <div class="route-output"></div>
+</div>
+<!-- <figcaption>
+    <p class="caption">Find a path from one page to another.</p>
+</figcaption> -->
+</figure>
+
+_Pages that don't contain many links or are not linked to by many other pages have been excluded here for efficiency's sake..._
+
 ## Simplifying the problem
 We don't care about every word on every Wikipedia page. Instead, we can just think about all of Wikipedia's _links_ from one page to the next.
 
@@ -92,34 +120,6 @@ Another tool we can use to measure this directed graph is the _betweenness centr
 {% include svg.html id="svg2" class="no-outline svg-chart" %}
 <!-- <figcaption>
     <p class="caption">Drag to move pages</p>
-</figcaption> -->
-</figure>
-
-## Find your own paths
-
-Wikipedia is _extremely big_, which makes it quite cumbersome to use. As a compromise though, this is a calculator which will generate paths using only the [top 10,000 articles on Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/4).
-
-<figure>
-<div class="route-query container">
-    <div class="route-input row justify-content-center">
-        <div class="col-10 col-lg-6">
-            <select id="route-start-picker" class="route-picker">
-                <option></option>
-            </select>
-        </div>
-        <div class="col-10 col-lg-6">
-            <select id="route-end-picker" class="route-picker">
-                <option></option>
-            </select>
-        </div>
-        <div class="col-auto">
-            <button id="route-submit" class="btn btn-success" type="submit" onclick="submit_route_request()">Search</button>
-        </div>
-    </div>
-    <div class="route-output"></div>
-</div>
-<!-- <figcaption>
-    <p class="caption">Find a path from one page to another.</p>
 </figcaption> -->
 </figure>
 
