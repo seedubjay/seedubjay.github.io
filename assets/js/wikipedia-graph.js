@@ -173,9 +173,16 @@ function submit_route_request() {
     }
     let s = getValue('route-start-picker');
     let e = getValue('route-end-picker');
+
+    let outdiv = document.getElementsByClassName('route-output')[0]
+    let submitbutton = document.getElementById('route-submit');
+
     if (!s || !e) {
-        document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">start/end of path missing!</div>'
+        outdiv.innerHTML = '<div class="error">start/end missing!</div>'
     } else {
+
+        submitbutton.disabled = true;
+        submitbutton.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
 
         get_wiki_query('titles', [s,e]).then(query => {
             let pmap = {}
@@ -187,10 +194,14 @@ function submit_route_request() {
                     if (resp.status !== 200) {
                         resp.json().then(data => {
                             if (resp.status === 400 && (data.no_source || data.no_target)) {
-                                document.getElementsByClassName('route-output')[0].innerHTML = `<div class="error">sorry! page(s) are too obscure...</div>`
+                                outdiv.innerHTML = `<div class="error">sorry! page(s) are too obscure...</div>`
                             } else {
-                                document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">oops! something went wrong...</div>';
+                                outdiv.innerHTML = '<div class="error">oops! something went wrong...</div>';
                             }
+
+                            submitbutton.disabled = false;
+                            submitbutton.innerHTML = 'Search';
+
                         })
                     } else {
                         return resp.json().then((data) => {
@@ -199,13 +210,17 @@ function submit_route_request() {
                                 query.pages.forEach(v => {
                                     tmap[v.pageid] = v.title;
                                 });
-                                document.getElementsByClassName('route-output')[0].innerHTML = data
+                                outdiv.innerHTML = data
                                     .map(x => tmap[x])
                                     .map(x => `<a href="https://en.wikipedia.org/wiki/${encodeURI(x.replace(/ /g, '_'))}"><div>${x}</div></a>`)
-                                    .join('\n')
+                                    .join('\n');
+                                submitbutton.disabled = false;
+                                submitbutton.innerHTML = 'Search';
                             })
                         }).catch(error => {
-                            document.getElementsByClassName('route-output')[0].innerHTML = '<div class="error">oops! something went wrong...</div>'
+                            outdiv.innerHTML = '<div class="error">oops! something went wrong...</div>'
+                            submitbutton.disabled = false;
+                            submitbutton.innerHTML = 'Search';
                         })
                     }
                 })
