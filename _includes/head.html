@@ -15,7 +15,7 @@
 
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
 
-    {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.subtitle }}{% endif %}{% endcapture %}
+    {% capture description %}{% if page.subtitle %}{{ page.subtitle }}{% else %}{{ site.subtitle }}{% endif %}{% endcapture %}
     <meta property="og:description" content="{{ description }}" />
     <meta name="description" content="{{ description }}" />
 

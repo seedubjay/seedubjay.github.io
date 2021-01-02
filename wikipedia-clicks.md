@@ -63,7 +63,7 @@ The term for this in mathematics is a _directed graph_. In fact, any collection 
 For example, we can visualise a small group of Wikipedia pages and the links from each to the next like this:
 
 <figure>
-{% include svg.html id="svg1" width="320" height="180" %}
+{% include svg.html id="svg1" width="320" height="240" %}
 <figcaption>
     <p class="caption">Drag to move pages</p>
 </figcaption>
