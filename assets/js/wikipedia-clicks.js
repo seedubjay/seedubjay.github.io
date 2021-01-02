@@ -1,5 +1,3 @@
-const graphMargin = {top: 5, right: 5, bottom: 40, left: 25}
-
 // svg1: example directed graph
 window.addEventListener('load', () => {
     d3.json("/assets/json/wikipedia-graph-example.json").then(data => {
@@ -96,6 +94,8 @@ window.addEventListener('load', () => {
         const boxWidth = +viewbox[2];
         const boxHeight = +viewbox[3];
 
+        const graphMargin = {top: 5, right: 5, bottom: 40, left: 25}
+
         const width = boxWidth - graphMargin.left - graphMargin.right;
         const height = boxHeight - graphMargin.top - graphMargin.bottom;
 
@@ -111,7 +111,7 @@ window.addEventListener('load', () => {
             .padding(.2);
 
         let y = d3.scaleLinear()
-            .domain([1e-12,.42])
+            .domain([1e-12,.52])
             .range([height,0]);
 
         innerSvg.append("g")
@@ -127,7 +127,7 @@ window.addEventListener('load', () => {
             .text("# clicks to get to target page")
         
         innerSvg.append("g")
-            .attr("class", "y-axis-inline")
+            .attr("class", "axis-gridline")
             .attr("font-size", null)
             .call(d3.axisLeft(y)
                     .ticks(4, "%")
@@ -156,6 +156,82 @@ window.addEventListener('load', () => {
             .attr("y", d => y(d.y))
             .attr("width", x.bandwidth())
             .attr("height", d => height - y(d.y))
+    });
+});
+
+window.addEventListener('load', () => {
+    d3.json("/assets/json/wikipedia-graph-betweenness-centrality.json").then(data => {
+        let svg = d3.select("#svg3");
+        const viewbox = svg.attr("viewBox").split(" ");
+        const boxWidth = +viewbox[2];
+        const boxHeight = +viewbox[3];
+
+        const graphMargin = {top: 20, right: 5, bottom: 5, left: 125}
+
+        const width = boxWidth - graphMargin.left - graphMargin.right;
+        const height = boxHeight - graphMargin.top - graphMargin.bottom;
+
+        const maxLabels = 20;
+
+        svg.append("text")
+            .attr("text-anchor", "middle")
+            .attr("x", boxWidth/2)
+            .attr("y", 0)
+            .attr("dy", "1em")
+            .attr("font-size", 12)
+            .text("betweenness centrality")
+
+        let innerSvg = svg
+            .append("g")
+            .attr("transform", `translate(${graphMargin.left},${graphMargin.top})`)
+
+        let y = d3.scaleBand()
+            .domain(data.map(d=>d.x).splice(0,maxLabels))
+            .range([0, height])
+            .padding(.2);
+
+        let x = d3.scaleLinear()
+            .domain([1e-12,.55])
+            .range([0,width]);
+
+        innerSvg.append("g")
+            .call(d3.axisLeft(y).tickSize(0))
+            .selectAll("g")
+            .selectAll("text")
+            .attr("font-family", "'Ubuntu Mono', Monaco, monospace");
+        
+        innerSvg.append("g")
+            .attr("class", "axis-gridline")
+            .attr("font-size", null)
+            .call(d3.axisTop(x)
+                    .ticks(4, "%")
+                    .tickSize(-height))
+            .call(g => g.select(".domain").remove())
+            .selectAll("g")
+            .selectAll("text")
+            .attr("text-anchor", "start")
+            .attr("font-size", 8)
+            .attr("x", 2)
+            .attr("y", height)
+            .attr("dy", 0);
+
+        // innerSvg.append("text")
+        //     .attr("text-anchor", "middle")
+        //     .attr("x", -height/2)
+        //     .attr("y", -10)
+        //     .attr("transform", "rotate(-90)")
+        //     .attr("font-size", 12)
+        //     .text("probability")
+
+        innerSvg.append("g")
+            .attr("class", "bar-chart")
+            .selectAll("rect")
+            .data(data)
+            .join("rect")
+            .attr("x", 0)
+            .attr("y", d => y(d.x))
+            .attr("width", d => x(d.y))
+            .attr("height", y.bandwidth())
     });
 });
 

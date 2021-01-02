@@ -18,11 +18,11 @@ For example, you can get from _Kangaroo_ to _Dave Brubeck_ (a jazz pianist) in j
     {%- if page != path.last %} → {% endif -%}
 {%- endfor %}.
 
-There's an [online game](https://www.thewikigame.com) too if you have a competitive streak.
+There's an [online game](https://www.thewikigame.com) too for those with a competitive streak.
 
-There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's a XX% chance that you'll be able to get from one to the other in 5 clicks or less. And as long as you don't pick a degenerate page it's a XX% chance!
+There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's a XX% chance that you'll be able to get from one to the other in 5 clicks or less. And as long as you don't pick an obscure page, it's a XX% chance!
 
-Dont believe me? Pick any two pages here and see the shortest sequence of clicks you'd need to get between them. I'll buy you a cookie if you can find one that takes more than 6!
+Dont believe me? Pick any two pages here and see the shortest sequence of clicks you'd need to get between them. 
 
 <figure>
 <div class="route-query container">
@@ -48,11 +48,11 @@ Dont believe me? Pick any two pages here and see the shortest sequence of clicks
 </figcaption> -->
 </figure>
 
-_Pages which are 'degenerate' (i.e. have less than 20 links or are linked to from less than 20 other pages) have been excluded here for efficiency's sake._
+_Pages which are 'obscure' (i.e. contain less than 20 links or are linked to by less than 20 other pages) have been excluded here for efficiency's sake._
 
 ## Breaking down the problem
 
-The sheer volume of Wikipedia is remarkable, but also makes it challenging to analyse since it is so unwieldy. This is especially true for a task like finding shortest sequences of clicks, as you may have to consider the entirety of Wikipedia all in one go to guarantee that you've found the shortest of all sequences.
+The sheer volume of Wikipedia is remarkable, but also makes it challenging to analyse since it is so unwieldy. This is especially true for a task like finding a shortest sequence of clicks, as you may have to consider the entirety of Wikipedia all in one go to guarantee that you've found the shortest of all possible sequences.
 
 To overcome this, we have to break the problem down.
 
@@ -90,9 +90,9 @@ Not only is there a X% chance that you'll be able to get from one page to anothe
 </figcaption> -->
 </figure>
 
-The final Z% of paths gets pretty dicey though -- in the very worst case, **68 clicks are required**. There are many of starting pages that can achieve this, but only one target page... Yes, as you've probably already guessed, it's the [1930 São Paulo FC season](https://en.wikipedia.org/wiki/1930_S%C3%A3o_Paulo_FC_season). 
+The final Z% of paths gets pretty dicey though -- in the very worst case, **48 clicks are required**. There are many of starting pages that can achieve this, but only one target page... Yes, as you've probably already guessed, it's the [1948–49 FC Dinamo București season](https://en.wikipedia.org/wiki/1948–49_FC_Dinamo_București_season). 
 
-Why? Here's an excerpt of the 68 glorious clicks to get there when starting at [No Guru, No Method, No Teacher](https://en.wikipedia.org/wiki/No_Guru,_No_Method,_No_Teacher), Van Morrison's 16th studio album:
+Why? Here's an excerpt of the 48 glorious clicks to get there when starting at [Nong Khai railway station](https://en.wikipedia.org/wiki/Nong_Khai_railway_station), a railway station on the border between Thailand and Laos:
 
 {% assign path = site.data.wikipedia-graph.longest-path %}
 {% for page in path -%}
@@ -104,7 +104,7 @@ Why? Here's an excerpt of the 68 glorious clicks to get there when starting at [
 
 Spot the pattern?
 
-Ironically, the journey back is completely average, taking just 4 clicks:
+Ironically, the journey back is completely average, taking just 5 clicks:
 
 {% assign path = site.data.wikipedia-graph.reverse-longest-path %}
 {% for page in path -%}
@@ -117,7 +117,7 @@ Ironically, the journey back is completely average, taking just 4 clicks:
 Another tool we can use to measure this directed graph is the _betweenness centrality_ of each page. This value represents the likelihood that a page gets used in a path between two other randomly chosen pages in the graph. The higher a page's betweenness centrality, the more central it is in the network, and the more pivotal it is to Wikipedia's tight connectivity.
 
 <figure>
-{% include svg.html id="svg3" class="no-outline svg-chart" %}
+{% include svg.html id="svg3" width="320" height="320" class="no-outline svg-chart" %}
 </figure>
 
 ## Conclusion
