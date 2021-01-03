@@ -118,7 +118,7 @@ Ironically, the journey back is completely average, taking just 5 clicks:
 Another tool we can use to measure this directed graph is the _betweenness centrality_ of each page. This value represents the likelihood that a page gets used in a path between two other randomly chosen pages in the graph. The higher a page's betweenness centrality, the more central it is in the network, and the more pivotal it is to Wikipedia's tight connectivity.
 
 <figure>
-{% include svg.html id="svg3" width="320" height="320" class="no-outline svg-chart" %}
+{% include svg.html id="svg3" width="320" height="400" class="no-outline svg-chart" %}
 </figure>
 
 Curiously, the shortest path between pages very often involves a country. (You'll probably notice this if you try enough pages in the search panel above.) In fact, the page for the United States is so common that some variations of the Wikipedia Game ban the page entirely. 

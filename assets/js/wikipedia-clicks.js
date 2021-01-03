@@ -167,12 +167,12 @@ window.addEventListener('load', () => {
         const boxWidth = +viewbox[2];
         const boxHeight = +viewbox[3];
 
-        const graphMargin = {top: 20, right: 5, bottom: 5, left: 110}
+        const graphMargin = {top: 20, right: 5, bottom: 5, left: 160}
 
         const width = boxWidth - graphMargin.left - graphMargin.right;
         const height = boxHeight - graphMargin.top - graphMargin.bottom;
 
-        data = data.splice(0,20)
+        data = data.splice(0,30)
 
         svg.append("text")
             .attr("text-anchor", "middle")
@@ -224,6 +224,7 @@ window.addEventListener('load', () => {
             .call(d3.axisLeft(y).tickSize(0))
             .selectAll("g")
             .selectAll("text")
+            .attr("font-size", 10)
             .attr("font-family", "'Ubuntu Mono', Monaco, monospace");
     });
 });
