@@ -21,7 +21,7 @@ For example, you can get from _Kangaroo_ to _Dave Brubeck_ (a jazz pianist) in j
 
 There's an [online game](https://www.thewikigame.com) too for those with a competitive streak.
 
-There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's a XX% chance that you'll be able to get from one to the other in 5 clicks or less. And as long as you don't pick an obscure page, it's a XX% chance!
+There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's an 82.1% chance that you'll be able to get from one to the other in 5 clicks or less.
 
 Dont believe me? Pick any two pages here and see the shortest sequence of clicks you'd need to get between them. 
 
@@ -78,11 +78,11 @@ Second, converting our obscure problem into a common mathematical format gives u
 
 Researchers have spent decades developing algorithms and writing code to analyse directed graphs. They may have been designed for a completely different purpose, but they work just as well for navigating Wikipedia pages as they do for finding ancestors in a family tree, optimising trucking routes between cities, and lots of other unrelated problems, since they are all directed graphs under the hood.
 
-We can use this existing knowledge to find our shortest paths (using a [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)), and analyse Wikipedia pages in a whole set of ways.
+We can use this existing knowledge to find our shortest paths and analyse our data in a whole new set of ways.
 
 ## More tidbits
 
-Not only is there a X% chance that you'll be able to get from one page to another in 5 clicks, there's a Y% chance you'll be able to do it in 7. 
+Not only is there a 82% chance that you'll be able to get from one page to another in at most 5 clicks, there's a **99.3% chance you'll be able to do it in 7 clicks**. 
 
 <figure>
 {% include svg.html id="svg2" class="no-outline svg-chart" %}
@@ -91,7 +91,7 @@ Not only is there a X% chance that you'll be able to get from one page to anothe
 </figcaption> -->
 </figure>
 
-The final Z% of paths gets pretty dicey though -- in the very worst case, **48 clicks are required**. There are many of starting pages that can achieve this, but only one target page... Yes, as you've probably already guessed, it's the [1948–49 FC Dinamo București season](https://en.wikipedia.org/wiki/1948–49_FC_Dinamo_București_season). 
+The final 0.7% of paths gets pretty dicey though -- in the very worst case, **48 clicks are required**. There are many starting pages that can achieve this, but only one ending page... Yes, as you've probably already guessed, it's the [1948–49 FC Dinamo București season](https://en.wikipedia.org/wiki/1948–49_FC_Dinamo_București_season). 
 
 Why? Here's an excerpt of the 48 glorious clicks to get there when starting at [Nong Khai railway station](https://en.wikipedia.org/wiki/Nong_Khai_railway_station), a railway station on the border between Thailand and Laos:
 
@@ -121,21 +121,23 @@ Another tool we can use to measure this directed graph is the _betweenness centr
 {% include svg.html id="svg3" width="320" height="320" class="no-outline svg-chart" %}
 </figure>
 
-## Conclusion
+Curiously, the shortest path between pages very often involves a country. (You'll probably notice this if you try enough pages in the search panel above!) In fact, the page for the United States is so common that some variations of the Wikipedia Game ban the page entirely. 
 
-So, if a friend ever challenges you to the 'Wikipedia Game', you'll have the upper hand! All you need to do is:
+So, if a friend ever challenges you to the Wikipedia Game, you'll have the upper hand! All you need to do is:
 
 1. download about 20GB of Wikipedia data,
 1. scan through ~20 million pages to find links,
 1. filter out all the redirect pages and other dud pages,
 1. transform ~220 million links into a graph format that is actually usable, and
-1. use any ol' path-finding algorithm to find a route to get you from one page to another
+1. use any ol' path-finding algorithm to find a route to get you from one page to the other
 
-In my case this takes about 6 hours... So you might need to stall for a while.
+In my case processing this takes about 6 hours... So you might need to stall for a while.
+
+(Or, you could just secretly check this page and use the search panel...)
 
 <div class="footnotes">
 <p>Analysis is current as of 20 December 2020.</p>
 
 <p>
-It's probably worth noting that there are a couple of links which my system can't detect. For instance, it ignores the big boxes full of links at the bottom of most Wikipedia pages (a) because it makes the game much less interesting and (b) because they are really annoying to track so I didn't bother. I'm sure there's some other stuff missing too, but I guess we'll just never know for certain will we.</p>
+It's probably worth noting that there are a couple of links which my system can't detect. For instance, it ignores the big boxes full of links at the bottom of most Wikipedia pages (a) because it makes the game much less interesting and (b) because they are really annoying to track so I didn't bother. I'm sure there's some other stuff missing too, but I guess we'll just never know for sure, will we.</p>
 </div>

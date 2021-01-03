@@ -167,40 +167,34 @@ window.addEventListener('load', () => {
         const boxWidth = +viewbox[2];
         const boxHeight = +viewbox[3];
 
-        const graphMargin = {top: 20, right: 5, bottom: 5, left: 125}
+        const graphMargin = {top: 5, right: 5, bottom: 5, left: 110}
 
         const width = boxWidth - graphMargin.left - graphMargin.right;
         const height = boxHeight - graphMargin.top - graphMargin.bottom;
 
-        const maxLabels = 20;
+        data = data.splice(0,20)
 
-        svg.append("text")
-            .attr("text-anchor", "middle")
-            .attr("x", boxWidth/2)
-            .attr("y", 0)
-            .attr("dy", "1em")
-            .attr("font-size", 12)
-            .text("betweenness centrality")
+        // svg.append("text")
+        //     .attr("text-anchor", "middle")
+        //     .attr("x", boxWidth/2)
+        //     .attr("y", 0)
+        //     .attr("dy", "1em")
+        //     .attr("font-size", 12)
+        //     .text("betweenness centrality")
 
         let innerSvg = svg
             .append("g")
             .attr("transform", `translate(${graphMargin.left},${graphMargin.top})`)
 
         let y = d3.scaleBand()
-            .domain(data.map(d=>d.x).splice(0,maxLabels))
+            .domain(data.map(d=>d.title))
             .range([0, height])
             .padding(.2);
 
         let x = d3.scaleLinear()
-            .domain([1e-12,.55])
+            .domain([1e-12,.035])
             .range([0,width]);
 
-        innerSvg.append("g")
-            .call(d3.axisLeft(y).tickSize(0))
-            .selectAll("g")
-            .selectAll("text")
-            .attr("font-family", "'Ubuntu Mono', Monaco, monospace");
-        
         innerSvg.append("g")
             .attr("class", "axis-gridline")
             .attr("font-size", null)
@@ -216,23 +210,21 @@ window.addEventListener('load', () => {
             .attr("y", height-1)
             .attr("dy", 0);
 
-        // innerSvg.append("text")
-        //     .attr("text-anchor", "middle")
-        //     .attr("x", -height/2)
-        //     .attr("y", -10)
-        //     .attr("transform", "rotate(-90)")
-        //     .attr("font-size", 12)
-        //     .text("probability")
-
         innerSvg.append("g")
             .attr("class", "bar-chart")
             .selectAll("rect")
             .data(data)
             .join("rect")
             .attr("x", 0)
-            .attr("y", d => y(d.x))
-            .attr("width", d => x(d.y))
+            .attr("y", d => y(d.title))
+            .attr("width", d => x(d.value))
             .attr("height", y.bandwidth())
+
+        innerSvg.append("g")
+            .call(d3.axisLeft(y).tickSize(0))
+            .selectAll("g")
+            .selectAll("text")
+            .attr("font-family", "'Ubuntu Mono', Monaco, monospace");
     });
 });
 
