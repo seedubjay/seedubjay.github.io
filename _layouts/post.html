@@ -7,3 +7,9 @@ layout: default
 
   {{ content }}
 </article>
+<div class="post-arrows">
+  <div class="prev">{% if page.previous.url %}<a href="{{ page.previous.url }}">&lt;&lt;</a>{% endif %}</div>
+  <div class="home"><a href="/">home</a></div>
+  <div class="next">{% if page.next.url %}<a href="{{ page.next.url }}">&gt;&gt;</a>{% endif %}</div>
+
+</div>
