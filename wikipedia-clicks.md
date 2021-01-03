@@ -11,7 +11,7 @@ sitemap: false
 
 Here's a game to pass the time while you're trapped at home 10 months into a pandemic. 
 
-Pick two random pages on Wikipedia -- your goal is to get from one to the other in _as few clicks as possible_. (Using the box full of links at the bottom of the page is cheating!)
+Pick two random pages on Wikipedia -- your goal is to get from one to the other in _as few clicks as possible_. (Using the box full of links at the bottom of the page is cheating...)
 
 For example, you can get from _Kangaroo_ to _Dave Brubeck_ (a jazz pianist) in just 3 clicks: {% assign path = site.data.wikipedia-graph.example -%}
 {%- for page in path -%}
@@ -21,7 +21,7 @@ For example, you can get from _Kangaroo_ to _Dave Brubeck_ (a jazz pianist) in j
 
 There's an [online game](https://www.thewikigame.com) too for those with a competitive streak.
 
-There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's an 82.1% chance that you'll be able to get from one to the other in 5 clicks or less.
+There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's an 82.1% chance that you'll be able to get from one to the other in 5 clicks or less, assuming that it's possible.
 
 Dont believe me? Pick any two pages here and see the shortest sequence of clicks you'd need to get between them. 
 
@@ -82,7 +82,7 @@ We can use this existing knowledge to find our shortest paths and analyse our da
 
 ## More tidbits
 
-Not only is there a 82% chance that you'll be able to get from one page to another in at most 5 clicks, there's a **99.3% chance you'll be able to do it in 7 clicks**. 
+Not only is there a 82% chance that you'll be able to get from one page to another in at most 5 clicks, there's a **99.3% chance you'll be able to do it in 7 clicks**, assuming that it's possible.
 
 <figure>
 {% include svg.html id="svg2" class="no-outline svg-chart" %}

@@ -250,6 +250,8 @@ function submit_route_request() {
         outdiv.innerHTML = '<div class="error">start/end missing!</div>'
     } else {
 
+        if (window.plausible) plausible('wikipedia-clicks route')
+
         submitbutton.disabled = true;
         submitbutton.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
 
