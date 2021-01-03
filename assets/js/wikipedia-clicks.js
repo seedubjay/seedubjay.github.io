@@ -135,6 +135,7 @@ window.addEventListener('load', () => {
             .selectAll("g")
             .selectAll("text")
             .attr("text-anchor", "start")
+            .attr("font-size", 8)
             .attr("x", 0)
             .attr("y", -2)
             .attr("dy", 0);
@@ -211,8 +212,8 @@ window.addEventListener('load', () => {
             .selectAll("text")
             .attr("text-anchor", "start")
             .attr("font-size", 8)
-            .attr("x", 2)
-            .attr("y", height)
+            .attr("x", 1)
+            .attr("y", height-1)
             .attr("dy", 0);
 
         // innerSvg.append("text")
