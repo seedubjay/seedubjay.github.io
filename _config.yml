@@ -5,8 +5,18 @@ author: "Charles Jameson"
 description: "computer science for people with better things to do"
 # keywords: ""
 
+url: "https:/seedubjay.com"
+
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+
+defaults:
+  -
+    scope:
+      path: "assets/*"
+    values:
+      sitemap: false
 
 # twitter_username:
 mail_address: charleswjameson@gmail.com
