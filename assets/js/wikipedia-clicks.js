@@ -167,20 +167,20 @@ window.addEventListener('load', () => {
         const boxWidth = +viewbox[2];
         const boxHeight = +viewbox[3];
 
-        const graphMargin = {top: 5, right: 5, bottom: 5, left: 110}
+        const graphMargin = {top: 20, right: 5, bottom: 5, left: 110}
 
         const width = boxWidth - graphMargin.left - graphMargin.right;
         const height = boxHeight - graphMargin.top - graphMargin.bottom;
 
         data = data.splice(0,20)
 
-        // svg.append("text")
-        //     .attr("text-anchor", "middle")
-        //     .attr("x", boxWidth/2)
-        //     .attr("y", 0)
-        //     .attr("dy", "1em")
-        //     .attr("font-size", 12)
-        //     .text("betweenness centrality")
+        svg.append("text")
+            .attr("text-anchor", "middle")
+            .attr("x", boxWidth/2)
+            .attr("y", 0)
+            .attr("dy", "1em")
+            .attr("font-size", 12)
+            .text("(estimated) top pages by betweenness centrality")
 
         let innerSvg = svg
             .append("g")

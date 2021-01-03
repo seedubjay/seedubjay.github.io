@@ -21,7 +21,7 @@ For example, you can get from _Kangaroo_ to _Dave Brubeck_ (a jazz pianist) in j
 
 There's an [online game](https://www.thewikigame.com) too for those with a competitive streak.
 
-There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's an 82.1% chance that you'll be able to get from one to the other in 5 clicks or less, assuming that it's possible.
+There are over 6.2 million English Wikipedia articles, but this ecosystem is remarkably well connected. In fact, when you randomly pick two pages, there's an 82.1% chance that you'll be able to get from one to the other in 5 clicks or less, assuming that it's possible in the first place.
 
 Dont believe me? Pick any two pages here and see the shortest sequence of clicks you'd need to get between them. 
 
@@ -82,7 +82,7 @@ We can use this existing knowledge to find our shortest paths and analyse our da
 
 ## More tidbits
 
-Not only is there a 82% chance that you'll be able to get from one page to another in at most 5 clicks, there's a **99.3% chance you'll be able to do it in 7 clicks**, assuming that it's possible.
+Not only is there a 82% chance that you'll be able to get from one page to another in at most 5 clicks, there's a **99.3% chance you'll be able to do it in 7 clicks**, assuming that it's possible in the first place.
 
 <figure>
 {% include svg.html id="svg2" class="no-outline svg-chart" %}
@@ -121,7 +121,7 @@ Another tool we can use to measure this directed graph is the _betweenness centr
 {% include svg.html id="svg3" width="320" height="320" class="no-outline svg-chart" %}
 </figure>
 
-Curiously, the shortest path between pages very often involves a country. (You'll probably notice this if you try enough pages in the search panel above!) In fact, the page for the United States is so common that some variations of the Wikipedia Game ban the page entirely. 
+Curiously, the shortest path between pages very often involves a country. (You'll probably notice this if you try enough pages in the search panel above.) In fact, the page for the United States is so common that some variations of the Wikipedia Game ban the page entirely. 
 
 So, if a friend ever challenges you to the Wikipedia Game, you'll have the upper hand! All you need to do is:
 
@@ -133,7 +133,7 @@ So, if a friend ever challenges you to the Wikipedia Game, you'll have the upper
 
 In my case processing this takes about 6 hours... So you might need to stall for a while.
 
-(Or, you could just secretly check this page and use the search panel...)
+(Or, you could just secretly check this page and use the search panel instead...)
 
 <div class="footnotes">
 <p>Analysis is current as of 20 December 2020.</p>
