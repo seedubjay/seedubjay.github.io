@@ -70,8 +70,7 @@ body {
 .main {
   background-color: $article-bg-color;
   // border: 1px solid $bg-color-darker;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin: 16px auto;
   // padding-left: 16px;
   // padding-right: 16px;
   border-radius: 4px;
@@ -319,23 +318,46 @@ article {
   .error {
     color: red;
   }
+
+  .footnotes {
+    border-top: 1px solid $subdued-border;
+    padding-top: 1em;
+    margin-top: 1em;
+  
+    font-family: $mono-font-family;
+    font-size: $small-font-size;
+  
+    ul, ol {
+      margin-left: -2em;
+    }
+  
+    > ol {
+      margin-left: -1.5em;
+    }
+  }
 }
 
 .post-arrows {
   font-family: $mono-font-family;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-  .prev {
-    flex: 1;
-    text-align: right;
-  } 
+  margin: 2em 0 1em 0;
 
-  .home {
-    padding: 0 16px;
+  p {
+    flex: 1 1 0;
+    width: 45%;
+    margin: 0;
   }
 
+  .prev {
+    padding-right: .5em;
+  } 
+
   .next {
-    flex: 1;
+    padding-left: .5em;
+    text-align: right;
   }
 }
 
@@ -362,55 +384,25 @@ blockquote {
 }
 
 footer {
-  padding: 2em 0 .5em 0;
+  padding-bottom: .5em;
   font-size: $small-font-size;
   font-family: $mono-font-family;
 
   // color: $alt-text-color;
 
+  text-align: center;
+
   p {
     margin: 0;
   }
 
-  .biography {
-    margin-top: 2em;
-    padding-bottom: 1em;
-    border-bottom: 1px solid $subdued-border;
-    margin-bottom: 1em;
-  }
-
-  h2 {
-    font-size: 1.2em;
-    font-variant: small-caps;
-    text-transform: lowercase;
-    font-weight: bold;
-    letter-spacing: 0.15em;
-  }
-
-  .copyright {
-    text-align: center;
+  .footer-name {
+    margin-bottom: -.4em;
   }
 
   // a, a:hover {
   //   color: $alt-color-darker;
   // }
-}
-
-.footnotes {
-  border-top: 1px solid $subdued-border;
-  padding-top: 1em;
-  margin-top: 1em;
-
-  font-family: $mono-font-family;
-  font-size: $small-font-size;
-
-  ul, ol {
-    margin-left: -2em;
-  }
-
-  > ol {
-    margin-left: -1.5em;
-  }
 }
 
 sup > .footnote {
