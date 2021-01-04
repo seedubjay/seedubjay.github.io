@@ -142,7 +142,7 @@ In my case processing this takes about 6 hours... So you might need to stall for
 <p>
 It's probably worth noting that my system is far from perfect. For instance, it ignores the big boxes full of links at the bottom of most Wikipedia pages (a) because it makes the game much less interesting and (b) because they are really annoying to track.<p>
 
-<p>The betweenness centrality ranking is also an estimate since the exact calculation would take a few months to compute fully.<p>
+<p>The betweenness centrality ranking is also an estimate since the exact calculation would take a few months to compute fully.</p>
 
 <p>I'm sure there's some other stuff missing too... but I guess we'll just never know for sure, will we.</p>
 
