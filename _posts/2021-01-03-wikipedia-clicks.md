@@ -136,6 +136,7 @@ In my case processing this takes about 6 hours... So you might need to stall for
 (Or, you could just secretly check this page and use the search panel instead...)
 
 <div class="footnotes">
+
 <p>Analysis is current as of 20 December 2020.</p>
 
 <p>
