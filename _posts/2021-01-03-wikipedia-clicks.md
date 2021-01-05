@@ -6,7 +6,6 @@ styles: ['wikipedia-clicks']
 use_d3: true
 image: "/assets/png/wikipedia-clicks-thumbnail.png"
 subtitle: solving the world's non-issues one program at a time
-sitemap: false
 ---
 
 Here's a game to pass the time while you're trapped at home 10 months into a pandemic. 
