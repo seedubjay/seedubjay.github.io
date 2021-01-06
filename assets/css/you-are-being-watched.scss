@@ -1,0 +1,36 @@
+---
+---
+@import "variables";
+
+#canvas1 {
+    width: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+#svg1 {
+
+    font-family: $mono-font-family;
+
+    .axis-gridline {
+        text {
+            display: none;
+        }
+
+        .domain {
+            display: none;
+        }
+
+        .tick line {
+            stroke: lightgrey;
+            stroke-opacity: 0.7;
+            shape-rendering: crispEdges;
+        }
+    }
+
+    .yaxis {
+        text {
+            display: none;
+        }
+    }
+}
