@@ -95,7 +95,9 @@ window.addEventListener('load', () => {
     let animationID = 0;
     let mouseRadius = 150;
     let prevMouse = {x: 0, y: 0};
-    setPointerMoveAction(canvas, p => {mouse=p}, () => {
+    setPointerMoveAction(canvas, (x,y) => {
+        mouse.x = x;
+        mouse.y = y;
         window.cancelAnimationFrame(animationID);
         animationID = requestAnimationFrame(() => {
             draw({
@@ -375,7 +377,9 @@ window.addEventListener('load', () => {
     let animationID = 0;
     let mouseRadius = 150;
     let prevMouse = {x: 0, y: 0};
-    setPointerMoveAction(canvas, p => {mouse=p}, () => {
+    setPointerMoveAction(canvas, (x,y) => {
+        mouse.x = x;
+        mouse.y = y;
         window.cancelAnimationFrame(animationID);
         animationID = requestAnimationFrame(() => {
             draw({
@@ -430,7 +434,9 @@ window.addEventListener('load', () => {
     let animationID = 0;
     let mouseRadius = 150;
     let prevMouse = {x: 0, y: 0};
-    setPointerMoveAction(canvas, p => {mouse=p}, () => {
+    setPointerMoveAction(canvas, (x,y) => {
+        mouse.x = x;
+        mouse.y = y;
         window.cancelAnimationFrame(animationID);
         animationID = requestAnimationFrame(() => {
             draw({

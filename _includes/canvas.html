@@ -3,7 +3,7 @@
 {% assign height = include.height | default: height %}
 <canvas
     id="{{ include.id }}"
-    {% if include.class %}class="{{ include.class }}"{% endif %}
+    class="diagram {{ include.class }}"
     width="{{ width }}"
     height="{{ height }}">
 </canvas>

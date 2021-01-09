@@ -7,7 +7,7 @@
 
 <svg
     id="{{ include.id }}"
-    {% if include.class %}class="{{ include.class }}"{% endif %}
+    class="diagram {{ include.class }}"
     viewBox="0 0 {{ width }} {{ height }}">
 </svg>
 {% if include.reload %}

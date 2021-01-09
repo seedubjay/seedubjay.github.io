@@ -208,7 +208,20 @@ figure {
     box-sizing: border-box;
   }
 
-  canvas, svg {
+  .figure-group {
+    display: flex;
+    align-items: flex-start;
+
+    & > * {
+      flex-basis: 100%;
+
+      &:not(:last-child) {
+        margin-right: 1%;
+      }
+    }
+  }
+
+  .diagram {
     -webkit-touch-callout:none;
     -webkit-user-select:none;
     -khtml-user-select:none;
@@ -223,19 +236,6 @@ figure {
 
     &.no-outline {
       padding: 2px;
-    }
-
-    .figure-group {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .figure-group-2 * {
-      width: 49.5%;
-    }
-
-    .figure-group *:not(:last-child) {
-      margin-right: 1%;
     }
 
     .interactive {

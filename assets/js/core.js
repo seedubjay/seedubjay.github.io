@@ -3,16 +3,16 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequ
 function getMousePosition(canvas, e) {
     var rect = canvas.getBoundingClientRect();
     return {
-        x: (e.clientX - rect.left) * canvas.width / rect.width,
-        y: (e.clientY - rect.top) * canvas.width / rect.width
+        x: (e.clientX - rect.left) * (canvas.width ? canvas.width / rect.width : 1),
+        y: (e.clientY - rect.top) * (canvas.width ? canvas.width / rect.width : 1)
     }
 }
 
 function getTouchPosition(canvas, e) {
     var rect = canvas.getBoundingClientRect();
     return {
-        x: (e.touches[0].clientX - rect.left) * canvas.width / rect.width,
-        y: (e.touches[0].clientY - rect.top) * canvas.width / rect.width
+        x: (e.touches[0].clientX - rect.left) * (canvas.width ? canvas.width / rect.width : 1),
+        y: (e.touches[0].clientY - rect.top) * (canvas.width ? canvas.width / rect.width : 1)
     }
 }
 
@@ -31,15 +31,15 @@ function addHoveringDrawLoop(canvas, draw, cb = null) {
     canvas.addEventListener('touchup', end);
 }
 
-function setPointerMoveAction(canvas, setPosition = null, cb = null) {
-    canvas.onmousemove = (e) => {
-        if (setPosition) setPosition(getMousePosition(canvas, e));
-        if (cb) cb();
+function setPointerMoveAction(obj, cb = null) {
+    obj.onmousemove = (e) => {
+        let c = getMousePosition(obj, e);
+        if (cb) cb(c.x, c.y);
     };
 
-    canvas.ontouchmove = (e) => {
-        setPosition(getTouchPosition(canvas, e));
-        cb();
+    obj.ontouchmove = (e) => {
+        let c = getTouchPosition(obj, e);
+        if (cb) cb(c.x, c.y);
     };
 }
 

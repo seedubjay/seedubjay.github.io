@@ -49,6 +49,96 @@ window.addEventListener('load', () => {
 
 });
 
+
+window.addEventListener('load', () => {
+    let form_group = document.getElementById('form-example')
+    let form = form_group.firstElementChild;
+    let form_shadow = form_group.firstElementChild.cloneNode(true);
+    form_group.appendChild(form_shadow);
+
+    let canvas = document.createElement("canvas")
+    let ctx = canvas.getContext('2d');
+
+    function setSize() {
+        let cs = window.getComputedStyle(form_shadow);
+        canvas.width = cs.getPropertyValue('width').toString().slice(0,-2);
+        canvas.height = cs.getPropertyValue('height').toString().slice(0,-2);
+    }
+    window.addEventListener('resize', setSize);
+    setSize();
+    form_shadow.appendChild(canvas);
+
+    function end() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+
+    let delay = 3000;
+
+    let data = [];
+    let maxTime = 500;
+
+    let animationID = 0;
+    let loop = () => {
+        let cur = data[data.length - 1];
+        let t = new Date().getTime();
+        data = data.filter(d => d.t > t - maxTime);
+        if (!data.length) data = [cur];
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        
+        ctx.lineWidth = 4;
+        for (let i = 1; i < data.length; i++) {
+            ctx.strokeStyle = `rgba(255,0,0,${1-(t-data[i].t)/maxTime}`;
+            ctx.beginPath();
+            ctx.moveTo(data[i-1].x, data[i-1].y)
+            ctx.lineTo(data[i].x, data[i].y)
+            ctx.stroke();
+        }
+
+        let d = data[data.length-1];
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, 3, 0, 2*Math.PI);
+        ctx.fill();
+
+        if (data.length > 1) animationID = requestAnimationFrame(loop);
+        else animationID = 0;
+    }
+
+    setPointerMoveAction(form, (x,y) => setTimeout(() => {
+        let t = new Date().getTime();
+        data.push({t: t, x: x, y: y});
+        if (!animationID) loop();
+    }, delay));
+
+    form.addEventListener('mouseout', () => setTimeout(end, delay));
+    form.addEventListener('touchup', () => setTimeout(end, delay));
+
+    for (x of ['text', 'range']) {
+        let text = form.getElementsByClassName('form-example-' + x)[0];
+        let text_shadow = form_shadow.getElementsByClassName('form-example-' + x)[0];
+        text.addEventListener('input', () => {let v = text.value; setTimeout(() => {
+            console.log('change')
+            text_shadow.value = v;
+        }, delay)});
+    }
+
+    for (x of ['checkbox1', 'checkbox2', 'checkbox3']) {
+        let cb = form.getElementsByClassName('form-example-' + x)[0];
+        let cb_shadow = form_shadow.getElementsByClassName('form-example-' + x)[0];
+        cb.addEventListener('input', () => {let v = cb.checked; setTimeout(() => {
+            cb_shadow.checked = v;
+        }, delay)});
+    }
+
+    let button = form.getElementsByClassName('form-example-button')[0];
+    let button_shadow = form_shadow.getElementsByClassName('form-example-button')[0];
+    button.addEventListener('mousedown', () => setTimeout(() => button_shadow.classList.add('active'), delay));
+    document.addEventListener('mouseup', () => setTimeout(() => button_shadow.classList.remove('active'), delay));
+    button.addEventListener('touchstart', () => setTimeout(() => button_shadow.classList.add('active'), delay));
+    document.addEventListener('touchend', () => setTimeout(() => button_shadow.classList.remove('active'), delay));
+})
+
+
 window.addEventListener('load', () => {
 
     let svg = d3.select("#svg1");
