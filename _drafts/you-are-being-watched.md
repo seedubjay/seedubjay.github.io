@@ -30,10 +30,6 @@ subtitle: and other scary stories
 </div>
 </figure>
 
-<figure id="figure-width">
-{% include canvas.html id="canvas1" %}
-</figure>
-
 testing
 
 testing
