@@ -68,10 +68,6 @@ window.addEventListener('load', () => {
     setSize();
     form_shadow.appendChild(canvas);
 
-    function end() {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-    }
-
     let delay = 3000;
 
     let data = [];
@@ -102,6 +98,12 @@ window.addEventListener('load', () => {
 
         if (data.length > 1) animationID = requestAnimationFrame(loop);
         else animationID = 0;
+    }
+
+    function end() {
+        cancelAnimationFrame(animationID);
+        animationID = 0;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
     }
 
     setPointerMoveAction(form, (x,y) => setTimeout(() => {
