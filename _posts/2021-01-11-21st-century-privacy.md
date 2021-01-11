@@ -85,7 +85,7 @@ You'll find very few people who actively argue _against_ a right to privacy. Ins
 
 Why is this? Unlike a right to free speech or a right to equality, _many companies are extremely financially incentivised to wear away at this fundamental right to privacy_.
 
-Besides, Facebook and Google are undeniably useful services, so it is often easier to simply ignore the lingering creepiness then upend your digital life and move to alternatives. 
+Besides, Facebook and Google are undeniably useful services, so it is often easier to simply ignore the lingering creepiness than upend your digital life and move to alternatives. 
 
 But the fact remains --
 
