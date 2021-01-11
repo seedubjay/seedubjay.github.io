@@ -69,7 +69,7 @@ Facebook very helpfully lets users give away all of their personal data to apps 
 
 And so, while it only had roughly 270,000 actual users, it was able to collect data **on over 87 million people**. And while selling this data to Cambridge Analytica was against the app's terms of service with Facebook, Facebook had no way of knowing this exchange had occured.
 
-Cambridge Analytica was able to start creating profiles for millions of potential voters in the United States in the run-up to the 2016 US Republican primaries (for [Ted Cruz](https://apnews.com/article/2db0fc93cf664a63909e26e708e91c67) and Ben Carson), then subsequently in the presidential election (for Donald Trump). 
+Cambridge Analytica started creating 'profiles' for millions of potential voters in the United States in the run-up to the 2016 US Republican primaries (for [Ted Cruz](https://apnews.com/article/2db0fc93cf664a63909e26e708e91c67) and Ben Carson), then subsequently in the presidential election (for Donald Trump). 
 
 It also worked for _Leave.EU_, the Brexit-supporting campaign group. 
 
