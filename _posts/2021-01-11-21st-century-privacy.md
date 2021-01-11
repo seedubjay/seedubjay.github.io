@@ -21,7 +21,7 @@ However, the dialogue around privacy seems to be lagging behind. When we discuss
 
 We instinctively use these structures to frame our thoughts and turn vague, principled arguments into tangible questions about human relationships -- _"Am I comfortable with Kate or Dave knowing this thing about me?"_.
 
-However, the world is rapidly becoming far more inhumane, and the way we approach these questions must change with it.
+However, the world is rapidly becoming far more inhuman, and the way we approach these questions must change with it.
 
 ### A surge in data
 
