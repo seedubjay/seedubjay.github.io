@@ -11,3 +11,5 @@ layout: default
   <p class="prev">{% if page.previous.url %}<a href="{{ page.previous.url }}">&laquo;&nbsp;{{page.previous.title}}</a>{% endif %}</p>
   <p class="next">{% if page.next.url %}<a href="{{ page.next.url }}">{{page.next.title}}&nbsp;&raquo;</a>{% endif %}</p>
 </div>
+
+{{ content | strip_html | number_of_words }}

@@ -10,12 +10,11 @@ big_site_title: 1
 			<p class="post-title">
 				{{ post.title | escape }}
 			</p>
-			<span class="post-meta">{{ post.date | date: site.date_format }}</span>
-			<!-- {% if post.subtitle %}
+			<p class="post-meta">{{ post.date | date: site.date_format }}</p>
+			{% if post.subtitle %}
 			<p class="post-subtitle">
 				{{ post.subtitle | escape }}
-			</p> -->
-			<!-- {% endif %} -->
+			{% endif %}
 	</div>
 </a>
 	<hr>

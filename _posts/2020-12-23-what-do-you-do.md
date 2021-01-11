@@ -1,7 +1,7 @@
 ---
 layout: post
 title: You're a Wizard, Harry
-description: and other lies we tell ourselves
+subtitle: And other lies computer scientists tell themselves
 ---
 
 _So... What do you actually do in computer science?_

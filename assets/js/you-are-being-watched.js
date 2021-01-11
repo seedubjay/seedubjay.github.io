@@ -1,4 +1,12 @@
 window.addEventListener('load', () => {
+    let span = document.getElementById('screen-size-gag');
+    let setSize = () => span.innerText = `${window.innerWidth} x ${window.innerHeight}`;
+    setSize();
+    window.addEventListener('resize', setSize);
+});
+
+
+window.addEventListener('load', () => {
     let form_group = document.getElementById('form-example')
     let form = form_group.firstElementChild;
     let form_shadow = form_group.firstElementChild.cloneNode(true);
@@ -67,7 +75,6 @@ window.addEventListener('load', () => {
         let text = form.getElementsByClassName('form-example-' + x)[0];
         let text_shadow = form_shadow.getElementsByClassName('form-example-' + x)[0];
         text.addEventListener('input', () => {let v = text.value; setTimeout(() => {
-            console.log('change')
             text_shadow.value = v;
         }, delay)});
     }
@@ -129,7 +136,7 @@ window.addEventListener('load', () => {
     let minY = 0;
     let maxY = document.body.offsetHeight - window.innerHeight;
 
-    const maxTime = 30000;
+    const maxTime = 120000;
     let scrollStarted = false;
 
     window.addEventListener('scroll', () => {
@@ -162,3 +169,19 @@ window.addEventListener('load', () => {
     })
 
 });
+
+window.addEventListener('load', () => {
+    let div = document.getElementById('set-cookie');
+    let button = div.firstElementChild;
+    button.onclick = () => {
+        document.cookie = `colour=red;Max-Age=${24*60*60};path=/;Secure`;
+    }
+    
+    function getColor() {
+        var decodedCookie = decodeURIComponent(document.cookie);
+        console.log(decodedCookie
+            .split(';')
+            .filter(x => x.startsWith('colour='))[0])
+    }
+
+})

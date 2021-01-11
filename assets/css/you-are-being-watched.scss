@@ -2,6 +2,11 @@
 ---
 @import "variables";
 
+#screen-size-gag {
+    font-family: $mono-font-family;
+    background-color: #eee;
+}
+
 #canvas1 {
     width: auto;
     margin: 0 auto;
@@ -74,4 +79,8 @@
             display: none;
         }
     }
+}
+
+#set-cookie {
+    text-align: center;
 }

@@ -3,7 +3,7 @@ layout: post
 title: Making Machines Less Mechanical
 scripts: ['core', 'perlin-noise']
 image: '/assets/png/perlin-noise-thumbnail.png'
-description: generating maps, clouds, blood and fire
+subtitle: Generating maps, clouds, blood and fire
 ---
 Computers aren't very good at _blending in_. 
 
