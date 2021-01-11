@@ -166,7 +166,7 @@ header {
 
   .post-title {
     font-size: 1.5em;
-    line-height: .9em;
+    line-height: 1em;
     font-weight: bold;
     margin-bottom: 0;
   }
@@ -179,7 +179,8 @@ header {
  .post-subtitle {
    font-size: 1.1em;
    line-height: 1em;
-   margin: 1em 0;
+   margin-top: .5em;
+   margin-bottom: 1.5em;
   }
 }
 
@@ -262,7 +263,7 @@ figure {
     text-align: center;
 
     .caption {
-      line-height: 1;
+      line-height: 1.1em;
       font-style: italic;
     }
 
@@ -339,6 +340,11 @@ article {
     > ol {
       margin-left: -1.5em;
     }
+
+    p {
+      margin-bottom: .8em;
+      line-height: 1.2em;
+    }
   }
 }
 
@@ -348,12 +354,13 @@ article {
   justify-content: space-between;
   flex-wrap: wrap;
 
-  padding: 0 16px;
+  font-size: $small-font-size;
+  // padding: 0 16px;
   margin: 2em 0 1em 0;
 
   p {
     flex: 1 1 0;
-    width: 45%;
+    max-width: 45%;
     margin: 0;
   }
 
@@ -368,7 +375,7 @@ article {
 }
 
 blockquote {
-  font-size: .8em;
+  font-size: .85em;
   margin-top: 1em;
   margin-bottom: 1em;
   border-left: 2pt solid $alt-color;
