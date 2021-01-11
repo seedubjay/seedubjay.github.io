@@ -56,7 +56,7 @@ In 2013, [a paper from Cambridge University's Psychometrics Centre](https://www.
 > We show that easily accessible digital records of behavior, Facebook Likes, can be used to automatically and accurately predict a range of highly sensitive personal attributes including: sexual orientation, ethnicity, religious and political views, personality traits, intelligence, happiness, use of addictive substances, parental separation, age, and gender...
 > The model correctly discriminates between homosexual and heterosexual men in 88% of cases, African Americans and Caucasian Americans in 95% of cases, and between Democrat and Republican in 85% of cases.
 
-With this research in mind (and with one of the authors themselves on board), the company Cambridge Analytica began collecting huge traunches of personal data harvested from Facebook and other sources.
+With this research in mind (and with one of the authors themselves on board), the company Cambridge Analytica began collecting huge tranches of personal data harvested from Facebook and other sources.
 
 This data was acquired primarily through a Facebook app called _This is Your Digital Life_. To use the app, users needed to give it permission to see all of their personal information. But crucially, it automatically received _all of that user's friends' information as well_.
 
