@@ -58,12 +58,12 @@ In 2013, [a paper from Cambridge University's Psychometrics Centre](https://www.
 
 With this research in mind (and with one of the authors themselves on board), the company Cambridge Analytica began collecting huge trauches of personal data harvested from Facebook and other sources.
 
-This data was acquired primarily through a Facebook app called _This is Your Digital Life_. To use the app, users needed to give it permission to see all of their personal information. But crucially, it also gave the app permission to see _all of that user's friends' information as well_.
+This data was acquired primarily through a Facebook app called _This is Your Digital Life_. To use the app, users needed to give it permission to see all of their personal information. But crucially, it automatically received _all of that user's friends' information as well_.
 
 <figure>
 <img src="/assets/png/facebook-permission-page.png" alt="Facebook permission page" class="diagram">
 <figcaption><p class="caption">
-Facebook very helpfully lets users give away all of their personal data to apps in just one easy click with a page like this
+Facebook very helpfully lets users give away all of their personal data to apps in just one easy click
 </p></figcaption>
 </figure>
 
