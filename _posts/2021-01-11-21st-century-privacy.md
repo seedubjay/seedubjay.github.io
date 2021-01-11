@@ -73,7 +73,7 @@ Cambridge Analytica started creating 'profiles' for millions of potential voters
 
 It also worked for _Leave.EU_, the Brexit-supporting campaign group. 
 
-Cambridge Analytica's goal in each case was to identify and analyse voters. These insights could then be used to create bespoke ads, playing on each person's individual fears and beliefs, to try and influence their vote, or influence turnout in key geographic areas.
+Cambridge Analytica's goal in each case was to identify and analyse voters. These insights could then be used to create bespoke ads, playing on each person's individual fears and beliefs, to try and influence their vote or influence turnout in key geographic areas.
 
 While the exact level of their success is still debated, the outcome is in any case alarming. Facebook's lax data policies made it all too easy for political players to influence elections and a referendum in unprecendented ways by advertising on Facebook itself. Furthermore, most of the data they used was obtained without any user's consent, in a process endorsed and facilitated by Facebook.
 
