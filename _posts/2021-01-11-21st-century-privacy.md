@@ -5,7 +5,7 @@ image: "/assets/jpg/cctv-camera.jpg"
 subtitle: Does privacy matter in the modern world?
 ---
 
-Privacy is an strange idea.
+Privacy is a strange idea.
 
 Unlike a right to free speech or a right to equality, it has no clear definition in legislation or in society. However, we all seem to 'know' what it means, one way or another. I call this _the ickiness scale_.
 
