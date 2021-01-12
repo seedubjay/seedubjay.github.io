@@ -63,7 +63,7 @@ This data was acquired primarily through a Facebook app called _This is Your Dig
 <figure>
 <img src="/assets/png/facebook-permission-page.png" alt="Facebook permission page" class="diagram">
 <figcaption><p class="caption">
-Facebook very helpfully lets users give away all of their personal data to apps in just one easy click
+Facebook very helpfully let users give away all of their personal data to apps in just one easy click
 </p></figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ It also worked for _Leave.EU_, the Brexit-supporting campaign group.
 
 Cambridge Analytica's goal in each case was to identify and analyse voters. These insights could then be used to create bespoke ads, playing on each person's individual fears and beliefs, to try and influence their vote or influence turnout in key geographic areas.
 
-While the extent of their success is still debated, the outcome is in any case alarming. Facebook's lax data policies made it all too easy for political players to influence elections and a referendum in unprecendented ways by advertising on Facebook itself. Furthermore, most of the data they used was obtained without any user's consent, in a process endorsed and facilitated by Facebook.
+While the extent of their success is still debated, the outcome is in any case alarming. Facebook's lax data policies made it all too easy for political players to influence elections and a referendum in unprecendented ways by advertising on Facebook itself. Furthermore, most of the data they used was obtained without any user's consent to this use, in a process facilitated by Facebook.
 
 ### Resisting apathy
 
@@ -106,7 +106,7 @@ These changes make it more important than ever to understand what you are about 
 <p>While you're here, a few quick privacy suggestions:</p>
 <li>Replace Google Search with <a href="https://duckduckgo.com">DuckDuckGo</a> - avoid Google tracking all your searches</li>
 <li>Replace Google Chrome with <a href="https://www.mozilla.org/en-UK/firefox/">Firefox</a> or <a href="https://www.apple.com/uk/safari/">Safari</a> - Chrome allows advertisers to track you across multiple websites to learn more about you</li>
-<li>Delete Facebook entirely, or run it from your phone's browser instead of the phone app to minimise tracking</li>
+<li>Run Facebook from your phone's browser instead of a phone app to minimise tracking, or delete it entirely</li>
 <li>Gradually phase out Messenger and WhatsApp for <a href="https://signal.org">Signal</a></li>
 <ul>
 <div>
