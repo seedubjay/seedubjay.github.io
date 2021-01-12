@@ -102,9 +102,11 @@ And so, when you encounter something new on the internet, or your government is 
 These changes make it more important than ever to understand what you are about to give away with a single click.
 
 <div class="footnotes">
+<ul>
 <p>While you're here, a few quick privacy suggestions:</p>
-<p>Replace Google Search with <a href="https://duckduckgo.com">DuckDuckGo</a> - avoid Google tracking all your searches</p>
-<p>Replace Google Chrome with <a href="https://www.mozilla.org/en-UK/firefox/">Firefox</a> or <a href="https://www.apple.com/uk/safari/">Safari</a> - Chrome allows advertisers to track you across multiple websites to learn more about you</p>
-<p>Delete Facebook entirely, or run it from your phone's browser instead of the phone app to minimise tracking</p>
-<p>Gradually phase out Messenger and WhatsApp for <a href="https://signal.org">Signal</a>
+<li>Replace Google Search with <a href="https://duckduckgo.com">DuckDuckGo</a> - avoid Google tracking all your searches</li>
+<li>Replace Google Chrome with <a href="https://www.mozilla.org/en-UK/firefox/">Firefox</a> or <a href="https://www.apple.com/uk/safari/">Safari</a> - Chrome allows advertisers to track you across multiple websites to learn more about you</li>
+<li>Delete Facebook entirely, or run it from your phone's browser instead of the phone app to minimise tracking</li>
+<li>Gradually phase out Messenger and WhatsApp for <a href="https://signal.org">Signal</a></li>
+<ul>
 <div>
