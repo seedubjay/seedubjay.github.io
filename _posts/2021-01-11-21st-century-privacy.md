@@ -71,7 +71,7 @@ And so, while it only had roughly 270,000 actual users, it was able to collect d
 
 Cambridge Analytica started creating 'profiles' for millions of potential voters in the United States in the run-up to the 2016 US Republican primaries (for [Ted Cruz](https://apnews.com/article/2db0fc93cf664a63909e26e708e91c67) and Ben Carson), then subsequently in the presidential election (for Donald Trump). 
 
-It also worked for _Leave.EU_, the Brexit-supporting campaign group. 
+It also worked for _Leave.EU_, a Brexit campaign group. 
 
 Cambridge Analytica's goal in each case was to identify and analyse voters. These insights could then be used to create bespoke ads, playing on each person's individual fears and beliefs, to try and influence their vote or influence turnout in key geographic areas.
 
