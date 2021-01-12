@@ -273,8 +273,7 @@ figure {
   }
 }
 
-article {
-
+.article-title {
   h1 {
     margin-bottom: 0;
   }
@@ -285,6 +284,9 @@ article {
     color: lighten($text-color, 20%);
     margin-bottom: 1em;
   }
+}
+
+article {
 
   padding-left: 16px;
   padding-right: 16px;
@@ -341,7 +343,7 @@ article {
   }
 }
 
-.post-arrows {
+.article-arrows {
   font-family: $mono-font-family;
   display: flex;
   justify-content: space-between;
