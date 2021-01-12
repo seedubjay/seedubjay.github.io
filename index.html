@@ -1,12 +1,15 @@
 ---
 layout: default
-big_site_title: 1
+big_site_title: true
+styles: ['index']
 ---
 <div id="post-list">
 	<hr>
 	{% for post in site.posts %}
 	<a class="post-link" href="{{ post.url | relative_url }}">
 	<div class="post-item">
+		<div class="post-image"><img src="{{post.image | relative_url }}"></div>
+		<div class="post-text">
 			<p class="post-title">
 				{{ post.title | escape }}
 			</p>
@@ -15,6 +18,7 @@ big_site_title: 1
 			<p class="post-subtitle">
 				{{ post.subtitle | escape }}
 			{% endif %}
+		</div>
 	</div>
 </a>
 	<hr>

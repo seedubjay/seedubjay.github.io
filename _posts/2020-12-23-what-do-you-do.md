@@ -2,6 +2,7 @@
 layout: post
 title: You're a Wizard, Harry
 subtitle: And other lies computer scientists tell themselves
+image: "/assets/jpg/what-do-you-do-thumbnail.jpg"
 ---
 
 _So... What do you actually do in computer science?_

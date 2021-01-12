@@ -77,17 +77,6 @@ body {
   border-top: 3px solid $alt-color;
 }
 
-@media (max-width: 480px) {
-
-  header {
-    font-size: 12px;
-  }
-
-  .post-item {
-    font-size: 12px;
-  }
-}
-
 header {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
@@ -134,53 +123,6 @@ header {
     height: 2em;
     padding-left: 10px;
     padding-right: 10px;
-  }
-}
-
-#post-list > hr {
-
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-
-}
-
-.post-link:hover {
-  text-decoration: none;
-}
-
-.post-item {
-
-  font-size: 14px;
-  font-family: $mono-font-family;
-
-  p {
-    color: $text-color;
-  }
-
-  .post-meta {
-    font-size: 0.9em;
-    line-height: 1em;
-    color: lighten($text-color, 20%);
-    margin-bottom: 0;
-  }
-
-  .post-title {
-    font-size: 1.5em;
-    line-height: 1em;
-    font-weight: bold;
-    margin-bottom: 0;
-  }
-
-  .post-title:hover {
-    text-decoration: underline;
-    text-decoration-color: $alt-color;
-  }
-
- .post-subtitle {
-   font-size: 1.1em;
-   line-height: 1em;
-   margin-top: .5em;
-   margin-bottom: 1.5em;
   }
 }
 

@@ -4,7 +4,7 @@ title: You Are Being Watched
 scripts: ['core', 'you-are-being-watched']
 styles: ['you-are-being-watched']
 use_d3: true
-image: "/assets/jpg/cctv-camera.jpg"
+image: "/assets/jpg/you-are-being-watched-thumbnail.jpg"
 subtitle: And other scary stories
 ---
 
