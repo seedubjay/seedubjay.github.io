@@ -2,7 +2,7 @@
 layout: post
 title: Colourful Beads and Cheap Trinkets
 image: "/assets/jpg/cctv-camera.jpg"
-subtitle: Does privacy even matter anymore?
+subtitle: Does privacy actually matter anymore?
 ---
 
 Privacy is a strange idea.
