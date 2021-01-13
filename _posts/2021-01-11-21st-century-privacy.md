@@ -41,6 +41,7 @@ For example, consider the security camera example from above.
 
 <figure>
 <img src="/assets/jpg/cctv-camera.jpg" alt="Security camera" class="diagram">
+<figcaption></figcaption>
 </figure>
 
 Curiously, all three levels of surveillance _look completely identical_. After all, it's just a camera on a pole. However, the software driving these systems could turn from harmless to terrifying in a single software update and no-one would ever know, unless the owners disclosed the change.
