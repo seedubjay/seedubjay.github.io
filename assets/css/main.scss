@@ -230,8 +230,8 @@ figure {
 
 article {
 
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px 32px 16px;
+  // border-bottom: 1px solid $text-color;
   
   ul li {
     line-height: 1.2em;
@@ -271,7 +271,8 @@ article {
   }
 
   .footnotes {
-    border-top: 1px solid $subdued-border;
+
+    border-top: 1px solid rgba(0,0,0,.1);
     padding-top: 1em;
     margin-top: 1em;
   
@@ -292,8 +293,10 @@ article {
   flex-wrap: wrap;
 
   font-size: $small-font-size;
-  // padding: 0 16px;
-  margin: 2em 0 1em 0;
+  // padding-top: 1em;
+  // border-top: 1px solid $alt-color;//rgba(0,0,0,.1);
+  // border-bottom: 1px solid rgba(0,0,0,.1);
+  margin-bottom: 1em;
 
   p {
     flex: 1 1 0;
@@ -339,16 +342,24 @@ footer {
   font-size: $small-font-size;
   font-family: $mono-font-family;
 
-  // color: $alt-text-color;
-
   text-align: center;
 
-  p {
-    margin: 0;
+  .footer-name {
+    margin-bottom: 0;
+    line-height: 1.2em;
   }
 
-  .footer-name {
-    margin-bottom: -.4em;
+  .footer-links {
+    a {
+      margin: 0 .2em;
+    }
+
+    svg {
+      width: 1.5em;
+      height: 1.2em;
+      fill: $text-color;
+      stroke: $text-color;
+    }
   }
 
   // a, a:hover {
