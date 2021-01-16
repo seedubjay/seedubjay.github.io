@@ -1,0 +1,103 @@
+---
+---
+@import "variables";
+
+body {
+    font-size: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+#clock-time {
+    text-align: center;
+    font-size: 100px;
+    line-height: 1em;
+    font-family: monospace;
+    // margin-bottom: -.1em;
+}
+
+#clock-buttons {
+    text-align: center;
+    margin-bottom: 1em;
+
+    button {
+        width: 6em;
+        font-size: 20px;
+        line-height: 1em;
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+#drill-list-live {
+    font-size: 36px;
+    .drill-item {
+        text-align: center;
+        color: #aaa;
+
+        &:first-child {
+            color: $text-color;
+            margin-bottom: 1em;
+        }
+    }
+
+}
+
+#drill-list {
+
+    .interactive {
+        color: $alt-color;
+
+        &:hover {
+            color: $alt-color-darker;
+        }
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    margin: 16px 0;
+    
+    & > *:last-child {
+        border-bottom: 1px solid lightgrey;
+    }
+
+    & > * {
+        border-top: 1px solid lightgrey;
+        padding: .1em 16px;
+    }
+
+    .drill-item {
+        .drill-buttons {
+            i {
+                margin-left: .2em;
+            }
+            margin-left: .5em;
+        }
+
+        display: flex;
+        align-items: center;
+        
+        .drill-text {
+            flex: 1;
+        }
+
+        #addDrillText {
+            width: 0;
+            flex: 1;
+        }
+
+        #addDrillTime {
+            width: 5em;
+            margin-left: .5em;
+        }
+    }
+
+    .drill-add {
+        // font-size: .8em;
+        text-align: center;
+        border-top: 1px solid lightgrey;
+    }
+}

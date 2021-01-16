@@ -1,0 +1,11 @@
+<header {% if include.site_title == "big" %}class="big-title"{% endif %}>
+    <a href="{{ "/" | relative_url }}">
+      <div id="site-title"><h1>{{ page.custom_title | default : site.title }}</h1></div>
+      {% if include.site_title == "big" %}<div id="site-subtitle"><h2>{{ site.subtitle }}</h2></div>{% endif %}
+    </a>
+    <!-- <div class="ornament">
+        <img src="/assets/svg/ornament.svg" />
+        <img src="/assets/svg/ornament.svg" />
+        <img src="/assets/svg/ornament.svg" />
+    </div> -->
+</header>

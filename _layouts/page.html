@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body>
+    <div class="container main">
+        {% assign site_title = page.site_title | default: layout.site_title %}
+        {% if site_title != "none" %}{% include header.html site_title=site_title %}{% endif %}
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md-9">
+                {{ content }}
+            </div>
+            <div class="col-md"></div>
+        </div>
+        {% include footer.html %}
+    </div>
+    {% for script in page.scripts %}
+    <script src="/assets/js/{{ script }}.js"></script>
+    {% endfor %}
+</body>
+
+</html>

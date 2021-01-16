@@ -1,0 +1,17 @@
+---
+layout: page
+
+custom_title: circuits timer
+scripts: ['circuits']
+styles: ['circuits']
+---
+<div id="clock-time"></div>
+
+<div id="drill-list-live"></div>
+<div id="drill-list"></div>
+
+<div id="clock-buttons">
+    <button class="btn btn-outline-success btn-sm" id="clock-play" onclick="clockStart()"><i class="fas fa-play"></i></button>
+    <button class="btn btn-outline-warning btn-sm hidden" id="clock-pause" onclick="clockPause()"><i class="fas fa-pause"></i></button>
+    <button class="btn btn-outline-danger btn-sm hidden" id="clock-stop" onclick="clockStop()"><i class="fas fa-stop"></i></button>
+</div>
