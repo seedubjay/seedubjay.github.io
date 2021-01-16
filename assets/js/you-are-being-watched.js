@@ -171,17 +171,53 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('load', () => {
-    let div = document.getElementById('set-cookie');
-    let button = div.firstElementChild;
-    button.onclick = () => {
-        document.cookie = `colour=red;Max-Age=${24*60*60};path=/;Secure`;
-    }
-    
-    function getColor() {
-        var decodedCookie = decodeURIComponent(document.cookie);
-        console.log(decodedCookie
-            .split(';')
-            .filter(x => x.startsWith('colour='))[0])
+    let setButton = document.getElementById('set-cookie');
+    let K = 60*60*24*2;
+    setButton.onclick = () => {
+        if (id) return;
+        document.cookie = `timeout=${new Date().getTime() + K*1000};max-age=${K}`;
+        id = setInterval(loop, 100);
     }
 
+    let deleteButton = document.getElementById('delete-cookie');
+    deleteButton.onclick = () => {
+        document.cookie = "timeout=0;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    }
+    
+    function getTimeout() {
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let timeout = decodedCookie.split(';').filter(x => x.startsWith('timeout='))[0]
+        if (!timeout) {
+            return 0;
+        } else {
+            timeout = parseInt(timeout.slice(8)) - (new Date().getTime());
+            return Math.max(timeout/1000, 0);
+        }
+    }
+
+    let id = setInterval(loop, 100);
+
+    function loop() {
+        let t = getTimeout();
+        if (!t) {
+            setButton.disabled = false;
+            deleteButton.classList.add('hidden');
+            setButton.innerText = "Set a pointless cookie"
+            clearInterval(id);
+            id = 0;
+        } else {
+            setButton.disabled = true;
+            deleteButton.classList.remove('hidden');
+            let h = Math.floor(t/3600);
+            t %= 3600;
+            let m = Math.floor(t/60);
+            if (m < 10) m = '0'+m;
+            t %= 60;
+            let s = Math.floor(t);
+            if (s < 10) s = '0'+s;
+            t %= 1;
+            let ms = Math.floor(t*10);
+            setButton.innerText = `${h}:${m}:${s}.${ms}`
+        }
+    }
 })

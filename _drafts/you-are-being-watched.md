@@ -54,31 +54,34 @@ Which sections of this article have you skipped so far, by the way?
 
 We haven't even gotten to the creepy stuff yet!
 
-### Tracking tools
+### Cookies
 
-All of the previous tracking methods only work on a page-by-page basis. That is, if you reload the page or come back to it later, you'll be a completely new visitor in the eyes of the company.
+All of the previous tracking methods only work on a page-by-page basis. That is, if you reload the page or return to it later in the day, you'll be a completely new visitor in the eyes of the company.
 
 However, the value of this data increases exponentially if the company is able to join all of your visits together into a single profile that describes you in more and more detail over time.
 
-This is not a new concept -- rewards cards, websites that require you to log in to identify yourself, and more have been collecting data like this for years.
+This has been done for years with [rewards cards systems](https://www.bbc.co.uk/news/technology-43483426) and by forcing users to provide personal information.
 
-However, this is taken to a completely new level with the introduction of _cookies_. 
+However, the introduction of _cookies_ takes this to a whole new level. 
 
-The cookie is a system built into all modern browsers which allow websites to store small chunks of data on each user's computer.
+The cookie is a system built into all modern browsers which allows websites to store small chunks of data on each user's computer.
 
-This is used for many many legitimate purposes like storing a user's current shopping cart or storing login details as the user browses the website. These types of cookies are generally called _first-party cookies_, as the website owner is the one setting these cookies.
+This is used for many many legitimate purposes like storing a user's current shopping cart or storing login details as the user browses the website. These types of cookies are generally called _first-party cookies_, as the website owner is the one setting them.
 
-<figure>
-<div id="set-cookie"><button type="button" class="btn btn-success">Set a pointless cookie</button></div>
+<figure id="cookie-buttons">
+<button type="button" class="btn btn-success" id="set-cookie" disabled></button>
+<button type="button" class="btn btn-danger btn-sm hidden" id="delete-cookie">Clean up</button>
 </figure>
 
-However, any website that integrates a third party like Google or Facebook automatically grants these companies the right to set _third-party cookies_. These cookies allow advertisers to create an enormous mesh of trackers that watch you hop from website to website around the internet.
+Try setting a cookie then reloading the page. While most things reset completely when reloading a page, this cookie will stay on your computer for two days.
+
+However, any website that integrates with an advertising company automatically grants them the right to set _third-party cookies_. This allow advertisers to create an enormous mesh of trackers that watch you hop from website to website around the internet.
 
 <figure>
 <img src="/assets/png/facebook-like-button.png" alt="Facebook Like button">
 <figcaption>
 <p class="caption">
-A Facebook 'Like' button on a website will constantly track you and send information back to Facebook, even if you don't click it or don't have a Facebook account.
+A Facebook 'Like' button tracks you and relays information back to Facebook, even if you don't have a Facebook account or click the button
 </p>
 </figcaption>
 </figure>
@@ -89,14 +92,12 @@ For instance, see [which companies in Facebook's mesh are tracking you right now
 
 In essence, _all parties are incentivised to share your data with each other for more targeted advertising_. Google and Facebook are kingpins in this world, storing all of this data, providing ads to all of its partner websites, and controlling over half of all online advertising revenue in many markets. 
 
-In some positive news, **Safari and Firefox now block third-party cookies by default**, and severely limit the cookies that make it onto your computer, making it impossible for you to be tracked via this method.
+Unlike a rewards card, cookies can function completely silently, passing your information to advertisers without your knowledge or consent. Legislation to protect users has been passed [in Europe](https://gdpr.eu/cookies/)) and, to a lesser degree, [in California](https://oag.ca.gov/privacy/ccpa). However, most of the world remains in a digital Wild West.
 
-And, to no-one's surprise, **Google Chrome does not block any cookies** at all.
+In some positive news, **both Firefox and Safari now block third-party cookies by default**, and severely limit the other cookies that make it onto your computer, making it impossible for you to be tracked via this method.
 
+### Fingerprinting
 
-
-
-cookies
 fingerprinting
 - useragent
 - etag
