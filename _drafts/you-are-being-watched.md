@@ -10,7 +10,7 @@ subtitle: And other scary stories
 
 _Disclaimer: While this article does contain some extremely creepy forms of tracking, it is just for demonstration purposes here and none of it is actually collected, except where otherwise stated. It's a shame that the same cannot be said for the rest of the internet._
 
-Let's get one thing absolutely clear -- websites can see absolutely everything that you are doing on them.
+Let's get one thing absolutely clear -- websites can see absolutely everything that you are doing.
 
 Every click, every drag, every key press and every hover.
 
@@ -41,7 +41,11 @@ It's also worth noting that **none of this tracking ever needs to be disclosed t
 
 Why do companies do this? Most websites use it for fairly tame reasons like checking to make sure users aren't confused by a page's layout or a form.
 
-But this data can be extremely powerful. It could be used to predict a user's age and wealth to dynamically show them a website which the user will be most likely to spend money in. Or, it could be used to predict [Parkinson's disease and other health problems](https://medium.com/stanford-magazine/your-computer-may-know-you-have-parkinsons-shall-it-tell-you-e8f8907f4595) without the user's consent, and show ads to them based on these predictions.
+But this data can be extremely powerful.
+
+It could be used to predict a user's age and wealth to dynamically show them a website which they will be most likely to spend money in.
+
+Or, it could be used to predict [Parkinson's disease and other health problems](https://medium.com/stanford-magazine/your-computer-may-know-you-have-parkinsons-shall-it-tell-you-e8f8907f4595) without the user's consent, and show ads to them based on these predictions.
 
 All of this happens without the user's knowldege, and without any regulation on how that data is stored, shared, sold or analysed.
 
@@ -60,7 +64,7 @@ All of the previous tracking methods only work on a page-by-page basis. That is,
 
 However, the value of this data increases exponentially if the company is able to join all of your visits together into a single profile that describes you in more and more detail over time.
 
-This has been done for years with [rewards cards systems](https://www.bbc.co.uk/news/technology-43483426) and by forcing users to provide personal information.
+This has been done for years with [rewards cards systems](https://www.bbc.co.uk/news/technology-43483426) and by forcing users to provide personal information for no reason when they buy something online.
 
 However, the introduction of _cookies_ takes this to a whole new level. 
 
