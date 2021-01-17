@@ -351,7 +351,9 @@ footer {
 
   .footer-links {
     a {
-      margin: 0 .3em;
+      color: $text-color;
+      font-size: 1.2em;
+      margin: 0 .4em;
     }
 
     svg {
