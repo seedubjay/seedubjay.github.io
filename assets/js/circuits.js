@@ -7,6 +7,7 @@ let stop_button = document.getElementById('clock-stop')
 let drills_live_div = document.getElementById('drill-list-live')
 let drills_div = document.getElementById('drill-list')
 
+let text_mode_div = document.getElementById('text-mode')
 let text_mode_button = document.getElementById('text-mode-button')
 let text_mode_ui = document.getElementById('text-mode-ui')
 
@@ -39,6 +40,7 @@ function clockStart() {
     play_button.classList.add('hidden')
     pause_button.classList.remove('hidden')
     stop_button.classList.remove('hidden')
+    text_mode_div.classList.add('hidden')
 
     currentStartTime = new Date().getTime();
     animationID = setInterval(() => {
@@ -67,6 +69,8 @@ function clockStop() {
     play_button.classList.remove('hidden')
     pause_button.classList.add('hidden')
     stop_button.classList.add('hidden')
+    text_mode_div.classList.remove('hidden')
+
 
     elapsedTime = 0;
     currentStartTime = null;
@@ -99,7 +103,8 @@ function textImportSave() {
     drills = text_mode_ui.firstElementChild.firstElementChild.value.split('\n').map(l => {
         try {
             let x = l.split(':');
-            if (x.length != 2) throw "should only be one ':' symbol";
+            x[1] = parseInt(x[1]);
+            if (x.length != 2 || isNaN(x[1]) || x[1] <= 0) throw "should only be one ':' symbol";
             return {'text': x[0], 'time': parseInt(x[1])}
         } catch (e) {
             console.log(e);
@@ -181,7 +186,7 @@ function showDrillsRunning() {
             }
         }
 
-        content += `<div class="drill-item">
+        content += `<div class="drill-item${d.text.toLowerCase() == 'rest' ? ' rest' : ''}">
             <span class="drill-text">${d.text} (${d.time}s)
         </div>`
     }

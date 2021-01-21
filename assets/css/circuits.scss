@@ -32,14 +32,19 @@ body {
 }
 
 #drill-list-live {
-    font-size: 40px;
+    font-size: 36px;
     .drill-item {
         text-align: center;
-        color: #888;
 
         &:first-child {
+            font-size: 1.5em;
             color: $text-color;
             margin-bottom: 1em;
+        }
+
+        &:not(:first-child).rest {
+            font-size: 0.8em;
+            color: #888;
         }
     }
 
