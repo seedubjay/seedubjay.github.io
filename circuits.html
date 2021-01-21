@@ -11,6 +11,17 @@ subtitle: customise a circuits session and run it
 <div id="clock-time"></div>
 
 <div id="drill-list-live"></div>
+
+<div id="text-mode">
+    <div id="text-mode-button"><span onclick="textImportStart()">Import</span></div>
+    <div id="text-mode-ui" class="hidden">
+        <div id="text-mode-textbox">
+            <textarea oninput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+        </div>
+        <div id="text-mode-note">Note: any invalid lines will be omitted</div>
+    </div>
+</div>
+
 <div id="drill-list"></div>
 
 <div id="clock-buttons">

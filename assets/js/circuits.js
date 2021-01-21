@@ -1,10 +1,16 @@
 
 let clock_display = document.getElementById('clock-time')
+let clock_buttons = document.getElementById('clock-buttons')
 let play_button = document.getElementById('clock-play')
 let pause_button = document.getElementById('clock-pause')
 let stop_button = document.getElementById('clock-stop')
 let drills_live_div = document.getElementById('drill-list-live')
 let drills_div = document.getElementById('drill-list')
+
+let text_mode_button = document.getElementById('text-mode-button')
+let text_mode_ui = document.getElementById('text-mode-ui')
+
+let text_importing = false;
 
 let elapsedTime = 0;
 let currentStartTime = null;
@@ -67,6 +73,44 @@ function clockStop() {
     clearInterval(animationID);
 
     showDrills();
+}
+
+function textImportStart() {
+    text_mode_button.innerHTML = '<span onclick="textImportSave()">Save</span><span onclick="textImportCancel()">Cancel</span>'
+    text_mode_ui.classList.remove('hidden');
+    drills_div.classList.add("hidden")
+    clock_buttons.classList.add("hidden")
+
+    let textarea = text_mode_ui.firstElementChild.firstElementChild;
+    textarea.value = drills.map(d => `${d.text}:${d.time}`).join('\n')
+    textarea.parentElement.dataset.replicatedValue = textarea.value
+
+}
+
+function textImportEnd() {
+    text_mode_button.innerHTML = '<span onclick="textImportStart()">Import</span>'
+    text_mode_ui.classList.add('hidden');
+    drills_div.classList.remove("hidden")
+    clock_buttons.classList.remove("hidden")
+    showDrills();
+}
+
+function textImportSave() {
+    drills = text_mode_ui.firstElementChild.firstElementChild.value.split('\n').map(l => {
+        try {
+            let x = l.split(':');
+            if (x.length != 2) throw "should only be one ':' symbol";
+            return {'text': x[0], 'time': parseInt(x[1])}
+        } catch (e) {
+            console.log(e);
+            return null;
+        }
+    }).filter(d => d !== null);
+    textImportEnd();
+}
+
+function textImportCancel() {
+    textImportEnd();
 }
 
 function saveDrills() {

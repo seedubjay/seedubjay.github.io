@@ -15,9 +15,13 @@ body {
     // margin-bottom: -.1em;
 }
 
+.hidden {
+    display: none;
+}
+
 #clock-buttons {
     text-align: center;
-    margin-bottom: 1em;
+    margin: 1em 0;
 
     button {
         width: 6em;
@@ -25,16 +29,13 @@ body {
         line-height: 1em;
     }
 
-    .hidden {
-        display: none;
-    }
 }
 
 #drill-list-live {
     font-size: 36px;
     .drill-item {
         text-align: center;
-        color: #aaa;
+        color: #888;
 
         &:first-child {
             color: $text-color;
@@ -42,6 +43,49 @@ body {
         }
     }
 
+}
+
+#text-mode {
+    #text-mode-button {
+        font-size: 12px;
+        text-align: right;
+
+        span {
+            margin-left: 1em;
+            color: $alt-color;
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+    #text-mode-note {
+        font-size: 12px;
+        color: #c00;
+    }
+
+    #text-mode-textbox {
+        display: grid;
+        &::after {
+            content: attr(data-replicated-value) "";
+            white-space: pre-wrap;
+            visibility: hidden;
+        }
+        textarea {
+            resize: none;
+            overflow: hidden;
+        }
+
+        &::after, textarea {
+            border: 1px solid lightgray;
+            padding: 0.5rem;
+            font: inherit;
+          
+            /* Place on top of each other */
+            grid-area: 1 / 1 / 2 / 2;
+        }
+    }
 }
 
 #drill-list {
@@ -58,7 +102,6 @@ body {
         visibility: hidden;
     }
 
-    margin: 16px 0;
     
     & > *:last-child {
         border-bottom: 1px solid lightgrey;
