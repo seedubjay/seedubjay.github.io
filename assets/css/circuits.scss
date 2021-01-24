@@ -46,6 +46,12 @@ body {
             font-size: 0.8em;
             color: #888;
         }
+
+        span.time {
+            font-family: $mono-font-family;
+            font-size: .8em;
+            // font-variant: small-caps
+        }
     }
 
 }

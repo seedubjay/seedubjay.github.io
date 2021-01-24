@@ -187,7 +187,7 @@ function showDrillsRunning() {
         }
 
         content += `<div class="drill-item${d.text.toLowerCase() == 'rest' ? ' rest' : ''}">
-            <span class="drill-text">${d.text} (${d.time}s)
+            <span class="drill-text">${d.text} <span class="time">(${d.time}s)</span>
         </div>`
     }
 
