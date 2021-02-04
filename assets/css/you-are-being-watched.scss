@@ -2,7 +2,7 @@
 ---
 @import "variables";
 
-#screen-size-gag {
+.tracked-text {
     font-family: $mono-font-family;
     background-color: #eee;
 }
@@ -101,5 +101,12 @@
         &.hidden {
             display: none;
         }
+    }
+}
+
+#facebook-like {
+    text-align: center;
+    img {
+        width: 70%;
     }
 }

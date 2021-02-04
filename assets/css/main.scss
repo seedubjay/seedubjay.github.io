@@ -204,7 +204,7 @@ figure {
   figcaption {
     text-align: center;
 
-    .caption {
+    &.caption, .caption {
       line-height: 1.1em;
       font-style: italic;
     }

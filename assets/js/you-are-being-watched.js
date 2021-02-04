@@ -1,10 +1,58 @@
 window.addEventListener('load', () => {
     let span = document.getElementById('screen-size-gag');
-    let setSize = () => span.innerText = `${window.innerWidth} x ${window.innerHeight}`;
+    let setSize = () => span.innerHTML = ` (yours is <span class="tracked-text">${window.innerWidth} x ${window.innerHeight}</span>)`;
     setSize();
     window.addEventListener('resize', setSize);
 });
 
+window.addEventListener('load', () => {
+    let span = document.getElementById('os-gag');
+    let tests = ['iPhone', 'iPad', 'Android', 'Windows', 'Mac', 'Linux']
+    let labels = {
+        'iPhone': 'an iPhone',
+        'iPad': 'an iPad',
+        'Android': 'an Android device',
+        'Windows': 'a Windows machine',
+        'Mac': 'a Mac',
+        'Linux': 'a Linux machine'
+    }
+    let res = tests.filter(t => navigator.userAgent.includes(t));
+    if (res.length > 0) span.innerHTML = ` (yours is ${labels[res[0]]})`;
+});
+
+window.addEventListener('load', () => {
+    let span = document.getElementById('os-gag');
+    let tests = ['iPhone', 'iPad', 'Android', 'Windows', 'Mac', 'Linux']
+    let labels = {
+        'iPhone': 'an iPhone',
+        'iPad': 'an iPad',
+        'Android': 'an Android device',
+        'Windows': 'a Windows machine',
+        'Mac': 'a Mac',
+        'Linux': 'a Linux machine'
+    }
+    let res = tests.filter(t => navigator.userAgent.includes(t));
+    if (res.length > 0) span.innerHTML = ` (yours is ${labels[res[0]]})`;
+});
+
+window.addEventListener('load', () => {
+    let span = document.getElementById('browser-gag');
+    let labels = {
+        'Chrome': ['Chrome', 'chrome', 'Chromium', 'CrMo', 'CriMo'],
+        'Safari': ['Safari', 'iPhone', 'iPad'],
+        'Firefox': ['Firefox'],
+        'Samsung Browser': ['Samsung'],
+        'Edge': ['Edge']
+    }
+    for (let label in labels) {
+        tests = labels[label]
+        let res = tests.filter(t => navigator.userAgent.includes(t));
+        if (res.length > 0) {
+            span.innerHTML = ` (yours is ${label})`;
+            return;
+        }
+    }
+});
 
 window.addEventListener('load', () => {
     let form_group = document.getElementById('form-example')
