@@ -111,6 +111,7 @@ function textImportSave() {
             return null;
         }
     }).filter(d => d !== null);
+    saveDrills();
     textImportEnd();
 }
 
