@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     let span = document.getElementById('screen-size-gag');
-    let setSize = () => span.innerHTML = ` (yours is <span class="tracked-text">${window.innerWidth} x ${window.innerHeight}</span>)`;
+    let setSize = () => span.innerHTML = ` (yours is <span class="tracked-text">${window.innerWidth}x${window.innerHeight}</span>)`;
     setSize();
     window.addEventListener('resize', setSize);
 });
