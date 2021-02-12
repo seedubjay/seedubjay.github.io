@@ -11,8 +11,8 @@ $mono-font-family: 'Ubuntu Mono', Monaco, monospace;
 
 $text-color:       hsl(0, 0%, 25%);
 
-$alt-color:        hsl(236, 40%, 50%);
-$alt-color-darker: darken($alt-color, 6%);
+$alt-color:        hsl(236, 31%, 60%);
+$alt-color-darker: hsl(236, 45%, 50%); //darken($alt-color, 10%);
 
 $article-bg-color: #fff;
 $background-color: #f8f8ff;
