@@ -67,7 +67,7 @@ However, the value of this data increases exponentially if the company is able t
 <img src="/assets/jpg/evil-cookies.jpg" alt="Evil cookies" class="diagram">
 <figcaption class="caption">
 <!-- <p class="caption"> -->
-Kudos to whoever came up with such an delightful name for such an un-delightful concept
+Kudos to whoever came up with such a pleasant name for such a not-so-pleasant concept
 <!-- </p> -->
 </figcaption>
 </figure>
