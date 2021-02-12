@@ -193,7 +193,7 @@ In 2014, the dating site OKCupid [published results from an experiment](https://
 
 > We asked: does the displayed match percentage cause [...] people to actually like each other? As far as we can measure, yes, it does. When we tell people they are a good match, they act as if they are. Even when they should be wrong for each other.
 
-The ethics of manipulating users' emotions in these experiments were widely criticised back in 2014. However, seven years on, very little has changed -- you're probably still being experimented on every single day.
+The ethics of experimenting on these users' emotions was widely criticised back in 2014. However, seven years on, very little has changed -- you're probably still being experimented on every single day.
 
 The only difference now is that companies have learnt not to publicly broadcast their more dubious experiments quite so much.
 
