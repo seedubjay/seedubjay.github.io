@@ -43,9 +43,9 @@ Here, all of your actions in the left panel are being fed into the right panel. 
 
 [One such company](https://www.inspectlet.com) providing this service proclaims that you can _"watch individual visitors use your site as if you're looking over their shoulders"_.
 
-(Yes, apparently this is a brag, not an admission of guilt.)
+(Yes, apparently this is them bragging, not an admission of guilt.)
 
-It's also worth noting that **none of this tracking ever needs to be disclosed to the user**. 
+It's also worth noting that **none of this tracking ever needs to be disclosed to the visitors**. 
 
 Why do companies do this? In theory it is used for fairly tame purposes like checking that users are understanding how to fill out an online form correctly.
 
