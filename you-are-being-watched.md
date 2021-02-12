@@ -8,7 +8,7 @@ image: "/assets/jpg/evil-cookies.jpg"
 subtitle: And other scary campfire stories to tell your friends at night
 ---
 
-_Disclaimer: This article does contain some extremely creepy forms of tracking, but is just for demonstration purposes and no data about you is actually collected._
+_Disclaimer: This article does contain some extremely creepy forms of tracking, but is just for demonstration purposes here and no data about you is actually collected._
 
 _(It's a shame the same cannot be said for the rest of the internet.)_
 
