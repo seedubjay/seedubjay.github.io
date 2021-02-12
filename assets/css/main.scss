@@ -183,7 +183,7 @@ figure {
     }
 
     &.no-outline {
-      padding: 2px;
+      padding: 0 2px;
     }
 
     .interactive {
@@ -398,6 +398,28 @@ table {
     // border-bottom: 2px solid $alt-color;
   }
 }
+
+.svg-chart {
+
+  font-family: $mono-font-family;
+  
+  .bar-chart > rect {
+    fill: $alt-color;
+  }
+
+  .axis-gridline {
+    .domain {
+      display: none;
+    }
+
+    .tick line {
+      stroke: lightgrey;
+      stroke-opacity: 0.7;
+      shape-rendering: crispEdges;
+    }
+  }
+}
+
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
