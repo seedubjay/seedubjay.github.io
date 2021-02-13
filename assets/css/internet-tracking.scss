@@ -111,6 +111,13 @@
     }
 }
 
+#both-delete-buttons {
+    display: flex;
+    & > div {
+        text-align: center;
+    }
+}
+
 #ab-test-axis-labels {
     // margin: 0 2px;
     display: flex;

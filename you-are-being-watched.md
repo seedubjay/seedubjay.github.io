@@ -142,48 +142,29 @@ Who's to say all the visitors to a website need to be shown the same website?
 
 Instead, every visit can be an opportunity to experiment on users in a process called _A/B testing_. 
 
-For example, let's say you're designing a new website and you want to place an ad in the spot which will be clicked on most often. Instead of surveying your users explicitly, you can run a simple experiment:
+Let's say you're designing a new website and you want to place an ad in the spot which will be clicked on most often. Instead of surveying your users explicitly, you can run a simple experiment:
 1. Split your users into group A and group B
 1. Show each half a different version of the website
 1. Watch each group to determine which version produces the most ad clicks
 
-I actually have a small confession to make -- _you're part of an A/B test right now_.
+This technique is so simple and undetectable that **you've already been experimented on in this article**. Remember that reset button for the pointless cookie you could set above? It was actually part of an A/B test:
 
-You were shown a button to reset the pointless cookie above:
-
-<figure class="cookie-buttons">
-<button type="button" class="btn btn-sm delete-cookie" id="my-delete-button"></button>
-</figure>
-
-However, there's actually another version of that button:
-
-<figure class="cookie-buttons">
-<button type="button" class="btn btn-sm delete-cookie" id="other-delete-button"></button>
-</figure>
-
-You are randomly assigned your button when you opened the page, and your interactions with it are compared to every other reader's interactions to determine _which group is more likely to keep the pointless cookie on their computer_. Here are the live results:
-
-<figure>
-{% include svg.html id="svg2" class="no-outline svg-chart" %}
-<div id="ab-test-axis-labels" class="diagram no-outline">
-    <div></div>
-    <button type="button" class="btn btn-outline-secondary btn-sm">Undo</button>
-    <div></div>
-    <button type="button" class="btn btn-danger btn-sm hidden">Clean up</button>
-    <div></div>
-    <div id="ab-test-axis-cover"></div>
+<figure id="both-delete-buttons" class="cookie-buttons">
+<div>
+<button type="button" class="btn btn-sm delete-cookie btn-outline-secondary">Undo</button>
+<span><em>Group A</em></span>
+</div>
+<div>
+<button type="button" class="btn btn-sm delete-cookie btn-danger">Clean up</button>
+<span><em>Group B</em></span>
 </div>
 </figure>
 
-This A/B test has been designed to only track a meaningless metric and keep all of your personal information on your device, but in a real A/B test, your interactions would be partnered with detailed website-usage information, cookie trackers and fingerprint data to learn as much about you as possible.
+(The results for this are in the footnotes...)
 
-(It's also usually recommended you don't tell your subjects what's happening mid-experiment...)
+A/B testing can be used to optimise something simple like font sizes or the spacing between paragraphs, or optimise something less tangible like the addictiveness of a feed, what tone and phrasing to use in emails to users, or how long to set the timer for a _"Limited time only!"_ shop discount.
 
-A/B testing has been used to optimise every aspects of websites: the order of menu bar items, font sizes, spacing between paragraphs, the ads you are served, the prices of items in a shop, and more.
-
-It can be used to optimise less tangible things as well, like the addictiveness of a feed, what tone and phrasing to use in an email asking users to upgrade their account, or how long to set the timer for a _"Limited time only!"_ shop discount.
-
-Unlike research in a university, **no ethics board or regulator is required to approve or monitor these experiments**.
+And unlike research in a university, **no ethics board or regulator is required to approve or monitor these experiments**.
 
 For instance, [Facebook conducted an experiment](https://www.pnas.org/content/pnas/111/24/8788.full.pdf) on almost 700,000 users for a week in 2012 by deliberately removing either happy or sad posts from the feeds of subjects to see how it would influence what they wrote in Facebook posts later on.
 
@@ -212,3 +193,26 @@ And it means that **it is no longer in very many people's interest for users of 
 Instead, it is more profitable for the internet to seem like 'magic', all while you are being monitored, tracked and experimented on without your knowledge. 
 
 Try not to think about it too much next time you click on a link.
+
+<div class="footnotes">
+
+<p>When you opened this page, you were assigned one of the two reset buttons for the pointless cookie as part of an A/B test to determine <em>which button causes more users to remove their cookie</em>.</p>
+
+<p>Here are the results so far:</p>
+
+<figure>
+{% include svg.html id="svg2" class="no-outline svg-chart" width="320" height="150"%}
+<div id="ab-test-axis-labels" class="diagram no-outline">
+    <div></div>
+    <button type="button" class="btn btn-outline-secondary btn-sm">Undo</button>
+    <div></div>
+    <button type="button" class="btn btn-danger btn-sm hidden">Clean up</button>
+    <div></div>
+    <div id="ab-test-axis-cover"></div>
+</div>
+</figure>
+
+<p>It's worth noting though that this A/B test differs quite a lot from a real-world test... Unlike a real A/B test, it tracks a completely meaningless metric to keep all of your personal information on your device.</p>
+
+<p>It’s also usually recommended you don’t tell your subjects what’s happening mid-experiment... obviously.</p>
+</div>
