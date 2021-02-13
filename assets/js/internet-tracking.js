@@ -271,23 +271,21 @@ window.addEventListener('load', () => {
     }
 
     let deleteButton = document.getElementById('delete-cookie');
-    let myDeleteButton = document.getElementById('my-delete-button')
-    let otherDeleteButton = document.getElementById('other-delete-button')
 
     if (ab_group == 'A') {
         deleteButton.classList.add('btn-outline-secondary')
         deleteButton.innerText = 'Undo'
-        myDeleteButton.classList.add('btn-outline-secondary')
-        myDeleteButton.innerText = 'Undo'
-        otherDeleteButton.classList.add('btn-danger')
-        otherDeleteButton.innerText = 'Clean up'
+        // myDeleteButton.classList.add('btn-outline-secondary')
+        // myDeleteButton.innerText = 'Undo'
+        // otherDeleteButton.classList.add('btn-danger')
+        // otherDeleteButton.innerText = 'Clean up'
     } else {
         deleteButton.classList.add('btn-danger')
         deleteButton.innerText = 'Clean up'
-        myDeleteButton.classList.add('btn-danger')
-        myDeleteButton.innerText = 'Clean up'
-        otherDeleteButton.classList.add('btn-outline-secondary')
-        otherDeleteButton.innerText = 'Undo'
+        // myDeleteButton.classList.add('btn-danger')
+        // myDeleteButton.innerText = 'Clean up'
+        // otherDeleteButton.classList.add('btn-outline-secondary')
+        // otherDeleteButton.innerText = 'Undo'
     }
 
     deleteButton.onclick = () => {
@@ -426,7 +424,7 @@ window.addEventListener('load', () => {
                 .attr("x", width/2)
                 .attr("y", 0)
                 .attr("dy", "1em")
-                .attr("font-size", 14)
+                .attr("font-size", 12)
                 .text("% readers who removed the cookie")
         })
 })

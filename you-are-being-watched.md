@@ -123,7 +123,7 @@ For instance, [one strategy](https://www.usenix.org/conference/usenixsecurity19/
 
 [Another strategy](https://sensorid.cl.cam.ac.uk/) monitors an iPhone's exact acceleration and orientation when held in the owner's hand to determine exactly how each iPhone's gyroscope and accelerometer were calibrated when it was built, uniquely identifying it.
 
-Fingeprints can also be combined with other strategies to become even more valuable. If two fingerprinted devices are often using the same IP address or logged into the same accounts, they are probably owned by the same user. These fingerprints can therefore be connected to create an even more detailed profile of that user.
+Fingerprints can also be combined with other strategies to become even more valuable. If two fingerprinted devices are often using the same IP address or logged into the same accounts, they are probably owned by the same user. These fingerprints can therefore be connected to create an even more detailed profile of that user.
 
 There are no easy solutions here since every new technological development, like memory caches and gyroscopes, can become new potential targets for fingerprinting.
 
@@ -196,7 +196,9 @@ Try not to think about it too much next time you click on a link.
 
 <div class="footnotes">
 
-<p>When you opened this page, you were assigned one of the two reset buttons for the pointless cookie as part of an A/B test to determine <em>which button causes more users to remove their cookie</em>.</p>
+<p><em>~ Footnote ~</em></p>
+
+<p>When you opened this page, you were assigned one of two reset buttons for the pointless cookie as part of an A/B test to determine <em>which button causes more users to remove their cookie</em>.</p>
 
 <p>Here are the results so far:</p>
 
@@ -212,7 +214,7 @@ Try not to think about it too much next time you click on a link.
 </div>
 </figure>
 
-<p>It's worth noting though that this A/B test differs quite a lot from a real-world test... Unlike a real A/B test, it tracks a completely meaningless metric to keep all of your personal information on your device.</p>
+<p>It's worth noting that this A/B test does differ quite a lot from a real-world test. Unlike a real A/B test, it tracks a completely meaningless metric to keep all of your personal information on your device.</p>
 
 <p>It’s also usually recommended you don’t tell your subjects what’s happening mid-experiment... obviously.</p>
 </div>
