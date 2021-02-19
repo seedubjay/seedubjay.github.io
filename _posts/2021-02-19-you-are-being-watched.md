@@ -8,9 +8,7 @@ image: "/assets/jpg/evil-cookies.jpg"
 subtitle: And other scary campfire stories to tell your friends at night
 ---
 
-_Disclaimer: This article does contain some extremely creepy forms of tracking, but is just for demonstration purposes here and no data about you is actually collected._
-
-_(It's a shame the same cannot be said for the rest of the internet.)_
+_Disclaimer: All the creepy tracking in this article is just for demonstration purposes here and none of it is actually collected. (It's a shame the same cannot be said for the rest of the internet.)_
 
 What happens when you open up a website? The answer may surprise you... but deep down, let's be honest, it probably doesn't.
 
@@ -43,11 +41,11 @@ Here, all of your actions in the left panel are being fed into the right panel. 
 
 [One such company](https://www.inspectlet.com) providing this service proclaims that you can _"watch individual visitors use your site as if you're looking over their shoulders"_.
 
-(Yes, apparently this is them bragging, not an admission of guilt.)
+(Yes, apparently this is a brag, not an admission of guilt.)
 
-It's also worth noting that **none of this tracking ever needs to be disclosed to the visitors**. 
+It's also worth noting that **none of this tracking ever needs to be disclosed to users**. 
 
-Why do companies do this? In theory it is used for fairly tame purposes like checking that users are understanding how to fill out an online form correctly.
+Why do companies do this? It is usually for fairly tame purposes like checking that users are understanding how to fill out an online form correctly.
 
 But this data can be extremely powerful. It can be used to predict a user's age and wealth to dynamically show them a website which they will be most likely to spend money in.
 
@@ -72,19 +70,11 @@ Kudos to whoever came up with such a pleasant name for such a not-so-pleasant co
 </figcaption>
 </figure>
 
-The 'cookie' is a system built into all browsers which allows companies to store small chunks of data on your computer. They can then access this data later on to 'pick up where they left off' instead of treating you like a completely new visitor.
+The _cookie_ is a system built into all browsers which allows companies to store small chunks of data on your computer. They can then access this data later on to 'pick up where they left off' instead of treating you like a completely new visitor. 
 
-_First-party cookies_ are set by the website you're visiting for things like storing your current shopping cart or keeping you logged in as you move from page to page. 
+For instance, the website may set a cookie to keep track of things like your current shopping cart or authentication information to keep you logged in between visits.
 
-<figure class="cookie-buttons">
-<button type="button" class="btn btn-lg btn-success set-cookie" id="set-cookie" disabled></button>
-<button type="button" class="btn btn-sm hidden delete-cookie" id="delete-cookie"></button>
-<figcaption class="caption">
-This cookie cannot be reset by reloading, unlike most other things on this page
-</figcaption>
-</figure>
-
-However, visiting a website is rarely so simple.
+However, visiting a website nowadays isn't so simple.
 
 There are often dozens of advertisers, content providers and social media companies running ads, providing images, videos and fonts, and embedding tweets, posts and comment sections on every page you visit.
 
@@ -119,102 +109,35 @@ This information is all assembled into a 'fingerprint' - a list of precise setti
 
 Fingerprints are much harder to remove than cookies. This makes them a valuable commodity to advertising companies, who go to extreme lengths to 'fingerprint' users in ever-increasing detail.
 
-For instance, [one strategy](https://www.usenix.org/conference/usenixsecurity19/presentation/shusterman) takes advantage of the computer's caching system by testing which sections of memory have been used recently and which haven't.
+For instance, [one strategy](https://www.usenix.org/conference/usenixsecurity19/presentation/shusterman) takes advantage of the computer's memory caching system by timing how long it takes to retrieve random chunks of information from memory.
 
 [Another strategy](https://sensorid.cl.cam.ac.uk/) monitors an iPhone's exact acceleration and orientation when held in the owner's hand to determine exactly how each iPhone's gyroscope and accelerometer were calibrated when it was built, uniquely identifying it.
 
 Fingerprints can also be combined with other strategies to become even more valuable. If two fingerprinted devices are often using the same IP address or logged into the same accounts, they are probably owned by the same user. These fingerprints can therefore be connected to create an even more detailed profile of that user.
 
-There are no easy solutions here since every new technological development, like memory caches and gyroscopes, can become new potential targets for fingerprinting.
+There are no easy solutions here since there are constantly new targets for fingerprinting opening up, like memory caches and gyroscopes.
 
 We are locked in an arms race to protect ourselves against emerging fingerprinting strategies. And so far, we are probably losing. 
 
 <figure>
 {% include svg.html id="svg1" class="no-outline" %}
 <figcaption><p class="caption">
-Have you skipped anything on this page yet, by the way?
+How much of this page have you skipped so far, by the way?
 </p></figcaption>
 </figure>
-
-### A/B tests
-
-Who's to say all the visitors to a website need to be shown the same website?
-
-Instead, every visit can be an opportunity to experiment on users in a process called _A/B testing_. 
-
-Let's say you're designing a new website and you want to place an ad in the spot which will be clicked on most often. Instead of surveying your users explicitly, you can run a simple experiment:
-1. Split your users into group A and group B
-1. Show each half a different version of the website
-1. Watch each group to determine which version produces the most ad clicks
-
-This technique is so simple and undetectable that **you've already been experimented on in this article**. Remember that reset button for the pointless cookie you could set above? It was actually part of an A/B test:
-
-<figure id="both-delete-buttons" class="cookie-buttons">
-<div>
-<button type="button" class="btn btn-sm delete-cookie btn-outline-secondary">Undo</button>
-<span><em>Group A</em></span>
-</div>
-<div>
-<button type="button" class="btn btn-sm delete-cookie btn-danger">Clean up</button>
-<span><em>Group B</em></span>
-</div>
-</figure>
-
-(The results for this are in the footnotes...)
-
-A/B testing can be used to optimise something simple like font sizes or the spacing between paragraphs, or optimise something less tangible like the addictiveness of a feed, what tone and phrasing to use in emails to users, or how long to set the timer for a _"Limited time only!"_ shop discount.
-
-And unlike research in a university, **no ethics board or regulator is required to approve or monitor these experiments**.
-
-For instance, [Facebook conducted an experiment](https://www.pnas.org/content/pnas/111/24/8788.full.pdf) on almost 700,000 users for a week in 2012 by deliberately removing either happy or sad posts from the feeds of subjects to see how it would influence what they wrote in Facebook posts later on.
-
-> When positive expressions were reduced, people produced fewer positive posts and more negative posts; when negative expressions were reduced, the opposite pattern occurred. These results indicate that emotions expressed by others on Facebook influence our own emotions, constituting experimental evidence for massive-scale contagion via social networks.
-
-In 2014, the dating site OKCupid [published results from an experiment](https://www.gwern.net/docs/psychology/okcupid/weexperimentonhumanbeings.html) where it tampered with the _'match percentage'_ shown to its users for each of their matches:
-
-> We asked: does the displayed match percentage cause [...] people to actually like each other? As far as we can measure, yes, it does. When we tell people they are a good match, they act as if they are. Even when they should be wrong for each other.
-
-The ethics of experimenting on these users' emotions was widely criticised back in 2014. However, seven years on, very little has changed -- you're probably still being experimented on every single day.
-
-The only difference now is that companies have learnt not to publicly broadcast their more dubious experiments quite so much.
 
 ### Original Sin
 
 There is a pattern in all of these forms of creepiness on the internet. _Advertising._
 
-[The inventor of the popup ad](https://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/) now calls advertising the internet's _"Original Sin"_ -- it has shaped the technology, the industries and our experience of the internet irreversibly.
+[The inventor of the popup ad](https://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/) now calls advertising the internet's _"Original Sin"_ -- it has shaped the technology, the incentives and our experience of the internet irreversibly.
 
-It incentivises companies to experiment on their users to create more addictive websites that users will scroll through for as long as possible.
+It forces companies to experiment on their users to create more addictive websites that users will scroll through for as long as possible.
 
-It forces companies to choose how ethical they can bear to be, in the full knowledge that the less ethical they are, the more detailed their user profiles could become and the more revenue they could produce.
+It forces companies to choose how ethical they can bear to be, in the full knowledge that _the less ethical they are, the more detailed their user profiles could become and the more revenue they could produce_.
 
 And it means that **it is no longer in very many people's interest for users of the internet to actually know how it works**. The more users know, the better equipped they would be to protect themselves.
 
 Instead, it is more profitable for the internet to seem like 'magic', all while you are being monitored, tracked and experimented on without your knowledge. 
 
 Try not to think about it too much next time you click on a link.
-
-<div class="footnotes">
-
-<p><em>~ Footnote ~</em></p>
-
-<p>When you opened this page, you were assigned one of two reset buttons for the pointless cookie as part of an A/B test to determine <em>which button causes more users to remove their cookie</em>.</p>
-
-<p>Here are the results so far:</p>
-
-<figure>
-{% include svg.html id="svg2" class="no-outline svg-chart" width="320" height="150"%}
-<div id="ab-test-axis-labels" class="diagram no-outline">
-    <div></div>
-    <button type="button" class="btn btn-outline-secondary btn-sm">Undo</button>
-    <div></div>
-    <button type="button" class="btn btn-danger btn-sm hidden">Clean up</button>
-    <div></div>
-    <div id="ab-test-axis-cover"></div>
-</div>
-</figure>
-
-<p>It's worth noting that this A/B test does differ quite a lot from a real-world test. Unlike a real A/B test, it tracks a completely meaningless metric to keep all of your personal information on your device.</p>
-
-<p>It’s also usually recommended you don’t tell your subjects what’s happening mid-experiment... obviously.</p>
-</div>
