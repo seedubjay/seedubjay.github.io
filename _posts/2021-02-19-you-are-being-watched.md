@@ -91,7 +91,7 @@ A Facebook 'Like' button tracks you and relays information back to Facebook, eve
 
 This is a particularly powerful tool for large companies like Google, Twitter and Facebook who have fingers in the proverbial pies of millions of websites. They can use this huge mesh of websites to watch users hop across the internet, learning more about each user's preferences, behaviours and interests as they browse. 
 
-For example, see which websites in Facebook's tracking mesh are tracking you [here](https://www.facebook.com/off_facebook_activity/activity_list).
+For example, [see which websites in Facebook's tracking mesh are tracking you here](https://www.facebook.com/off_facebook_activity/activity_list).
 
 In some positive news, **the browsers Firefox and Safari now block third-party cookies by default**, and severely limit the remaining ones, making it impossible for you to be tracked via this method. 
 
@@ -105,7 +105,7 @@ When you visit a website, it is able to see a whole range of information about y
 
 This information is all assembled into a 'fingerprint' - a list of precise settings and parameters which make your device unique. Any company that knows this fingerprint will be able to recognise you any time you open their website, and show you content accordingly.
 
-(You can see what your fingerprint looks like [here](https://amiunique.org/fp).)
+([You can see what your fingerprint looks like here](https://amiunique.org/fp).)
 
 Fingerprints are much harder to remove than cookies. This makes them a valuable commodity to advertising companies, who go to extreme lengths to 'fingerprint' users in ever-increasing detail.
 
