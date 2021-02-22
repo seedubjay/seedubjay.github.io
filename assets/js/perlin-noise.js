@@ -81,11 +81,8 @@ window.addEventListener('load', () => {
 // canvas1: interactive map revealing noise upon hover
 let reload_canvas1;
 window.addEventListener('load', () => {
-    const rangeMap = (v, d) => interpolator(interpolator(-.8, -1)(d), interpolator(1, -.4)(d), -1, 1)(v);
     let {canvas, generate, draw} = terrainGenerator("canvas1", {
         perlinOptions: {scale:120,octaves:4,stretch:1.7},
-        //heightMapper: heightMapByCenter((v,d) => interpolator(interpolator(-.8,-1)(d), interpolator(1,-.4)(d),-1,1)(v)),
-        //colourMapper: (v,o) => terrainColourMap(heightMapByCenter(rangeMap)(v,o)),
         colourMapper: terrainColourMap,
         autoDraw: true,
     });
@@ -113,7 +110,7 @@ window.addEventListener('load', () => {
                 x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
                 y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
             });
-            prevMouse = mouse;
+            prevMouse.x = mouse.x, prevMouse.y = mouse.y;
         });
     });
     
@@ -395,7 +392,8 @@ window.addEventListener('load', () => {
                 x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
                 y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
             });
-            prevMouse = mouse;
+            prevMouse.x = mouse.x, prevMouse.y = mouse.y;
+
         });
     });
     
@@ -452,7 +450,8 @@ window.addEventListener('load', () => {
                 x2: Math.max(prevMouse.x, mouse.x) + mouseRadius,
                 y2: Math.max(prevMouse.y, mouse.y) + mouseRadius,
             });
-            prevMouse = mouse;
+            prevMouse.x = mouse.x, prevMouse.y = mouse.y;
+
         });
     });
     
