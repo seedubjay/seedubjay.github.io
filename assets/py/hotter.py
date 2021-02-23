@@ -1,11 +1,10 @@
 # stub solution for 'Hot & Cold'
 # seedubjay.com/interactive-problems
 
-########
-#
-# DO NOT TOUCH THIS BIT
-#
+"""
+DO NOT TOUCH THIS BIT
 
+"""
 from urllib.request import urlopen
 from urllib.parse import quote
 from urllib.error import HTTPError
@@ -41,23 +40,22 @@ def send_guess(guess):
         print('%s, %s' % (err.code, reason))
         sys.exit(1)
     time.sleep(.5) # please don't kill my server
-    resp_text = resp.read().decode('utf8')
-    assert resp.getcode() == 200, 'error during send_guess: ' + resp_text
 
+    resp_text = resp.read().decode('utf8')
     print('Guess made:', guess, '->', resp_text)
     return resp_text
 
 
 
     
-########
-#
-# MODIFY THIS BIT
-#
+"""
+IMPLEMENT YOUR SOLUTION HERE
+
+"""
 
 # this must be called before anything else
 # (try not to change your name too much to avoid filling up the scoreboard)
-NAME = 'charles'
+NAME = 'YOUR_NAME_HERE'
 establish_session(NAME)
 
 # now make queries until you find the answer
