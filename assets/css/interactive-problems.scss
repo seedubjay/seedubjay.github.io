@@ -1,0 +1,44 @@
+---
+---
+@import "variables";
+
+.hotter-guess {
+
+    font-family: $mono-font-family;
+    padding: 0;
+
+    .hotter-input {
+        display: flex;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 10px;
+    }
+
+    .hotter-input > div {
+        padding: 0 5px 5px 5px;
+    }
+
+    #hotter-value {
+        width: 100%;
+        height: 100%;
+    }
+
+    #hotter-submit {
+        width: 100%;
+    }
+
+    #hotter-output {
+        min-height: 12px;
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+
+        &>* {
+            text-align: center;
+        }
+    }
+
+    #hotter-error {
+        text-align: center;
+        color: #d00;
+    }
+}
