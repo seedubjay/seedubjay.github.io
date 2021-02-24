@@ -1,4 +1,4 @@
-let hotter_input = document.getElementById('hotter-value');
+let hotter_input = document.getElementById('hotter-value').getElementsByTagName('input')[0];
 let hotter_output = document.getElementById('hotter-output');
 let hotter_error = document.getElementById('hotter-error');
 

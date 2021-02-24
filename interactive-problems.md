@@ -23,7 +23,7 @@ Try out some rounds with _N=100_ in the browser here:
 <div class="hotter-guess">
     <div class="hotter-input">
         <div id="hotter-value">
-        <input type="number"  name="hotter-value" min="1" max="100">
+            <input type="number"  name="hotter-value" min="1" max="100">
         </div>
         <div>
             <button id="hotter-submit" class="btn btn-sm btn-success" type="submit" onclick="hotter_guess()">Guess</button>
