@@ -58,4 +58,4 @@ Good luck!
     </tbody>
 </table>
 
-_Note: A player's score is the maximum of their last 5 attempts to avoid lucky guesses. If any of these attempts were failed or left incomplete, the score will be omitted. (Feel free to run 5 games simultaneously to speed this process up.)_
+_Note: A player's score is the maximum of their last 5 attempts to avoid lucky guesses. If any of these attempts were failed or left incomplete, the player's score will be omitted. (Feel free to run 5 games in parallel to speed up this process.)_
