@@ -2,6 +2,7 @@
 layout: post
 title: Colourful Beads and Cheap Trinkets
 image: "/assets/jpg/cctv-camera.jpg"
+thumbnail: "/assets/jpg/cctv-camera-thumbnail.jpg"
 subtitle: Does privacy actually matter anymore?
 ---
 

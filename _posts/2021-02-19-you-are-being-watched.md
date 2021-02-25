@@ -5,6 +5,7 @@ scripts: ['core', 'internet-tracking']
 styles: ['internet-tracking']
 use_d3: true
 image: "/assets/jpg/evil-cookies.jpg"
+thumbnail: "/assets/jpg/evil-cookies-thumbnail.jpg"
 subtitle: And other scary campfire stories to tell your friends at night
 ---
 
