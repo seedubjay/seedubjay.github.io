@@ -121,7 +121,15 @@ function imageGenerator(canvasID, defaultOptions = {}) {
             x2 = 1e9,
             y1 = 0,
             y2 = 1e9,
+            newWidth = null,
+            newHeight = null,
         } = {...defaultOptions, ...options};
+        if (newWidth || newHeight) {
+            canvas.width = newWidth || canvas.width;
+            canvas.height = newHeight || canvas.height;
+            image = ctx.createImageData(canvas.width, canvas.height);
+            data = image.data;
+        }
         x1 = Math.max(Math.round(x1),0);
         y1 = Math.max(Math.round(y1),0);
         x2 = Math.min(Math.round(x2),canvas.width-1);
