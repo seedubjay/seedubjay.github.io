@@ -13,7 +13,7 @@ collections:
   projects:
     listed: true
     output: true
-    permalink: /:name
+    permalink: /:title/
   
 
 plugins:
