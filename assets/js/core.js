@@ -106,10 +106,12 @@ function colourChunks(colours, points = null) {
 
 // CANVAS
 
-function imageGenerator(canvasID, defaultOptions = {}) {
+function imageGenerator(canvasID, defaultOptions = {}, canvasOptions = {}) {
     let canvas = document.getElementById(canvasID);
     if (!canvas) return {};
     let ctx = canvas.getContext("2d");
+    if (canvasOptions.width) canvas.width = canvasOptions.width;
+    if (canvasOptions.height) canvas.height = canvasOptions.height;
     let image = ctx.createImageData(canvas.width, canvas.height);
     let data = image.data;
 

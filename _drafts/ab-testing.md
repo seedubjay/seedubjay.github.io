@@ -5,6 +5,7 @@ scripts: ['core', 'internet-tracking']
 styles: ['internet-tracking']
 use_d3: true
 image: "/assets/jpg/lab-rat.jpg"
+thumbnail: "/assets/jpg/lab-rat-thumbnail.jpg"
 subtitle: How websites are experimenting on you with A/B tests
 ---
 
