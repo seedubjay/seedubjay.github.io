@@ -7,7 +7,7 @@ use_d3: true
 use_select2: true
 image: "/assets/png/wikipedia-graph.png"
 thumbnail: "/assets/png/wikipedia-graph-thumbnail.png"
-subtitle: Solving the world's non-issues one program at a time
+subtitle: Answering the questions no-one was asking
 ---
 
 Here's a game to pass the time while you're trapped at home 10 months into a pandemic. 

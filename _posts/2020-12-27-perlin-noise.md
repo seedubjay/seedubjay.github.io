@@ -63,7 +63,7 @@ You can see what different combinations look like here:
 </figcaption>
 </figure>
 
-Even simple noise like this is already useful. For instance, you can begin to replicate hand-drawn sketches by adding noise to each line:
+Simple noise like this is already useful. For instance, you can begin to replicate hand-drawn sketches by adding noise to each line:
 
 <figure>
 {% include canvas.html id="canvas6" reload="dark" %}

@@ -3,7 +3,7 @@ layout: post
 title: Colourful Beads and Cheap Trinkets
 image: "/assets/jpg/cctv-camera.jpg"
 thumbnail: "/assets/jpg/cctv-camera-thumbnail.jpg"
-subtitle: Does privacy actually matter anymore?
+subtitle: What does it mean to be private in the 21st century?
 ---
 
 Privacy is a strange idea.
