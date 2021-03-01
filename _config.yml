@@ -7,14 +7,16 @@ description: "computer science for people with better things to do"
 
 url: "https://seedubjay.com"
 
-include: ['_pages']
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
 
 collections:
   projects:
     listed: true
     output: true
     permalink: /:title/
-  
 
 plugins:
   - jekyll-feed
