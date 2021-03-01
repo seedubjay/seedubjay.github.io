@@ -1,9 +1,11 @@
 ---
-layout: post
+layout: page
 title: Hot & Cold
 scripts: ['core', 'interactive-problems']
 styles: ['interactive-problems']
 ---
+
+# Hot & Cold
 
 I am thinking of a number between 1 and _N_. You will make guesses, and I'll give one of the following replies:
 - **_HELLO_** if it is your first guess
