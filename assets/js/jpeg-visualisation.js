@@ -139,12 +139,36 @@ function quantised_pixels(dct, q) {
     return idct(dct.map((row,v) => row.map(((x,u) => Math.round(x/8*quantise(u+v))/quantise(u+v)*8))));
 }
 
+// static zoom in for dct breakdown
+window.addEventListener('load', () => {
+    getPixels('/assets/jpg/macaw-closeup-70.jpg').then(img => {
+        let sample_x = 4, sample_y = 2;
+        let img_width = img[0].length;
+        let img_height = img.length;
+        let canvas_scale = 4;
+
+        let {canvas: img_canvas, draw: img_draw} = imageGenerator('canvas10a', {
+            getPixel: (x,y,{width,height}) => [...img[Math.floor(y*img_height/height)][Math.floor(x*img_width/width)],255]
+        }, {width: img_width*canvas_scale, height: img_height*canvas_scale})
+        img_draw();
+        let ctx = img_canvas.getContext('2d');
+        ctx.strokeStyle = '#f22';
+        let lw = 4;
+        ctx.lineWidth = lw;
+        ctx.strokeRect(8*sample_x/img_width*img_canvas.width-lw/2, 8*sample_y/img_height*img_canvas.height-lw/2, 8/img_width*img_canvas.width+lw, 8/img_height*img_canvas.height+lw);
+
+        imageGenerator('canvas10b', {
+            getPixel: (x,y,{width,height}) => [...img[sample_y*8+Math.floor(y*8/height)][sample_x*8+Math.floor(x*8/width)],255]
+        }).draw();
+    })
+});
+
 // single 8x8
 window.addEventListener('load', () => {
     getPixels('/assets/jpg/macaw-closeup-40.jpg').then(macaw_raw => {
         let macaw_width = macaw_raw[0].length;
         let macaw_height = macaw_raw.length;
-        let sample_x = 2, sample_y = 3;
+        let sample_x = 2, sample_y = 2;
 
         let macaw_data = macaw_raw.map(row => row.map(rgb => rgb.map(x => x)));
 
