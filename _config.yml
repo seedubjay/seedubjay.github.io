@@ -24,6 +24,9 @@ sass:
     sass_dir: assets/css
     style: compressed
 
+feed:
+  excerpt_only: true
+
 defaults:
   -
     scope:
