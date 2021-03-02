@@ -9,7 +9,7 @@ thumbnail: "/assets/jpg/evil-cookies-thumbnail.jpg"
 subtitle: And other scary campfire stories to tell your friends at night
 ---
 
-_Disclaimer: All the creepy tracking here is just a demo and none of it is actually collected. (It's a shame the same cannot be said for the rest of the internet.)_
+_Disclaimer: All of the creepy tracking here is only done as a demo and none of it is actually collected. (It's a shame the same cannot be said for the rest of the internet.)_
 
 What happens when you open up a website? The answer may surprise you... but deep down, let's be honest, it probably doesn't.
 
