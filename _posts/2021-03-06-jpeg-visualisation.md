@@ -5,8 +5,7 @@ scripts: ['core', 'jpeg-visualisation']
 styles: ['jpeg-visualisation']
 image: '/assets/png/mare-artifact-fade.png'
 thumbnail: '/assets/png/mare-artifact-fade-thumbnail.png'
-subtitle: How to turn a lot of data into a lot less
-sitemap: false
+subtitle: "And why do we hardly ever notice"
 related: ['perlin-noise', 'internet-tracking']
 ---
 
@@ -33,9 +32,11 @@ Here are a few of the ideas that make JPEG tick.
 
 ### Representations of colour
 
-Our eyes perceive the world in red, green and blue. The human eye is filled with photoreceptive 'cones'. Each is tuned to one of these three colours, so it makes sense for computers to display pixels in a similar way. 
+Our eyes perceive the world in red, green and blue with photoreceptive 'cones' on the retina. Each is tuned to one of these three colours, so it makes sense for computers to display pixels in a similar way. 
 
-In fact, it is often easier to think of a colourful picture as _three entirely distinct images_ (known as 'channels'), each targeting a different type of cone in our eye.
+In fact, it is often easier to think of a colourful picture as _three entirely distinct images_ (known as 'channels'), each targeting a different type of cone in our eye. 
+
+For instance, the green channel has been 'turned off' entirely here, but you can also toggle the other colours on or off to see how they mix.
 
 <figure>
 {% include canvas.html id="canvas7"%}
@@ -43,7 +44,7 @@ In fact, it is often easier to think of a colourful picture as _three entirely d
     <div class="btn-group">
     {% assign labels = "R G B" | split: " " %}
     {% for i in (0..2) %}
-    <button type="button" class="btn btn-light btn-secondary btn-sm no-focus" data-toggle="button" aria-pressed="{% if i==0 or i==2 %}true{% else %}false{% endif %}" onclick="toggle_button_canvas7({{ i }})">{{ labels[i] }}</button>
+    <button type="button" class="btn btn-light btn-secondary btn-sm no-focus" data-toggle="button" aria-pressed="{% if i==1 %}true{% else %}false{% endif %}" onclick="toggle_button_canvas7({{ i }})">{{ labels[i] }}</button>
     {% endfor %}
     </div>
 </div>
@@ -62,7 +63,7 @@ Instead, we can represent each colour using somewhat perculiar channels called _
     <div class="btn-group">
     {% assign labels = "Y C<sub>b</sub> C<sub>r</sub>" | split: " " %}
     {% for i in (0..2) %}
-    <button type="button" class="btn btn-light btn-secondary btn-sm no-focus" data-toggle="button" aria-pressed="{% if i==0 or i==2 %}true{% else %}false{% endif %}" onclick="toggle_button_canvas8({{ i }})">{{ labels[i] }}</button>
+    <button type="button" class="btn btn-light btn-secondary btn-sm no-focus" data-toggle="button" aria-pressed="{% if i==1 %}true{% else %}false{% endif %}" onclick="toggle_button_canvas8({{ i }})">{{ labels[i] }}</button>
     {% endfor %}
     </div>
 </div>
@@ -132,7 +133,7 @@ Instead of storing each of these pixels individually, we can represent the whole
 </figcaption>
 </figure>
 
-Crutially, _not all patterns are created equal_ -- some of the patterns change the brightness and colour of the chunk enormously, while others' make almost no difference at all.
+Crucially, _not all patterns are created equal_ -- some of the patterns are influencing the brightness and colour of this chunk enormously, while others (the mostly grey ones) make almost no difference at all.
 
 Furthermore, the patterns which matter most (the patterns which the slider keeps around for longest) always seem to be clumped towards the top-left of the pattern grid. Not only this is true for this 8x8 chunk, but for _almost any other 8x8 chunk from any picture taken in the real world_. The world is rarely unpredictable enough to need any of the very complex patterns found in the bottom-right of the pattern grid.
 
