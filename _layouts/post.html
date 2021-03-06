@@ -19,6 +19,7 @@ site_title: small
   <p class="next">{% if page.next.url %}<a href="{{ page.next.url }}">{{page.next.title}}&nbsp;&raquo;</a>{% endif %}</p>
 </div> -->
 
+{% if page.related %}
 <div class="post-list footer-card">
   <div class="footer-card-title">Related stuff</div>
   <hr>
@@ -28,6 +29,7 @@ site_title: small
     <hr>
   {% endfor %}
 </div>
+{% endif %}
 
 <div class="subscribe-form footer-card">
   <div class="footer-card-title">Get notified about new stuff</div>
