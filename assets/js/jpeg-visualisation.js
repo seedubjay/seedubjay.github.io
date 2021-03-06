@@ -205,7 +205,7 @@ window.addEventListener('load', () => {
                 let dct_x = Math.floor(x % (8*grid_scale+grid_padding) / grid_scale);
                 let dct_y = Math.floor(y % (8*grid_scale+grid_padding) / grid_scale);
                 if (dct_x >= 8 || dct_y >= 8 || rank[v][u] >= slider.value) return [255,255,255,255];
-                return [...iYCbCr(raw_idcts.map(d => d[v][u][dct_y][dct_x]).map(v => clamp(1.5*v,-1,1))), 255];
+                return [...iYCbCr(raw_idcts.map(d => d[v][u][dct_y][dct_x]).map((v,i) => clamp((i==0?5:1.5)*v,-1,1))), 255];
             }
         }, {width: grid_width, height: grid_height});
 

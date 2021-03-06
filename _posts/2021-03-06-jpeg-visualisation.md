@@ -121,7 +121,7 @@ For example, take one 8x8 chunk of pixels from this cat wearing a rather fetchin
 {% include canvas.html id="canvas10a" %}
 </figure>
 
-Instead of storing each of these pixels individually, we can represent the whole chunk by layering together just a few of the above patterns.
+Instead of storing each of these pixels individually, we can represent the whole chunk by layering together just a few of the above patterns, tinted by varying amounts.
 
 <figure>
 <div class="figure-group figure-group-2">
@@ -134,9 +134,9 @@ Instead of storing each of these pixels individually, we can represent the whole
 </figcaption>
 </figure>
 
-Crucially, _not all patterns are created equal_ -- some of the patterns are influencing the brightness and colour of this chunk enormously, while others (the mostly grey ones) make almost no difference at all.
+Crucially, _not all patterns are created equal_ -- some of the patterns are influencing the brightness and colour of this chunk enormously, while others (the mostly grey ones) make almost no difference at all. 
 
-Furthermore, the patterns which matter most (the patterns which the slider keeps around for longest) always seem to be clumped towards the top-left of the pattern grid. Not only this is true for this 8x8 chunk, but for _almost any other 8x8 chunk from any picture taken in the real world_. The world is rarely unpredictable enough to need any of the very complex patterns found in the bottom-right of the pattern grid.
+Furthermore, the patterns contributing the most colour always seem to be clumped towards the top-left of the pattern grid. This is true not only for this 8x8 chunk, but for _almost any other 8x8 chunk from any picture taken in the real world_. The world is rarely unpredictable enough to need any of the very complex patterns found in the bottom-right of the pattern grid.
 
 This becomes even clearer when we do the same conversion on a completely random 8x8 chunk -- we do not get any of the clumping like we would expect for a photo of the real world, as there are no patterns or relationships between neighbouring pixels to be exploited.
 
@@ -161,6 +161,8 @@ They can choose how much to prioritise luminance (brightness) over the other col
 
 These settings all impact how much the JPEG will be compressed, and how true to the original image the compressed version will be.
 
+For instance, here are all of the strategies from above being used together in a simple compression system:
+
 <figure>
 <div class="figure-group figure-group-2">
 {% include canvas.html id="canvas0" width="256" height="256" %}
@@ -168,7 +170,7 @@ These settings all impact how much the JPEG will be compressed, and how true to 
 </div>
 <figcaption>
     <input type="range" min="0" max="100" value="80" step="5" class="slider" id="canvas1-slider">
-    <p class="caption">Adjust the compression of the macaw</p>
+    <p class="caption">Choose between better compression and better quality</p>
 </figcaption>
 </figure>
 
