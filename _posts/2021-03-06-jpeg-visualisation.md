@@ -1,12 +1,13 @@
 ---
 layout: post
 title: Why Does JPEG Look So Weird?
+internal_title: 'jpeg-visualisation'
 scripts: ['core', 'jpeg-visualisation']
 styles: ['jpeg-visualisation']
 image: '/assets/png/mare-artifact-fade.png'
 thumbnail: '/assets/png/mare-artifact-fade-thumbnail.png'
 subtitle: "And why do we hardly ever notice"
-related: ['perlin-noise', 'internet-tracking']
+related: ['internet-tracking', 'perlin-noise']
 ---
 
 <span id="download-text">

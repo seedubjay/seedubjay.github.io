@@ -8,7 +8,7 @@ use_d3: true
 image: "/assets/jpg/evil-cookies.jpg"
 thumbnail: "/assets/jpg/evil-cookies-thumbnail.jpg"
 subtitle: And other scary campfire stories to tell your friends at night
-related: ['wikipedia-clicks', '21st-century-privacy']
+related: ['jpeg-visualisation', '21st-century-privacy']
 ---
 
 _Disclaimer: All of the creepy tracking here is only done as a demo and none of it is actually collected. (It's a shame the same cannot be said for the rest of the internet.)_

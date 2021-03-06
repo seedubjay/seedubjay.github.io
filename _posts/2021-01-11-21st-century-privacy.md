@@ -5,7 +5,7 @@ internal_title: '21st-century-privacy'
 image: "/assets/jpg/cctv-camera.jpg"
 thumbnail: "/assets/jpg/cctv-camera-thumbnail.jpg"
 subtitle: What does it mean to be private in the 21st century?
-related: ['internet-tracking', 'what-do-you-do']
+related: ['internet-tracking', 'wikipedia-clicks', 'what-do-you-do']
 ---
 
 Privacy is a strange idea.
