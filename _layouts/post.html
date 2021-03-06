@@ -9,7 +9,36 @@ site_title: small
 <article lang="en">
   {{ content }}
 </article>
-<div class="article-arrows">
+
+<div class="article-end-ornament">
+    <img src="/assets/svg/ornament.svg" /><img src="/assets/svg/ornament.svg" /><img src="/assets/svg/ornament.svg" />
+</div>
+
+<!-- <div class="article-arrows">
   <p class="prev">{% if page.previous.url %}<a href="{{ page.previous.url }}">&laquo;&nbsp;{{page.previous.title}}</a>{% endif %}</p>
   <p class="next">{% if page.next.url %}<a href="{{ page.next.url }}">{{page.next.title}}&nbsp;&raquo;</a>{% endif %}</p>
+</div> -->
+
+<div class="post-list footer-card">
+  <div class="footer-card-title">Related stuff</div>
+  <hr>
+  {% for id in page.related %}
+    {% assign post = site.posts | where:'internal_title',id | first %}
+    {% if post %}{% include post-item.html post=post %}{% endif %}
+    <hr>
+  {% endfor %}
+</div>
+
+<div class="subscribe-form footer-card">
+  <div class="footer-card-title">Get notified about new stuff</div>
+  <form method="post" action="https://listmonk.seedubjay.com/subscription/form">
+    <input id="d2cc6" type="hidden" name="l" value="d2cc61c4-68f3-4de0-8466-4635472d4cfb" />
+    <div class="input-group">
+        <input type="text" name="email" placeholder="Email" class="form-control"/>
+        <div class="input-group-append">
+            <input type="submit" value="Subscribe" class="btn btn-success btn-sm"/>
+          </div>
+    </div>
+  </form>
+  <div class="subscribe-form-note">I don't do spam, I don't do tracking, and I don't share your data.</div>
 </div>

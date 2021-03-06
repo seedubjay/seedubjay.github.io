@@ -1,26 +1,11 @@
 ---
 layout: page
 site_title: big
-styles: ['index']
 ---
-<div id="post-list">
+<div class="post-list">
 	<hr>
 	{% for post in site.posts %}
-	<a class="post-link" href="{{ post.url | relative_url }}">
-	<div class="post-item">
-		<div class="post-image"><img src="{{post.thumbnail | relative_url }}"></div>
-		<div class="post-text">
-			<p class="post-title">
-				{{ post.title | escape }}
-			</p>
-			<p class="post-meta">{{ post.date | date: site.date_format }}</p>
-			{% if post.subtitle %}
-			<p class="post-subtitle">
-				{{ post.subtitle | escape }}
-			{% endif %}
-		</div>
-	</div>
-</a>
-	<hr>
+		{% include post-item.html post=post %}
+		<hr>
 	{% endfor %}
 </div>

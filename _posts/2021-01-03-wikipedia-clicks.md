@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Beating the Wikipedia Game
+internal_title: 'wikipedia-clicks'
 scripts: ['core', 'wikipedia-clicks']
 styles: ['wikipedia-clicks']
 use_d3: true
@@ -8,6 +9,7 @@ use_select2: true
 image: "/assets/png/wikipedia-graph.png"
 thumbnail: "/assets/png/wikipedia-graph-thumbnail.png"
 subtitle: Answering the questions no-one was asking
+related: ['perlin-noise', 'internet-tracking']
 ---
 
 Here's a game to pass the time while you're trapped at home 10 months into a pandemic. 

@@ -1,9 +1,11 @@
 ---
 layout: post
 title: You're a Wizard, Harry
+internal_title: 'what-do-you-do'
 subtitle: And other lies computer scientists tell themselves
 image: "/assets/jpg/lego-wizard.jpg"
 thumbnail: "/assets/jpg/lego-wizard-thumbnail.jpg"
+related: ['perlin-noise', 'wikipedia-clicks']
 ---
 
 _So... What do you actually do in computer science?_
