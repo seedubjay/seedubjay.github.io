@@ -6,7 +6,7 @@ scripts: ['core', 'jpeg-visualisation']
 styles: ['jpeg-visualisation']
 image: '/assets/png/mare-artifact-fade.png'
 thumbnail: '/assets/png/mare-artifact-fade-thumbnail.png'
-subtitle: "And why do we hardly ever notice"
+subtitle: "And why do we hardly ever notice?"
 related: ['internet-tracking', 'perlin-noise']
 ---
 
@@ -33,7 +33,7 @@ Here are a few of the ideas that make JPEG tick.
 
 ### Representations of colour
 
-Our eyes perceive the world in red, green and blue with photoreceptive 'cones' on the retina. Each is tuned to one of these three colours, so it makes sense for computers to display pixels in a similar way. 
+Our eyes perceive the world in red, green and blue with photoreceptive cones on the retina. Each is tuned to one of these three colours, so it makes sense for computers to display pixels in a similar way. 
 
 In fact, it is often easier to think of a colourful picture as _three entirely distinct images_ (known as 'channels'), each targeting a different type of cone in our eye. 
 
