@@ -7,7 +7,7 @@ styles: ['internet-tracking']
 use_d3: true
 image: "/assets/jpg/evil-cookies.jpg"
 thumbnail: "/assets/jpg/evil-cookies-thumbnail.jpg"
-subtitle: And other scary campfire stories to tell your friends at night
+subtitle: And other scary stories about the internet
 related: ['21st-century-privacy', 'wikipedia-clicks']
 ---
 
