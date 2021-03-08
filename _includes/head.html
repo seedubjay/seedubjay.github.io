@@ -47,6 +47,8 @@
     {% if page.use_math %}{% include mathjax.html %}{% endif %}
 
     {% if page.use_select2 %}{% include select2.html %}{% endif %}
+
+    {% if page.use_threejs %}{% include threejs.html %}{% endif %}
     
     {% if jekyll.environment == 'production' %}{% include plausible.html %}{% endif %}
 </head>
