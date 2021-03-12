@@ -17,7 +17,7 @@ What happens when you open up a website? The answer may surprise you... but deep
 
 Here are a couple of the creepy things that will (probably) be happening behind the scenes on the next website you visit.
 
-### Screen recordings
+## Screen recordings
 
 Let's get one thing absolutely clear -- websites can see absolutely everything that you are doing.
 
@@ -58,7 +58,7 @@ Or, it can be used to predict [Parkinson's disease and other health problems](ht
 
 All of this happens without the user's knowledge, and without any regulations on how that data is stored, shared, sold or analysed.
 
-### Cookies
+## Cookies
 
 All of the previous tracking methods only work on a page-by-page basis. In other words, if you reload the page, you'll be a completely new visitor in the eyes of the company.
 
@@ -100,7 +100,7 @@ In some positive news, **the browsers Firefox and Safari now block third-party c
 
 Users are also protected by legislation [in Europe](https://gdpr.eu/cookies/) and, to a lesser degree, [in California](https://oag.ca.gov/privacy/ccpa). However, most of the world remains in a digital Wild West when they roam the internet. 
 
-### Fingerprinting
+## Fingerprinting
 
 Cookies are just one technique companies use to track their users. After all, what happens when a user clears their cookies? Switches browser? Disables third-party cookies entirely? Instead, companies can resort to _fingerprinting_ their users.
 
@@ -129,7 +129,7 @@ How much of this page have you skipped so far, by the way?
 </p></figcaption>
 </figure>
 
-### Original Sin
+## Original Sin
 
 There is a pattern in all of these forms of creepiness on the internet. _Advertising._
 

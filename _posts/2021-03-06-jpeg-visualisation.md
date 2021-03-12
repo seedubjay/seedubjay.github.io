@@ -30,7 +30,7 @@ JPEG combines the biology of the human eye with some computational trickery to t
 
 Here are a few of the ideas that make JPEG tick.
 
-### Representations of colour
+## Representations of colour
 
 Our eyes perceive the world in red, green and blue with photoreceptive cones on the retina. Each is tuned to one of these three colours, so it makes sense for computers to display pixels in a similar way. 
 
@@ -86,7 +86,7 @@ For instance, instead of assigning every pixel its own colour, it can assign an 
 
 As long as the luminance channel stays intact, we will always have a fairly good idea what we are looking at.
 
-### Getting help from the neighbours
+## Getting help from the neighbours
 
 When we look at the world, we don't see pixels and colour channels -- we see contiguous chunks of colour and shape. We see the smooth gradients of blue in the sky and the repeating patterns of grass and concrete. 
 
@@ -152,7 +152,7 @@ This becomes even clearer when we do the same conversion on a completely random 
 
 JPEG relies on this property of real-world images to throw away as much extraneous data as possible. It can 'turn off' the bottom-right patterns entirely when they are not not doing anything useful to save space, and prioritise the patterns from the top-left instead. 
 
-### Infinite possibilities
+## Infinite possibilities
 
 JPEG gives users complete control when they want to compress a picture.
 

@@ -26,7 +26,7 @@ We instinctively use these structures to frame our thoughts and turn vague, prin
 
 However, the world is rapidly becoming far more inhuman, and the way we approach these questions must change with it.
 
-### A surge in data
+## A surge in data
 
 It's difficult to understate the profound value of data in the modern world. Historian Yuval Noah Harari sums this up nicely:
 
@@ -36,7 +36,7 @@ Privacy no longer just refers to your phone number or a past purchase on Amazon.
 
 To make sense of all this data, Kate and Dave have made way for algorithms, machine learning, AI, and countless other technologies with equally buzzword-y names. And while it's easy to dismiss this data as just banal facts, they can be used to predict deeply personal information -- your politics, your sexuality, your race, your medical issues, your religious beliefs, your wealth and more.
 
-### A decline in transparency
+## A decline in transparency
 
 As more of our world shifts online, it becomes easier by the day for companies' and governments' ickiness to hide behind jargon and code.
 
@@ -53,7 +53,7 @@ Privacy was not always this way. If papparazzi stuck a camera in your face, you 
 
 However, the rules have changed. The ease with which companies and governments can track and analyse the oblivious masses is frightening. They do not need to disclose how they collect it, how they store it, or how they analyse it and profit from it. And even when they act responsibly with the data, there is a constant risk of that data being stolen, and someone else doing something even worse.
 
-### Case study - Cambridge Analytica
+## Case study - Cambridge Analytica
 
 In 2013, [a paper from Cambridge University's Psychometrics Centre](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3625324/pdf/pnas.201218772.pdf) was published. It found the following:
 
@@ -81,7 +81,7 @@ Cambridge Analytica's goal in each case was to identify and analyse voters. Thes
 
 While the extent of their success is still debated, the outcome is in any case alarming. Facebook's lax data policies made it all too easy for political players to influence elections and a referendum in unprecendented ways by advertising on Facebook itself. Furthermore, most of the data they used was obtained without any user's consent to this use, in a process facilitated by Facebook.
 
-### Resisting apathy
+## Resisting apathy
 
 > "Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say." -- Edward Snowden
 
