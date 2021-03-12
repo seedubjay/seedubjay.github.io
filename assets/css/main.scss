@@ -355,9 +355,12 @@ footer {
 
   .footer-links {
     a {
-      color: $text-color;
       font-size: 1.2em;
-      margin: 0 .4em;
+      margin: 0 .5em;
+    }
+
+    a:not(:hover) {
+      color: $text-color;
     }
 
     svg {
@@ -499,7 +502,7 @@ table {
 }
 
 .post-list:not(.footer-card) {
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .post-item {
       font-size: 1em;
     }
@@ -507,9 +510,11 @@ table {
 }
 
 .footer-card {
-  margin-bottom: 2em;
+  max-width: 480px;
+  margin: 0 auto 3em auto;
 
   .footer-card-title {
+    text-align: center;
     font-family: $mono-font-family;
     font-size: 1.1em;
     // font-weight: bold;
@@ -517,24 +522,38 @@ table {
     margin-bottom: .5em;
     line-height: 1em;
   }
-}
 
-.related-posts {
-  margin-bottom: 1em;
+  .footer-card-note {
+    font-family: $mono-font-family;
+    font-size: .8em;
+    text-align: center;
+    // font-style: italic;
+  }
 }
 
 .subscribe-form {
 
   form {
     font-family: $mono-font-family;
-    max-width: 450px;
-    margin: .1em 0;
+    max-width: 360px;
+    margin: .1em auto;
+  }
+}
+
+.share-links {
+  text-align: center;
+  a {
+    color: $text-color;
+    font-size: 1.2em;
+    margin: 0 6px;
+    line-height: 0;
   }
 
-  .subscribe-form-note {
-    font-family: $mono-font-family;
-    font-size: .8em;
-    // font-style: italic;
+  svg {
+    width: 1.5em;
+    height: 1.2em;
+    fill: $text-color;
+    stroke: $text-color;
   }
 }
 

@@ -19,16 +19,29 @@ site_title: small
   <p class="next">{% if page.next.url %}<a href="{{ page.next.url }}">{{page.next.title}}&nbsp;&raquo;</a>{% endif %}</p>
 </div> -->
 
+<div class="footer-card">
+    <div class="footer-card-title">Share this article</div>
+    <div class="share-links">
+      <a href="https://twitter.com/share?url={{ site.url}}{{ page.url }}"><i class="fab fa-twitter"></i></a>
+      <a href="https://news.ycombinator.com/submitlink?u={{ site.url}}{{ page.url }}&t={{ page.title | url_encode }}"><i class="fab fa-hacker-news"></i></a>
+      <a href="https://reddit.com/submit?url={{ site.url}}{{ page.url }}&title={{ page.title | url_encode }}"><i class="fab fa-reddit"></i></a>
+      <a href="https://facebook.com/sharer.php?u={{ site.url}}{{ page.url }}"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/sharing/share-offsite?url={{ site.url}}{{ page.url }}&title={{ page.title | url_encode }}"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-card-note">(Unlike most of the internet, these buttons <a href="https://seedubjay.com/blog/you-are-being-watched#cookies">aren't tracking you</a>.)</div>
+  </div>
+
+
 {% if page.related %}
-<div class="post-list footer-card">
-  <div class="footer-card-title">Related stuff</div>
-  <hr>
-  {% for id in page.related %}
-    {% assign post = site.posts | where:'internal_title',id | first %}
-    {% if post %}{% include post-item.html post=post %}{% endif %}
+  <div class="post-list footer-card">
+    <div class="footer-card-title">Related articles</div>
     <hr>
-  {% endfor %}
-</div>
+    {% for id in page.related %}
+      {% assign post = site.posts | where:'internal_title',id | first %}
+      {% if post %}{% include post-item.html post=post %}{% endif %}
+      <hr>
+    {% endfor %}
+  </div>
 {% endif %}
 
 <div class="subscribe-form footer-card">
@@ -42,5 +55,5 @@ site_title: small
           </div>
     </div>
   </form>
-  <div class="subscribe-form-note">(I don't do spam, I don't track you, and I don't share your data.)</div>
+  <div class="footer-card-note">(I don't do spam and I don't share your data.)</div>
 </div>
