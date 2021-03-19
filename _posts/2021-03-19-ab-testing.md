@@ -26,7 +26,7 @@ But it can also be applied to much more murky concepts: the addictiveness of a s
 
 This type of experimentation runs rampent on almost every large website on the internet. Tech giants [like LinkedIn](https://dl.acm.org/doi/pdf/10.1145/2783258.2788602) and [Netflix](https://www.wired.co.uk/article/netflix-data-personalisation-watching) run hundreds of experiments per day and can experiment on users according to their language, location, social group and more.
 
-And unlike research in a university, **no ethics board or regulator is required to approve or monitor these experiments**. Nor are these companies required to ask for informed consent before you are experimented on.
+And unlike research in a university, **no ethics board or regulator is required** to approve or monitor these experiments. Nor are these companies required to ask for informed consent before you are experimented on.
 
 
 <figure>
