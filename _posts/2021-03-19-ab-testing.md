@@ -48,9 +48,9 @@ In 2014, the dating site OKCupid [published results from its own experiment](htt
 
 > We asked: does the displayed match percentage cause [...] people to actually like each other? As far as we can measure, yes, it does. When we tell people they are a good match, they act as if they are. Even when they should be wrong for each other.
 
-The most notable thing about these experiments was not that these companies were willing to experiment on their users to see whether their emotions could be manipulated.  
+It's remarkable that these companies were willing to experiment on their users' emotions in this way.
 
-What's even more remarkable _that we ever got to hear about them_. They were disclosed entirely voluntarily as part of a research paper and a blog post, respectively.
+But what's more remarkable is that _we ever got to hear about the experiments at all_. They were disclosed entirely voluntarily as part of a research paper and a blog post, respectively.
 
 In the seven years after the [very public furor](https://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html) caused by these A/B tests in 2014, there's been little to no mention of the practice by any of the tech giants.
 
