@@ -52,7 +52,7 @@ It's remarkable that these companies were willing to experiment on their users' 
 
 But what's more remarkable is that _we ever got to hear about the experiments at all_. They were disclosed entirely voluntarily as part of a research paper and a blog post, respectively.
 
-In the seven years after the [very public furor](https://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html) caused by these A/B tests in 2014, there's been little to no mention of the practice by any of the tech giants.
+Since the [very public outcry](https://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html) after these A/B tests were published back in 2014, there's been little to no mention of the practice by any of the tech giants.
 
 Very few research papers announcing results, very little heated public discourse, and very few scandals. 
 
