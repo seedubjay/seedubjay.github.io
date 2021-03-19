@@ -17,9 +17,18 @@ let geometry = new THREE.SphereGeometry(1, 32, 32);
 let material = new THREE.MeshBasicMaterial( {color: 0xffffff} );//new THREE.MeshPhongMaterial();
 material.map = new THREE.TextureLoader().load('/assets/jpg/earth-texture-map-1024.jpg');
 let earth = new THREE.Mesh(geometry, material);
-scene.add(earth)
+let model = new THREE.Group()
+model.add(earth)
 
-camera.position.z = 2;
+for (let i = 0; i < 22; i++) {
+    let satellite = new THREE.Mesh(new THREE.SphereGeometry(.025, 16, 16), new THREE.MeshBasicMaterial( {color: 0xff0000 }));
+    satellite.position.random().multiplyScalar(2).addScalar(-1).normalize().multiplyScalar(1.3);
+    model.add(satellite);
+}
+
+scene.add(model)
+
+camera.position.z = 2.5;
 
 animate();
 
@@ -67,7 +76,6 @@ function onMove(x,y) {
     let scale = .25 / renderer.domElement.clientWidth;
     mouseX = x;
     targetRotationX += ( mouseX - mouseXPrev ) * scale;
-    console.log(targetRotationX);
     mouseXPrev = mouseX;
     mouseY = y;
     targetRotationY += ( mouseY - mouseYPrev ) * scale;
@@ -102,8 +110,8 @@ function animate() {
 }
 
 function render() {
-    if (targetRotationY) earth.rotation.x = clamp(earth.rotation.x + targetRotationY, -Math.PI/2, Math.PI/2);
-    if (targetRotationX) earth.rotation.y += targetRotationX;
+    if (targetRotationY) model.rotation.x = clamp(model.rotation.x + targetRotationY, -Math.PI/2, Math.PI/2);
+    if (targetRotationX) model.rotation.y += targetRotationX;
   
     targetRotationY = targetRotationY * (1 - slowingFactor);
     targetRotationX = targetRotationX * (1 - slowingFactor);

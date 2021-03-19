@@ -8,6 +8,7 @@ use_d3: true
 image: "/assets/jpg/lab-rat.jpg"
 thumbnail: "/assets/jpg/lab-rat-thumbnail.jpg"
 subtitle: How you are being experimented on with A/B tests
+related: ['you-are-being-watched', '21st-century-privacy']
 ---
 
 Who's to say each visitor to a website needs to be shown the same website?
