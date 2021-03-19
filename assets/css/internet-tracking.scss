@@ -54,6 +54,15 @@
     }
 }
 
+
+#facebook-like {
+    text-align: center;
+    img {
+        width: 70%;
+    }
+}
+
+
 #svg1 {
 
     font-family: $mono-font-family;
@@ -79,60 +88,4 @@
             display: none;
         }
     }
-}
-
-.cookie-buttons {
-    
-    button {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-
-    .set-cookie {
-        width: 15em;
-    }
-
-    .delete-cookie {
-        width: 6em;
-        // padding-top: 2px;
-        // padding-bottom: 2px;
-
-        &.hidden {
-            display: none;
-        }
-    }
-}
-
-#facebook-like {
-    text-align: center;
-    img {
-        width: 70%;
-    }
-}
-
-#both-delete-buttons {
-    display: flex;
-    & > div {
-        text-align: center;
-    }
-}
-
-#ab-test-axis-labels {
-    // margin: 0 2px;
-    display: flex;
-    &>div {
-        flex: 1;
-    }
-    &>button {
-        width: 6em;
-    }
-}
-
-#ab-test-axis-cover {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
