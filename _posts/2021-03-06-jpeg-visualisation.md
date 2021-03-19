@@ -6,7 +6,7 @@ scripts: ['core', 'jpeg-visualisation']
 image: '/assets/png/mare-artifact-fade.png'
 thumbnail: '/assets/png/mare-artifact-fade-thumbnail.png'
 subtitle: "And why do we hardly ever notice?"
-related: ['internet-tracking', 'perlin-noise']
+related: ['ab-testing', 'perlin-noise']
 ---
 
 <span id="download-text">
