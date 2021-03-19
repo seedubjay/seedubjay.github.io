@@ -20,13 +20,13 @@ Let's say you're designing a new website and want to put <span class="ab-tested"
 1. Show each group a different version of the website which has <span class="ab-tested">an advertisement</span> in different positions
 1. Relentlessly track each group's activity to determine which version of the website produces the most profits
 
-In its most benign form, A/B testing is used to optimise simple things like font sizes and the ordering of menu bar items.
+In its most benign form, A/B testing can be used to optimise simple things like font sizes and the ordering of menu bar items.
 
-But it can also be applied to much more murky concepts: the addictiveness of a social media feed, what tone and wording to use in emails to convince users not to unsubscribe, or how long to set the timer for a made-up _'Limited time only!'_ shop discount.
+But it can also be applied to much more murky concepts: the addictiveness of a social media feed, what tone and wording to use in emails to convince users not to unsubscribe, and how long to set the timer for a made-up _'Limited time only!'_ shop discount.
 
-This type of experimentation runs rampent on almost any large website on the internet. Social media giants [like LinkedIn](https://dl.acm.org/doi/pdf/10.1145/2783258.2788602) run hundreds of experiments per day and can experiment on users according to their language, location, social group and more.
+This type of experimentation runs rampent on almost every large website on the internet. Tech giants [like LinkedIn](https://dl.acm.org/doi/pdf/10.1145/2783258.2788602) and [Netflix](https://www.wired.co.uk/article/netflix-data-personalisation-watching) run hundreds of experiments per day and can experiment on users according to their language, location, social group and more.
 
-And unlike research in a university, **no ethics board or regulator is required to approve or monitor these experiments**. Nor are these companies required to ask for informed consent from you before you are experimented on.
+And unlike research in a university, **no ethics board or regulator is required to approve or monitor these experiments**. Nor are these companies required to ask for informed consent before you are experimented on.
 
 
 <figure>
@@ -40,7 +40,7 @@ Ironically, experiments on actual lab rats have more regulations to follow than 
 
 For instance, [Facebook conducted an experiment](https://www.pnas.org/content/pnas/111/24/8788.full.pdf) on almost 700,000 users for a week in 2012 by _deliberately removing either happy or sad posts_ from the subjects' feeds to see how it would influence what they wrote in Facebook posts later on.
 
-Put simply, it was testing **whether it could manipulate subjects' emotions using their feed algorithm**.
+Put simply, it was testing **whether it could manipulate subjects' emotions through their feed**.
 
 > When positive expressions were reduced, people produced fewer positive posts and more negative posts; when negative expressions were reduced, the opposite pattern occurred. These results indicate that emotions expressed by others on Facebook influence our own emotions, constituting experimental evidence for massive-scale contagion via social networks.
 
@@ -48,17 +48,17 @@ In 2014, the dating site OKCupid [published results from its own experiment](htt
 
 > We asked: does the displayed match percentage cause [...] people to actually like each other? As far as we can measure, yes, it does. When we tell people they are a good match, they act as if they are. Even when they should be wrong for each other.
 
-The most notable thing about these experiments was not that these companies were willing to experiment on their users' emotions to see whether they could be manipulated.  
+The most notable thing about these experiments was not that these companies were willing to experiment on their users to see whether their emotions could be manipulated.  
 
-What's even more remarkable _that we ever got to hear about them at all_. They were disclosed entirely voluntarily as part of a research paper and a blog post, respectively.
+What's even more remarkable _that we ever got to hear about them_. They were disclosed entirely voluntarily as part of a research paper and a blog post, respectively.
 
 In the seven years after the [very public furor](https://www.nytimes.com/2014/06/30/technology/facebook-tinkers-with-users-emotions-in-news-feed-experiment-stirring-outcry.html) caused by these A/B tests in 2014, there's been little to no mention of the practice by any of the tech giants.
 
 Very few research papers announcing results, very little heated public discourse, and very few scandals. 
 
-Perhaps they realised the ethical boundaries they were crossing and stopped their experiments outright?
+Perhaps they realised the ethical dilemmas they were facing and stopped their experiments outright?
 
-Or perhaps they noticed that the public gets very grumpy when you tell them you're experimenting on them, so it's best to just keep it quiet.
+Or perhaps they noticed that the public gets rather grumpy when you tell them they are being experimented on, so it's best just to keep it quiet.
 
 _Hmm. Which one, which one, which one could it be..._
 
@@ -66,7 +66,7 @@ _Hmm. Which one, which one, which one could it be..._
 
 <p><em>~ Footnote ~</em></p>
 
-<p>I have a small confession to make… You are currently taking part in an A/B test yourself.</p>
+<p>I have a small confession to make… You are actually taking part in an A/B test right now.</p>
 
 <p>(If you reload the page a few times you might spot what I've been testing in the first few paragraphs.)</p>
 
