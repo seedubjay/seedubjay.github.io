@@ -40,7 +40,7 @@ Ironically, experiments on actual lab rats have more regulations to follow than 
 
 For instance, [Facebook conducted an experiment](https://www.pnas.org/content/pnas/111/24/8788.full.pdf) on almost 700,000 users for a week in 2012 by _deliberately removing either happy or sad posts_ from the subjects' feeds to see how it would influence what they wrote in Facebook posts later on.
 
-Put simply, it was testing **whether it could manipulate subjects' emotions through their feed**.
+Put simply, it was testing whether it could **manipulate subjects' emotions through their feed**.
 
 > When positive expressions were reduced, people produced fewer positive posts and more negative posts; when negative expressions were reduced, the opposite pattern occurred. These results indicate that emotions expressed by others on Facebook influence our own emotions, constituting experimental evidence for massive-scale contagion via social networks.
 
