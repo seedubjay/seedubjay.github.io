@@ -3,4 +3,4 @@ Disallow: /.bundle/
 Disallow: /.gitignore
 Allow: /
 
-Sitemap: http://seedubjay.com/sitemap.xml
+Sitemap: https://seedubjay.com/sitemap.xml
