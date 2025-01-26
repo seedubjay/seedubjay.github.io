@@ -11,7 +11,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - scripts/
-  - [vendor]
+  - vendor/
 
 collections:
   projects:
