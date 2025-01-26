@@ -1,7 +1,7 @@
 # Site settings
 title: "seedubjay"
 subtitle: "computer science for everyone"
-author: "Charles Jameson"
+author: "Charlie Jameson"
 description: "computer science for everyone"
 # keywords: ""
 
@@ -37,7 +37,7 @@ defaults:
       sitemap: false
 
 # twitter_username:
-mail_address: charleswjameson@gmail.com
+mail_address: hello@seedubjay.com
 github_username: seedubjay
 # facebook_username: 
 
